@@ -2,9 +2,9 @@
   -@music_videos.each do |music_video|
     .music-video
       .music-video-head
-        =link_to music_video.title, music_video_path(music_video)
-        =music_video.artist
-        =music_video.featuring
-        =music_video.location
-        =music_video.year
-        =music_video.link
+        = link_to music_video.title, music_video_path(music_video)
+        = music_video.artist
+        = music_video.featuring
+        = music_video.location
+        = music_video.year
+        = music_video.link
