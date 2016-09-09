@@ -2,9 +2,23 @@
 @import "bootstrap";
 
 body {
-  background-color: #fafafa;
+  background-color: black;
+  color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+
+// #landing_page {
+//   text-align: center;
+// }
+//
+// #landing_page img {
+//   max-width: 200px;
+//   margin-top: 20%;
+// }
+//
+// #landing_page, #region_container, #young_blood_header {
+//   display: none;
+// }
 
 .navbar-brand {
   a {
@@ -13,7 +27,7 @@ body {
 }
 
 .navbar-default {
-  background-color: #fff;
+  background-color: black;
   height: 54px;
   .navbar-nav li a {
     color: #125688;
@@ -32,27 +46,6 @@ body {
   width: 100%;
 }
 
-.music-video {
-  background-color: #fff;
-  border-color: #edeeee;
-  border-style: solid;
-  border-radius: 3px;
-  border-width: 1px;
-  margin-bottom: 60px;
-}
-
-.music-video-head {
-  height: 64px;
-  padding: 14px 20px;
-  color: #125688;
-  font-size: 15px;
-  line-height: 18px;
-  .thumbnail {}
-  .name {
-    display: block;
-  }
-}
-
 .form-wrapper {
   width: 60%;
   margin: 20px auto;
@@ -65,4 +58,81 @@ body {
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+.center_column_body {
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: .8em;
+}
+
+.side_column_body {
+  line-height: 30px;
+}
+
+.artist_title {
+  font-size: 30px;
+}
+
+.track_title {
+  font-size: 15px;
+}
+
+
+
+
+// LAZY LOADER for IFRAMES
+.youtube-player {
+    position: relative;
+    padding-bottom: 56.23%;
+    /* Use 75% for 4:3 videos */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 5px;
+}
+
+.youtube-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: transparent;
+}
+
+.youtube-player img {
+    bottom: 0;
+    display: block;
+    left: 0;
+    margin: auto;
+    max-width: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    height: auto;
+    cursor: pointer;
+    -webkit-transition: .4s all;
+    -moz-transition: .4s all;
+    transition: .4s all;
+}
+
+.youtube-player img:hover {
+    -webkit-filter: brightness(75%);
+}
+
+.youtube-player .play {
+    height: 72px;
+    width: 72px;
+    left: 50%;
+    top: 50%;
+    margin-left: -36px;
+    margin-top: -36px;
+    position: absolute;
+    background: url("//i.imgur.com/TxzC70f.png") no-repeat;
+    cursor: pointer;
 }

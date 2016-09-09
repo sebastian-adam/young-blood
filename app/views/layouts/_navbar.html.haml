@@ -6,16 +6,20 @@
         %span.icon-bar
         %span.icon-bar
       .navbar-brand
-        = link_to "Young Blood", root_path
+        = link_to image_tag("young_blood_nav.png"), root_path
     .collapse.navbar-collapse#bs-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          %li
-            = link_to "New Music Video", new_music_video_path
-          %li
-            = link_to "Logout", destroy_user_session_path, method: :delete
+          .row
+            %li
+              = link_to "Put it on the map", new_music_video_path
+          .row
+            %li
+              = link_to "Logout", destroy_user_session_path, method: :delete
         - else
-          %li
-            = link_to "Login", new_user_session_path
-          %li
-            = link_to "Register", new_user_registration_path
+          .row
+            %li
+              = link_to "Login", new_user_session_path
+          .row
+            %li
+              = link_to "Register", new_user_registration_path

@@ -10,8 +10,12 @@
     = csrf_meta_tags
 
   %body
-    = render 'layouts/navbar'
     .container
-      -flash.each do |name, msg|
-        = content_tag :div, msg, class: [:alert, alert_for(name)]
-      = yield
+      -# #landing_page
+      -#   = image_tag "young_blood_logo_white_text.png"
+      #young_blood_header
+        = render 'layouts/navbar'
+      #content_container
+        -flash.each do |name, msg|
+          = content_tag :div, msg, class: [:alert, alert_for(name)]
+        = yield
