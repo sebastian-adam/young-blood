@@ -10,8 +10,13 @@ class MusicVideosController < ApplicationController
   end
 
   def create
-    @music_video = MusicVideo.create(music_video_params)
-    redirect_to music_videos_path
+    if @music_video = MusicVideo.create(music_video_params)
+      flash[:success] = "New $ave"
+      redirect_to music_videos_path
+    else
+      flash.now[:alert] = "Error $aving"
+      render :new
+    end
   end
 
   def show
@@ -21,8 +26,12 @@ class MusicVideosController < ApplicationController
   end
 
   def update
-    @music_video.update(music_video_params)
-    redirect_to music_videos_path(@music_video)
+    if @music_video.update(music_video_params)
+      flash[:success] = "Changes $aved"
+      redirect_to music_videos_path
+    else
+      flash.now[:alert] = "Error $aving"
+    end
   end
 
   def destroy
