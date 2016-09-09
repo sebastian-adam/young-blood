@@ -13,6 +13,6 @@ class MusicVideosController < ApplicationController
   private
 
   def music_video_params
-    params.require(:music_video).permit(:title, :artist, :location, :year, :link)
+    params.require(:music_video).permit(:title, :artist, :featuring, :location, :year, :link)
   end
 end
