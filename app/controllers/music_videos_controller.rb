@@ -11,10 +11,10 @@ class MusicVideosController < ApplicationController
 
   def create
     if @music_video = MusicVideo.create(music_video_params)
-      flash[:success] = "New $ave"
+      flash[:success] = "New save"
       redirect_to music_videos_path
     else
-      flash.now[:alert] = "Error $aving"
+      flash.now[:alert] = "Error saving"
       render :new
     end
   end
@@ -27,10 +27,10 @@ class MusicVideosController < ApplicationController
 
   def update
     if @music_video.update(music_video_params)
-      flash[:success] = "Changes $aved"
+      flash[:success] = "Changes saved"
       redirect_to music_videos_path
     else
-      flash.now[:alert] = "Error $aving"
+      flash.now[:alert] = "Error saving"
     end
   end
 
