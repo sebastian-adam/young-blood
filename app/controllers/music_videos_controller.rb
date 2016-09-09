@@ -11,6 +11,8 @@ class MusicVideosController < ApplicationController
 
   def create
     if @music_video = MusicVideo.create(music_video_params)
+      @music_video.youtube_id = YoutubeID.from(@music_video.link)
+      @music_video.save
       flash[:success] = "New save"
       redirect_to music_videos_path
     else
@@ -27,6 +29,8 @@ class MusicVideosController < ApplicationController
 
   def update
     if @music_video.update(music_video_params)
+      @music_video.youtube_id = YoutubeID.from(@music_video.link)
+      @music_video.save
       flash[:success] = "Changes saved"
       redirect_to music_videos_path
     else

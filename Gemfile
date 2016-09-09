@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'haml'
 gem 'simple_form'
 gem 'devise'
+gem 'youtube_id'
 
 group :development, :test do
   gem 'byebug', platform: :mri
