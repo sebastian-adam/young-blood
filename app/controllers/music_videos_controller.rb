@@ -12,6 +12,14 @@ class MusicVideosController < ApplicationController
   def show
     @music_video = MusicVideo.find(params[:id])
   end
+  def edit
+    @music_video = MusicVideo.find(params[:id])
+  end
+  def update
+    @music_video = MusicVideo.find(params[:id])
+    @music_video.update(music_videos_params)
+    redirect_to music_videos_path(@music_video)
+  end
 
   private
 
