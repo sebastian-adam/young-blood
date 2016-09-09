@@ -1,0 +1,2 @@
+class MusicVideo < ApplicationRecord
+end
