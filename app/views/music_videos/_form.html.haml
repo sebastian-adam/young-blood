@@ -1,8 +1,15 @@
 = simple_form_for @music_video do |f|
-  = f.input :title
-  = f.input :artist
-  = f.input :featuring
-  = f.input :location
-  = f.input :year
-  = f.input :link
-  = f.button :submit
+  .form-group
+    = f.input :title
+  .form-group
+    = f.input :artist
+  .form-group
+    = f.input :featuring
+  .form-group
+    = f.input :location
+  .form-group
+    = f.input :year
+  .form-group
+    = f.input :link
+  .form-group.text-center
+    = f.button :submit

@@ -1,0 +1,11 @@
+.music-videos-wrapper.row
+  .music-video
+    .music-video-head
+      =@music_video.title
+      =@music_video.artist
+      =@music_video.featuring
+      =@music_video.location
+      =@music_video.year
+      =@music_video.link
+    .text-center
+      =link_to "Home", music_videos_path

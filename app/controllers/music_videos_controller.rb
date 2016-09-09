@@ -9,6 +9,9 @@ class MusicVideosController < ApplicationController
     @music_video = MusicVideo.create(music_video_params)
     redirect_to music_videos_path
   end
+  def show
+    @music_video = MusicVideo.find(params[:id])
+  end
 
   private
 
