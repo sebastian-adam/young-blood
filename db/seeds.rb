@@ -1,6 +1,3 @@
-User.create!([
-  {email: "sprokuski@gmail.com", encrypted_password: "$2a$11$bAQeMCHI5K8ZsIhyVBcJnOBDLRUi8LQFdcXNjSuHHNWfJSkzmXyf6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2016-09-09 22:41:51", last_sign_in_at: "2016-09-09 21:20:26", current_sign_in_ip: "::1", last_sign_in_ip: "::1", user_name: "jabastian"}
-])
 MusicVideo.create!([
   {title: "Juice", artist: "Chance The Rapper", location: "Chicago", year: "2013", link: "https://www.youtube.com/watch?v=h8nIHZ-0kS4", featuring: "", youtube_id: "h8nIHZ-0kS4"},
   {title: "Antidote", artist: "Travis Scott", location: "Houston", year: "2015", link: "https://www.youtube.com/watch?v=KnZ8h3MRuYg", featuring: "", youtube_id: "KnZ8h3MRuYg"},
