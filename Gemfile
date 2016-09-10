@@ -14,6 +14,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'devise'
 gem 'youtube_id'
+gem 'seed_dump'
 
 group :development, :test do
   gem 'byebug', platform: :mri
