@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'youtube_id'
 gem 'seed_dump'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
