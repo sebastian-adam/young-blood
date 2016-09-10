@@ -28,15 +28,24 @@ body {
 
 .navbar-default {
   background-color: black;
-  height: 54px;
   .navbar-nav li a {
     color: #125688;
   }
+  margin-top: 30px;
+  border: none;
+}
+
+ul.nav.navbar-nav.navbar-right {
+  padding-top: 20px;
 }
 
 .navbar-container {
-  width: 640px;
+  width: 90%;
   margin: 0 auto;
+}
+
+.logo-nav img {
+  height: 50px;
 }
 
 .music-videos-wrapper {
@@ -44,6 +53,10 @@ body {
   margin: 0 auto;
   max-width: 642px;
   width: 100%;
+}
+
+.music-video-tile {
+  margin-bottom: 50px;
 }
 
 .form-wrapper {

@@ -16,3 +16,5 @@
 //= require_tree .
 // = require bootstrap-sprockets
 // = require lazy_load_iframe
+// = require jquery.sticky
+// = require sticky_nav
