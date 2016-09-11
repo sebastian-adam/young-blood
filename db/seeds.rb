@@ -1,26 +1,26 @@
 
-# Artist.create!([
-#   {name: "Chance The Rapper", city: "Chicago", state: "IL"},
-#   {name: "Travis Scott", city: "Houston", state: "TX"},
-#   {name: "Rihanna", city: "St Michael", state: "Barbados"},
-#   {name: "Vince Staples", city: "Long Beach", state: "CA"},
-#   {name: "The Underachievers", city: "New York City", state: "NY"},
-#   {name: "Isaiah Rashad", city: "Chattanooga", state: "TN"},
-#   {name: "Vic Mensa", city: "Chicago", state: "IL"},
-#   {name: "clipping.", city: "Los Angeles", state: "CA"},
-#   {name: "Mick Jenkins", city: "Chicago", state: "IL"},
-#   {name: "Playboi Carti", city: "Atlanta", state: "GA"},
-#   {name: "Big K.R.I.T", city: "Meridian", state: "MS"},
-#   {name: "Father", city: "Atlanta", state: "GA"},
-#   {name: "Sampha", city: "London", state: "United Kingdom"},
-#   {name: "21 Savage", city: "Atlanta", state: "GA"},
-#   {name: "Schoolboy Q", city: "Los Angeles", state: "CA"},
-#   {name: "Chief Keef", city: "Chicago", state: "IL"},
-#   {name: "SD", city: "Chicago", state: "IL"},
-#   {name: "Spooky Black", city: "St Paul", state: "MN"},
-#   {name: "Mac Miller", city: "Pittsburgh", state: "PA"},
-#   {name: "Bones", city: "Muir Beach", state: "CA"}
-# ])
+Artist.create!([
+  {name: "Chance The Rapper", city: "Chicago", state: "IL"},
+  {name: "Travis Scott", city: "Houston", state: "TX"},
+  {name: "Rihanna", city: "St Michael", state: "Barbados"},
+  {name: "Vince Staples", city: "Long Beach", state: "CA"},
+  {name: "The Underachievers", city: "New York City", state: "NY"},
+  {name: "Isaiah Rashad", city: "Chattanooga", state: "TN"},
+  {name: "Vic Mensa", city: "Chicago", state: "IL"},
+  {name: "clipping.", city: "Los Angeles", state: "CA"},
+  {name: "Mick Jenkins", city: "Chicago", state: "IL"},
+  {name: "Playboi Carti", city: "Atlanta", state: "GA"},
+  {name: "Big K.R.I.T", city: "Meridian", state: "MS"},
+  {name: "Father", city: "Atlanta", state: "GA"},
+  {name: "Sampha", city: "London", state: "United Kingdom"},
+  {name: "21 Savage", city: "Atlanta", state: "GA"},
+  {name: "Schoolboy Q", city: "Los Angeles", state: "CA"},
+  {name: "Chief Keef", city: "Chicago", state: "IL"},
+  {name: "SD", city: "Chicago", state: "IL"},
+  {name: "Spooky Black", city: "St Paul", state: "MN"},
+  {name: "Mac Miller", city: "Pittsburgh", state: "PA"},
+  {name: "Bones", city: "Muir Beach", state: "CA"}
+])
 
 MusicVideo.create!([
   {title: "Juice", year: "2013", link: "https://www.youtube.com/watch?v=h8nIHZ-0kS4", featuring: "", youtube_id: "h8nIHZ-0kS4", artist_id: 10},

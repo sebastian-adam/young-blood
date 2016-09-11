@@ -1,9 +1,12 @@
 .body.root
   .music-videos-wrapper.row
     - @artists.each do |artist|
+      .customNavigation
+        %a{ class: "btn", id: "#{artist.id}_prev", title: "Prev" }
+        %a{ class: "btn", id: "#{artist.id}_next", title: "Next" }
       .music-video-tile.row
         .music-video-head
-          .row
+          .owl-carousel.owl-theme.row{:id => "#{artist.id}"}
             - artist.music_videos.each do |music_video|
               .music-video-tile.row
                 .music-video-head
@@ -20,7 +23,6 @@
                         -if !music_video.featuring.empty?
                           = ' feat ' + music_video.featuring
                       .youtube-player{ :data => {:id => music_video.youtube_id } }
-                      -# %iframe{:src => "http://www.youtube.com/embed/#{music_video.youtube_id}", width:"400", height:"200"}
                     .side_column_body.col-xs-1
                       - music_video.year.split('').each do |character|
                         .row

@@ -16,6 +16,7 @@ gem 'devise'
 gem 'youtube_id'
 gem 'seed_dump'
 gem 'factory_girl_rails'
+gem 'owlcarousel-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

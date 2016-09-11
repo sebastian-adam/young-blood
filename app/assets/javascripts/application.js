@@ -18,3 +18,5 @@
 // = require lazy_load_iframe
 // = require jquery.sticky
 // = require sticky_nav
+// = require owl.carousel
+// = require video_carousel
