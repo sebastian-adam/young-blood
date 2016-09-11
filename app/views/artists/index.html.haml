@@ -1,16 +1,21 @@
 .body.root
   .music-videos-wrapper.row
+    - prev_city = nil
+    - x = 0
     - @artists.each do |artist|
-      .customNavigation
-        %a{ class: "btn", id: "#{artist.id}_prev", title: "Prev" }
-        %a{ class: "btn", id: "#{artist.id}_next", title: "Next" }
       .music-video-tile.row
         .music-video-head
           .row
             .side_column_body.col-xs-1
-              - artist.city.upcase.split('').each do |character|
-                .row
-                  = character
+              - if x == 0
+                - prev_city = 'nil'
+              - current_city = artist.city
+              - if current_city != prev_city
+                - artist.city.upcase.split('').each do |character|
+                  .row
+                    = character
+              - prev_city = current_city
+              - x += 1
             .center_column_body.col-xs-11
               .artist_title
                 = link_to artist.name, artist_path(artist)
@@ -27,3 +32,6 @@
                       - music_video.year.split('').each do |character|
                         .row
                           = character
+      .customNavigation
+        %a{ class: "btn", id: "#{artist.id}_prev", title: "Prev" }
+        %a{ class: "btn", id: "#{artist.id}_next", title: "Next" }

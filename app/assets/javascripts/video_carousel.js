@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  for (i = 10; i < 30; i++) {
+  for (i = 10; i < 50; i++) {
     $("#" + i).owlCarousel({
       navigation : false, // Show next and prev buttons
       slideSpeed : 400,
