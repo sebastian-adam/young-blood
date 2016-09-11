@@ -67,6 +67,27 @@ ul.nav.navbar-nav.navbar-right {
   height: 50px;
 }
 
+// CAROUSEL
+.owl-carousel .music-video-tile {
+  margin: 0 10px;
+  text-align: center;
+}
+.customNavigation{
+  text-align: center;
+}
+//use styles below to disable ugly selection
+.customNavigation a{
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+// MUSIC VIDEOS
 .music-videos-wrapper {
   padding-top: 40px;
   margin: 0 auto;
@@ -99,18 +120,19 @@ ul.nav.navbar-nav.navbar-right {
 }
 
 .side_column_body {
+  font-size: 15px;
   line-height: 30px;
 }
 
 .artist_title {
   font-size: 30px;
+  text-align: left;
 }
 
 .track_title {
   font-size: 15px;
+  text-align: left;
 }
-
-
 
 
 // LAZY LOADER for IFRAMES
@@ -167,18 +189,4 @@ ul.nav.navbar-nav.navbar-right {
     position: absolute;
     background: url("//i.imgur.com/TxzC70f.png") no-repeat;
     cursor: pointer;
-}
-
-// CAROUSEL
-.customNavigation{
-  text-align: center;
-}
-//use styles below to disable ugly selection
-.customNavigation a{
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

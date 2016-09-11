@@ -6,18 +6,18 @@
         %a{ class: "btn", id: "#{artist.id}_next", title: "Next" }
       .music-video-tile.row
         .music-video-head
-          .owl-carousel.owl-theme.row{:id => "#{artist.id}"}
-            - artist.music_videos.each do |music_video|
-              .music-video-tile.row
-                .music-video-head
-                  .row
-                    .side_column_body.col-xs-1
-                      - artist.city.upcase.split('').each do |character|
-                        .row
-                          = character
-                    .center_column_body.col-xs-10
-                      .artist_title
-                        = link_to artist.name, artist_path(artist)
+          .row
+            .side_column_body.col-xs-1
+              - artist.city.upcase.split('').each do |character|
+                .row
+                  = character
+            .center_column_body.col-xs-11
+              .artist_title
+                = link_to artist.name, artist_path(artist)
+              .owl-carousel.owl-theme.row{:id => "#{artist.id}"}
+                - artist.music_videos.each do |music_video|
+                  .carousel_contents
+                    .col-xs-11
                       .track_title
                         = music_video.title
                         -if !music_video.featuring.empty?

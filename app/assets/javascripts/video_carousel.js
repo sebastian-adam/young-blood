@@ -2,7 +2,7 @@ $(document).ready(function() {
   for (i = 10; i < 30; i++) {
     $("#" + i).owlCarousel({
       navigation : false, // Show next and prev buttons
-      slideSpeed : 300,
+      slideSpeed : 400,
       paginationSpeed : 400,
       singleItem: true
     })
