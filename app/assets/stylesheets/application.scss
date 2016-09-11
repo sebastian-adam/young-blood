@@ -26,18 +26,18 @@ body {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-// #landing_page {
-//   text-align: center;
-// }
-//
-// #landing_page img {
-//   max-width: 200px;
-//   margin-top: 20%;
-// }
-//
-// #landing_page, #region_container, #young_blood_header {
-//   display: none;
-// }
+#landing_page {
+  text-align: center;
+}
+
+#landing_page img {
+  max-width: 200px;
+  margin-top: 20%;
+}
+
+#landing_page, #region_container, #young_blood_header {
+  display: none;
+}
 
 .navbar-brand {
   a {
@@ -116,7 +116,6 @@ ul.nav.navbar-nav.navbar-right {
 .center_column_body {
   font-size: 30px;
   line-height: 35px;
-  letter-spacing: .8em;
 }
 
 .side_column_body {
@@ -127,11 +126,14 @@ ul.nav.navbar-nav.navbar-right {
 .artist_title {
   font-size: 30px;
   text-align: left;
+  letter-spacing: .8em;
 }
 
 .track_title {
   font-size: 15px;
   text-align: left;
+  letter-spacing: .3em;
+
 }
 
 
@@ -195,12 +197,25 @@ ul.nav.navbar-nav.navbar-right {
 
 
 .city_title {
+  height: 360px;
   font-size: 15px;
   padding: 10px;
-  height: 500px;
   background-color: black;
 }
 
+.city_title p {
+  margin: 0;
+}
+
 .gold {
-  color: gold;
+  color: #f6ce26;
+}
+
+.city_divider {
+  position: relative;
+  margin-top: -100px;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  z-index: 9999
 }

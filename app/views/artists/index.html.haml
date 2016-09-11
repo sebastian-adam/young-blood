@@ -1,15 +1,17 @@
 .body.root
-  .music-videos-wrapper.row
+  .music-videos-wrapper
     - prev_city = nil
     - x = 0
     - @artists.each do |artist|
-      .music-video-tile.row
+      - if x == 0
+        - prev_city = 'nil'
+      - current_city = artist.city
+      - if current_city != prev_city && artist != @artists.first
+        .city_divider
+      .music-video-tile
         .music-video-head
           .row
             .side_column_body.col-xs-1
-              - if x == 0
-                - prev_city = 'nil'
-              - current_city = artist.city
               - if current_city != prev_city
                 .city_title{:id => "#{artist.id}_city"}
                   - artist.city.upcase.split('').each do |character|
@@ -31,7 +33,8 @@
                       .track_title
                         = music_video.title
                         -if !music_video.featuring.empty?
-                          = ' feat ' + music_video.featuring
+                          = ' ft. '
+                          = link_to music_video.featuring, artist_music_video_path(artist, music_video)
                       .youtube-player{ :data => {:id => music_video.youtube_id } }
                     .side_column_body.col-xs-1
                       - music_video.year.split('').each do |character|
