@@ -18,27 +18,30 @@ class MusicVideosController < ApplicationController
     end
   end
 
-  # def edit
-  #   @music_video = MusicVideo.find(params[:id])
-  # end
-  #
-  # def update
-  #   @music_video = MusicVideo.find(params[:id])
-  #   if @music_video.update(music_video_params)
-  #     @music_video.youtube_id = YoutubeID.from(@music_video.link)
-  #     @music_video.save
-  #     flash[:success] = "Changes saved"
-  #     redirect_to artist_path
-  #   else
-  #     flash.now[:alert] = "Error saving"
-  #   end
-  # end
-  #
-  # def destroy
-  #   @music_video = MusicVideo.find(params[:id])
-  #   @music_video.destroy
-  #   redirect_to artists_path
-  # end
+  def edit
+    @artist = Artist.find(params[:artist_id])
+    @music_video = MusicVideo.find(params[:id])
+  end
+
+  def update
+    @artist = Artist.find(params[:artist_id])
+    @music_video = MusicVideo.find(params[:id])
+    if @music_video.update(music_video_params)
+      @music_video.youtube_id = YoutubeID.from(@music_video.link)
+      @music_video.save
+      flash[:success] = "Changes saved"
+      redirect_to artist_path(@artist)
+    else
+      flash.now[:alert] = "Error saving"
+    end
+  end
+
+  def destroy
+    @artist = Artist.find(params[:artist_id])
+    @music_video = MusicVideo.find(params[:id])
+    @music_video.destroy
+    redirect_to artist_path(@artist)
+  end
 
   private
 

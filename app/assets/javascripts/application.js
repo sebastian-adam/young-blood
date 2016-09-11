@@ -21,10 +21,9 @@
 // = require owl.carousel
 // = require video_carousel
 
-// FRONTEND
-$(document).ready(function() {
-
-  $("#landing_page").show().delay(800).slideUp(1000).delay(400);
-  $("#young_blood_header").delay(1600).fadeIn(800);
-  $("#region_container").delay(2200).fadeIn().slideDown(1000);
-});
+// $(document).ready(function() {
+//
+//   $("#landing_page").show().delay(800).slideUp(1000).delay(400);
+//   $("#young_blood_header").delay(1600).fadeIn(800);
+//   $("#region_container").delay(2200).fadeIn().slideDown(1000);
+// });

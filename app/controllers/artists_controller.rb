@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
   def create
     if @artist = Artist.create(artist_params)
       flash[:success] = "New save"
-      redirect_to artists_path
+      redirect_to new_artist_path
     else
       flash.now[:alert] = "Error saving"
       render :new

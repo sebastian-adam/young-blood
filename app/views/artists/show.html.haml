@@ -1,5 +1,9 @@
 - @artist.music_videos.each do |music_video|
   = music_video.title
+  = link_to "Delete Video", artist_music_video_path(@artist, music_video), method: :delete, data: { confirm: 'Are you sure you want to delete "' + music_video.title + '"?' }
+  |
+  = link_to "Edit Video", edit_artist_music_video_path(@artist, music_video)
+  %br
 
 .text-center.edit-links
   = link_to "Delete Artist", artist_path(@artist), method: :delete, data: { confirm: 'Are you sure you want to delete "' + @artist.name + '"?' }
