@@ -6,6 +6,7 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    @artists = Artist.order(:name)
     @artist = Artist.new
   end
 

@@ -1,5 +1,5 @@
 class MusicVideo < ApplicationRecord
-  belongs_to :story
+  belongs_to :artist
 
   validates :title, presence: true, uniqueness: true
   validates :year, presence: true

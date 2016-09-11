@@ -1,10 +1,27 @@
 .body.root
   .music-videos-wrapper.row
-    -@artists.each do |artist|
+    - @artists.each do |artist|
       .music-video-tile.row
         .music-video-head
           .row
-            -# -@artist.music_video.each do |music video|
-            = artist.name
-            = artist.city
-            = artist.state
+            - artist.music_videos.each do |music_video|
+              .music-video-tile.row
+                .music-video-head
+                  .row
+                    .side_column_body.col-xs-1
+                      - artist.city.upcase.split('').each do |character|
+                        .row
+                          = character
+                    .center_column_body.col-xs-10
+                      .artist_title
+                        = link_to artist.name, artist_path(artist)
+                      .track_title
+                        = music_video.title
+                        -if !music_video.featuring.empty?
+                          = ' feat ' + music_video.featuring
+                      .youtube-player{ :data => {:id => music_video.youtube_id } }
+                      -# %iframe{:src => "http://www.youtube.com/embed/#{music_video.youtube_id}", width:"400", height:"200"}
+                    .side_column_body.col-xs-1
+                      - music_video.year.split('').each do |character|
+                        .row
+                          = character

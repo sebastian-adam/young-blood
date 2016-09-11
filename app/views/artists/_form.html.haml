@@ -1,3 +1,6 @@
+%h3 Add new artist
+%br
+
 = simple_form_for @artist do |f|
   .form-group
     = f.input :name
@@ -7,3 +10,11 @@
     = f.input :state
   .form-group.text-center
     = f.button :submit
+%br
+
+%h3 Click on Artist Name to add new Music Video
+%br
+
+- @artists.each do |artist|
+  = link_to artist.name, new_artist_music_video_path(artist)
+  %br
