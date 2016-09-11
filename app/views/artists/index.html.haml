@@ -11,15 +11,16 @@
                 - prev_city = 'nil'
               - current_city = artist.city
               - if current_city != prev_city
-                - artist.city.upcase.split('').each do |character|
-                  .row
+                .city_title{:id => "#{artist.id}_city"}
+                  - artist.city.upcase.split('').each do |character|
                     = character
+                    %br
               - prev_city = current_city
               - x += 1
             .center_column_body.col-xs-11
               .artist_title
                 = link_to artist.name, artist_path(artist)
-              .owl-carousel.owl-theme.row{:id => "#{artist.id}"}
+              .owl-carousel.owl-theme.row{:id => "#{artist.id}_carousel"}
                 - artist.music_videos.each do |music_video|
                   .carousel_contents
                     .col-xs-11
