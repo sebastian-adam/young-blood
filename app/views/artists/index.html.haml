@@ -13,8 +13,12 @@
               - if current_city != prev_city
                 .city_title{:id => "#{artist.id}_city"}
                   - artist.city.upcase.split('').each do |character|
-                    = character
-                    %br
+                    - if current_city == "Chicago" || current_city == "Atlanta" || current_city == "New York"
+                      %p.gold
+                        = character
+                    -else
+                      %p
+                        = character
               - prev_city = current_city
               - x += 1
             .center_column_body.col-xs-11
