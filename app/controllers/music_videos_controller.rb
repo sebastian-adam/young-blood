@@ -1,15 +1,12 @@
 class MusicVideosController < ApplicationController
-  before_action :set_music_video, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @music_videos = MusicVideo.order(:location)
-  end
 
   def new
+    @artist = Artists.find(params[:id])
     @music_video = MusicVideo.new
   end
 
   def create
+    @artist = Artists.find(params[:id])
     if @music_video = MusicVideo.create(music_video_params)
       @music_video.youtube_id = YoutubeID.from(@music_video.link)
       @music_video.save
@@ -21,13 +18,12 @@ class MusicVideosController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
+    @music_video = MusicVideo.find(params[:id])
   end
 
   def update
+    @music_video = MusicVideo.find(params[:id])
     if @music_video.update(music_video_params)
       @music_video.youtube_id = YoutubeID.from(@music_video.link)
       @music_video.save
@@ -39,6 +35,7 @@ class MusicVideosController < ApplicationController
   end
 
   def destroy
+    @music_video = MusicVideo.find(params[:id])
     @music_video.destroy
     redirect_to music_videos_path
   end
@@ -46,10 +43,6 @@ class MusicVideosController < ApplicationController
   private
 
   def music_video_params
-    params.require(:music_video).permit(:title, :artist, :featuring, :location, :year, :link)
-  end
-
-  def set_music_video
-    @music_video = MusicVideo.find(params[:id])
+    params.require(:music_video).permit(:title, :artist_id, :featuring, :year, :link)
   end
 end

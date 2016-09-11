@@ -1,3 +1,11 @@
+
+Artist.create!([
+  {name: "Chance The Rapper", city: "Chicago", state: "IL"},
+  {name: "Travis Scott", city: "Houston", state: "TX"},
+  {name: "Rihanna", city: "St Michael", state: "Barbados"},
+  {name: "Vince Staples", city: "Long Beach", state: "CA"}
+])
+
 MusicVideo.create!([
   {title: "Juice", artist: "Chance The Rapper", location: "Chicago", year: "2013", link: "https://www.youtube.com/watch?v=h8nIHZ-0kS4", featuring: "", youtube_id: "h8nIHZ-0kS4"},
   {title: "Antidote", artist: "Travis Scott", location: "Houston", year: "2015", link: "https://www.youtube.com/watch?v=KnZ8h3MRuYg", featuring: "", youtube_id: "KnZ8h3MRuYg"},

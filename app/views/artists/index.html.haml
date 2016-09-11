@@ -1,0 +1,10 @@
+.body.root
+  .music-videos-wrapper.row
+    -@artists.each do |artist|
+      .music-video-tile.row
+        .music-video-head
+          .row
+            -# -@artist.music_video.each do |music video|
+            = artist.name
+            = artist.city
+            = artist.state

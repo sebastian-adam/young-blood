@@ -1,0 +1,25 @@
+.music-videos-wrapper.row
+  .row
+    .side_column_body.col-xs-1
+      - @music_video.location.upcase.split('').each do |character|
+        .row
+          = character
+    .center_column_body.col-xs-10
+      .artist_title
+        = @music_video.artist
+      .track_title
+        = @music_video.title
+        -if !@music_video.featuring.empty?
+          = ' feat ' + @music_video.featuring
+      .youtube-player{ :data => {:id => @music_video.youtube_id } }
+      -# %iframe{:src => "http://www.youtube.com/embed/#{@music_video.youtube_id}", width:"400", height:"200"}
+    .side_column_body.col-xs-1
+      - @music_video.year.split('').each do |character|
+        .row
+          = character
+  .text-center.edit-links
+    = link_to "Delete Video", music_video_path(@music_video), method: :delete, data: { confirm: 'Are you sure you want to delete "' + @music_video.title + '"?' }
+    |
+    = link_to "Home", music_videos_path
+    |
+    = link_to "Edit Video", edit_music_video_path(@music_video)

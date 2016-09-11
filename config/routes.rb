@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  
-  root 'music_videos#index'
 
-  resources :music_videos
+  root 'artists#index'
+
+  resources :artists do
+    resources :music_videos
+  end
 end
