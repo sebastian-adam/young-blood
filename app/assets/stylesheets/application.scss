@@ -18,12 +18,21 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'https://fonts.googleapis.com/css?family=Modak';
 
 
 body {
   background-color: black;
   color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+#content_container {
+  margin-top: 70px;
+}
+
+a {
+  color: #1edbcc;
 }
 
 // LOAD SCREEN
@@ -40,19 +49,13 @@ body {
 //   display: none;
 // }
 
-.navbar-brand {
-  a {
-    color: #125688;
-  }
-}
-
 .navbar-default {
   background-color: black;
-  .navbar-nav li a {
-    color: #125688;
-  }
   margin-top: 30px;
   border: none;
+  .navbar-nav li a {
+    color: white;
+  }
 }
 
 ul.nav.navbar-nav.navbar-right {
@@ -68,6 +71,29 @@ ul.nav.navbar-nav.navbar-right {
   height: 50px;
 }
 
+// BOOTSTRAP NAV ALWAYS COLLAPSED
+
+.navbar-collapse.collapse {
+  display: none!important;
+}
+
+.navbar-collapse.collapse.in{
+  display: block!important;
+}
+
+.navbar-toggle {
+  display: block;
+}
+
+.navbar-header {
+  float: none;
+}
+
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+}
+
 // CAROUSEL
 .owl-carousel .music-video-tile {
   margin: 0 10px;
@@ -76,7 +102,7 @@ ul.nav.navbar-nav.navbar-right {
 .owl-pagination {
   position: absolute;
   left: 10px;
-  top: -60;
+  top: -75;
   z-index: 9999;
 }
 
@@ -118,9 +144,10 @@ ul.nav.navbar-nav.navbar-right {
 }
 
 .artist_title {
-  font-size: 30px;
+  font-family: 'Modak', cursive;
+  font-size: 50px;
   text-align: left;
-  letter-spacing: .8em;
+  padding-top: 10px;
 }
 
 .track_title {
@@ -140,6 +167,10 @@ ul.nav.navbar-nav.navbar-right {
     max-width: 100%;
     background: #000;
     margin: 5px;
+}
+
+.youtube-player-container {
+
 }
 
 .youtube-player iframe {
@@ -192,7 +223,6 @@ ul.nav.navbar-nav.navbar-right {
 .city_title {
   height: 360px;
   font-size: 15px;
-  padding: 10px;
   background-color: black;
 }
 
@@ -204,12 +234,57 @@ ul.nav.navbar-nav.navbar-right {
   color: #f6ce26;
 }
 
+.silver {
+  color: #fafafa;
+}
+
 .city_divider {
   position: relative;
   margin-top: -100px;
   margin-bottom: 0px;
   width: 100%;
-  height: 80px;
+  height: 100px;
   background-color: black;
   z-index: 9998
+}
+
+.footer {
+  height: 100px;
+}
+
+.cyan {
+  color: #18d4bc;
+}
+
+.purple {
+  color: #b821d4;
+}
+
+.maroon {
+  color: #c71818;
+}
+
+.green {
+  color: #7fb81a;
+}
+
+.silver {
+  color: silver;
+}
+
+.nav-vibes {
+  display: inline-block;
+  margin-left: 40px;
+  width: 80%;
+  text-align: justify;
+}
+
+.nav-account {
+  display: inline-block;
+}
+
+.nav-vibes a {
+  font-size: 2em;
+  font-family: 'helvetica', cursive;
+  padding: 0 .5em;
 }

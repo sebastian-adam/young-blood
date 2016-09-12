@@ -13,19 +13,29 @@
           .row
             .side_column_body.col-xs-1
               - if current_city != prev_city
-                .city_title{:id => "#{artist.id}_city"}
-                  - artist.city.upcase.split('').each do |character|
-                    - if current_city == "Chicago" || current_city == "Atlanta" || current_city == "New York"
-                      %p.gold
-                        = character
-                    -else
-                      %p
-                        = character
+                = link_to artist_path(artist) do
+                  .city_title{:id => "#{artist.id}_city"}
+                    - artist.city.upcase.split('').each do |character|
+                      - if current_city == "Chicago" || current_city == "Atlanta" || current_city == "New York"
+                        %p.gold
+                          = character
+                      -else
+                        %p.silver
+                          = character
               - prev_city = current_city
               - x += 1
             .center_column_body.col-xs-11
               .artist_title
-                = link_to artist.name, artist_path(artist)
+                -if artist.vibe == "thug"
+                  = link_to artist.name, artist_path(artist), class: "maroon"
+                -elsif artist.vibe == "wavy"
+                  = link_to artist.name, artist_path(artist), class: "cyan"
+                -elsif artist.vibe == "soul"
+                  = link_to artist.name, artist_path(artist), class: "purple"
+                -elsif artist.vibe == "chill"
+                  = link_to artist.name, artist_path(artist), class: "green"
+                -else
+                  = link_to artist.name, artist_path(artist), class: "silver"
               .owl-carousel.owl-theme.row{:id => "#{artist.id}_carousel"}
                 - artist.music_videos.each do |music_video|
                   .carousel_contents
@@ -34,8 +44,13 @@
                         = music_video.title
                         -if !music_video.featuring.empty?
                           = ' ft. '
-                          = link_to music_video.featuring, artist_music_video_path(artist, music_video)
-                      .youtube-player{ :data => {:id => music_video.youtube_id } }
+                          - if @artists.exists?(name: music_video.featuring)
+                            - featuring = @artists.find_by(name: music_video.featuring)
+                            = link_to music_video.featuring, artist_path(featuring)
+                          - else
+                            = music_video.featuring
+                      .youtube-player-container
+                        .youtube-player{ :data => {:id => music_video.youtube_id } }
                     .side_column_body.col-xs-1
                       - music_video.year.split('').each do |character|
                         .row

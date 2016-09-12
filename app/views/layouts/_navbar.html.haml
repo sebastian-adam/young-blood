@@ -8,18 +8,26 @@
       .navbar-brand
         = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
     .collapse.navbar-collapse#bs-navbar-collapse-1
-      %ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          .row
-            %li
-              = link_to "CONTRIBUTE", new_artist_path
-          .row
-            %li
-              = link_to "LOG OUT", destroy_user_session_path, method: :delete
-        - else
-          .row
-            %li
-              = link_to "LOGIN", new_user_session_path
-          .row
-            %li
-              = link_to "START REPPING", new_user_registration_path
+      %ul.nav.navbar-nav.navbar-left
+        .nav-vibes.row
+          .col-xs-2
+            = link_to "thug", root_path, class: "maroon"
+            = link_to "soul", root_path, class: "purple"
+          .col-xs-2
+            = link_to "wavy", root_path, class: "cyan"
+            = link_to "chill", root_path, class: "green"
+          .nav-account.col-xs-3.col-xs-offset-2
+            - if user_signed_in?
+              .row
+                %li
+                  = link_to "CONTRIBUTE", new_artist_path
+              .row
+                %li
+                  = link_to "LOGOUT", destroy_user_session_path, method: :delete
+            - else
+              .row
+                %li
+                  = link_to "LOGIN", new_user_session_path
+              .row
+                %li
+                  = link_to "JOIN", new_user_registration_path
