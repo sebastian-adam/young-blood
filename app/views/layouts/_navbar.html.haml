@@ -11,23 +11,18 @@
       %ul.nav.navbar-nav.navbar-left
         .nav-vibes.row
           .col-xs-2
-            = link_to "thug", root_path, class: "maroon"
+            = link_to "thug", root_path, class: "red"
             = link_to "soul", root_path, class: "purple"
           .col-xs-2
             = link_to "wavy", root_path, class: "cyan"
             = link_to "chill", root_path, class: "green"
+          .col-xs-2
+            = link_to "pop", root_path, class: "yellow"
+            = link_to "punk", root_path, class: "bubblegum"
           .nav-account.col-xs-3.col-xs-offset-2
             - if user_signed_in?
-              .row
-                %li
-                  = link_to "CONTRIBUTE", new_artist_path
-              .row
-                %li
-                  = link_to "LOGOUT", destroy_user_session_path, method: :delete
+              = link_to "contribute", new_artist_path
+              = link_to "logout", destroy_user_session_path, method: :delete
             - else
-              .row
-                %li
-                  = link_to "LOGIN", new_user_session_path
-              .row
-                %li
-                  = link_to "JOIN", new_user_registration_path
+              = link_to "login", new_user_session_path
+              = link_to "join", new_user_registration_path

@@ -221,9 +221,11 @@ ul.nav.navbar-nav.navbar-right {
 
 
 .city_title {
-  height: 360px;
+  height: 400px;
   font-size: 15px;
   background-color: black;
+  text-align: center;
+  padding: 0 2px;
 }
 
 .city_title p {
@@ -260,12 +262,20 @@ ul.nav.navbar-nav.navbar-right {
   color: #b821d4;
 }
 
-.maroon {
+.red {
   color: #c71818;
 }
 
 .green {
   color: #7fb81a;
+}
+
+.bubblegum {
+  color: #ffb4ce;
+}
+
+.yellow {
+  color: #ffefc3;
 }
 
 .silver {
@@ -283,8 +293,12 @@ ul.nav.navbar-nav.navbar-right {
   display: inline-block;
 }
 
-.nav-vibes a {
+.nav-vibes a, .nav-account a {
   font-size: 2em;
   font-family: 'helvetica', cursive;
-  padding: 0 .5em;
+  padding: 0 0.5em;
+}
+
+.nav-account a {
+  color: white;
 }
