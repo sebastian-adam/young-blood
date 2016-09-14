@@ -53,6 +53,27 @@
                             = link_to music_video.featuring, artist_path(featuring)
                           - else
                             = music_video.featuring
+                        -if !music_video.featuring_2.empty?
+                          = ' & '
+                          - if @artists.exists?(name: music_video.featuring_2)
+                            - featuring = @artists.find_by(name: music_video.featuring_2)
+                            = link_to music_video.featuring_2, artist_path(featuring)
+                          - else
+                            = music_video.featuring_2
+                        -if !music_video.featuring_3.empty?
+                          = ' & '
+                          - if @artists.exists?(name: music_video.featuring_3)
+                            - featuring = @artists.find_by(name: music_video.featuring_3)
+                            = link_to music_video.featuring_3, artist_path(featuring)
+                          - else
+                            = music_video.featuring_3
+                        -if !music_video.featuring_4.empty?
+                          = ' & '
+                          - if @artists.exists?(name: music_video.featuring_4)
+                            - featuring = @artists.find_by(name: music_video.featuring_4)
+                            = link_to music_video.featuring_4, artist_path(featuring)
+                          - else
+                            = music_video.featuring_4
                       .youtube-player-container
                         .youtube-player{ :data => {:id => music_video.youtube_id } }
                     .side_column_body.col-xs-1

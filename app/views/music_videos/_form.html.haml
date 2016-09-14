@@ -1,8 +1,15 @@
 = simple_form_for [@artist, @music_video] do |f|
   .form-group
     = f.input :title
-  .form-group
-    = f.input :featuring
+  .row
+    .form-group.col-xs-3
+      = f.input :featuring
+    .form-group.col-xs-3
+      = f.input :featuring_2
+    .form-group.col-xs-3
+      = f.input :featuring_3
+    .form-group.col-xs-3
+      = f.input :featuring_4
   .form-group
     = f.input :year
   .form-group

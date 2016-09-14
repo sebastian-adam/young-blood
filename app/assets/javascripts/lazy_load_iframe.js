@@ -1,7 +1,7 @@
 /* Light YouTube Embeds by @labnol */
 /* Web: http://labnol.org/?p=27941 */
 
-document.addEventListener("turbolinks:load", function() {
+$(document).ready(function() {
         var div, n,
             v = document.getElementsByClassName("youtube-player");
         for (n = 0; n < v.length; n++) {
