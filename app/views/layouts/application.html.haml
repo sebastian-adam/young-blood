@@ -14,11 +14,11 @@
   %body
     -# #landing_page
     -#   = image_tag "young_blood_logo_white_text.png"
-    #young_blood_header
-      = render 'layouts/navbar'
-    .container
-      #content_container
-        -flash.each do |name, msg|
-          = content_tag :div, msg, class: [:alert, alert_for(name)]
-        = yield
+    #header_container
+      #young_blood_header
+        = render 'layouts/navbar'
+    #content_container.container
+      -flash.each do |name, msg|
+        = content_tag :div, msg, class: [:alert, alert_for(name)]
+      = yield
     .footer

@@ -50,16 +50,12 @@ a {
 // }
 
 .navbar-default {
-  background-color: black;
   margin-top: 30px;
   border: none;
   .navbar-nav li a {
     color: white;
   }
-}
-
-ul.nav.navbar-nav.navbar-right {
-  padding-top: 20px;
+  background:transparent repeat center top;
 }
 
 .navbar-container {
@@ -87,6 +83,8 @@ ul.nav.navbar-nav.navbar-right {
 
 .navbar-header {
   float: none;
+  position: relative;
+  z-index: 9889;
 }
 
 .collapsing {
@@ -103,7 +101,7 @@ ul.nav.navbar-nav.navbar-right {
   position: absolute;
   left: 10px;
   top: -75;
-  z-index: 9999;
+  z-index: 9998;
 }
 
 
@@ -217,9 +215,6 @@ ul.nav.navbar-nav.navbar-right {
     cursor: pointer;
 }
 
-
-
-
 .city_title {
   height: 400px;
   font-size: 15px;
@@ -247,7 +242,7 @@ ul.nav.navbar-nav.navbar-right {
   width: 100%;
   height: 100px;
   background-color: black;
-  z-index: 9998
+  z-index: 9997
 }
 
 .footer {
@@ -284,21 +279,40 @@ ul.nav.navbar-nav.navbar-right {
 
 .nav-vibes {
   display: inline-block;
-  margin-left: 40px;
-  width: 80%;
+  width: 100%;
   text-align: justify;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9888;
+  padding-bottom: 5px;
 }
 
 .nav-account {
   display: inline-block;
+  padding-left: 4%;
+}
+
+.vibe-col {
 }
 
 .nav-vibes a, .nav-account a {
   font-size: 2em;
   font-family: 'helvetica', cursive;
-  padding: 0 0.5em;
+  display: block;
 }
 
 .nav-account a {
   color: white;
+}
+
+.my-nav {
+  text-align: justify;
+}
+
+#header_container {
+  position: relative;
+  z-index: 9999;
+}
+
+.music-videos-wrapper {
+  margin-top: 50px;
 }

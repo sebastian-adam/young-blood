@@ -18,6 +18,9 @@ class MusicVideosController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def edit
     @artist = Artist.find(params[:artist_id])
     @music_video = MusicVideo.find(params[:id])

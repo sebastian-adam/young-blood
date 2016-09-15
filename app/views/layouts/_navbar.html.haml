@@ -1,4 +1,4 @@
-%nav.navbar.navbar-default
+%nav.navbar.navbar-default.navbar-fixed-top
   .navbar-container
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => "#bs-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
@@ -7,22 +7,21 @@
         %span.icon-bar
       .navbar-brand
         = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
-    .collapse.navbar-collapse#bs-navbar-collapse-1
-      %ul.nav.navbar-nav.navbar-left
-        .nav-vibes.row
-          .col-xs-2
-            = link_to "thug", root_path, class: "red"
-            = link_to "soul", root_path, class: "purple"
-          .col-xs-2
-            = link_to "wavy", root_path, class: "cyan"
-            = link_to "chill", root_path, class: "green"
-          .col-xs-2
-            = link_to "pop", root_path, class: "yellow"
-            = link_to "punk", root_path, class: "bubblegum"
-          .nav-account.col-xs-3.col-xs-offset-2
-            - if user_signed_in?
-              = link_to "contribute", new_artist_path
-              = link_to "logout", destroy_user_session_path, method: :delete
-            - else
-              = link_to "login", new_user_session_path
-              = link_to "join", new_user_registration_path
+    .collapse.navbar-collapse#bs-navbar-collapse-1.my-nav
+      %ul.nav.navbar-nav.navbar-left.nav-vibes.row
+        .col-xs-2.vibe-col.col-xs-offset-1
+          = link_to "thug", root_path, class: "red"
+          = link_to "soul", root_path, class: "purple"
+        .col-xs-2.vibe-col
+          = link_to "wavy", root_path, class: "cyan"
+          = link_to "chill", root_path, class: "green"
+        .col-xs-2.vibe-col
+          = link_to "pop", root_path, class: "yellow"
+          = link_to "punk", root_path, class: "bubblegum"
+        .nav-account.col-xs-2.col-xs-offset-2
+          - if user_signed_in?
+            = link_to "submit", new_artist_path
+            = link_to "logout", destroy_user_session_path, method: :delete
+          - else
+            = link_to "login", new_user_session_path
+            = link_to "join", new_user_registration_path

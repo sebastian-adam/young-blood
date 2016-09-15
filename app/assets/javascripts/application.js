@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require owl.carousel
 //= require bootstrap-sprockets
 //= require lazy_load_iframe
 //= require jquery.sticky
+//= require_tree .
+
 
 
 
@@ -38,9 +39,8 @@ $(document).ready(function() {
     });
   }
 
-  $("#young_blood_header").sticky({topSpacing:0});
   for (i = 10; i < 100; i++) {
-    $("#" + i + "_city").sticky({topSpacing:180});
+    $("#" + i + "_city").sticky({topSpacing:140});
   }
 
 });
