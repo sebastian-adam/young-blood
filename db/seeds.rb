@@ -1,6 +1,3 @@
-User.create!([
-  {email: "sprokuski@gmail.com", encrypted_password: "$2a$11$bAQeMCHI5K8ZsIhyVBcJnOBDLRUi8LQFdcXNjSuHHNWfJSkzmXyf6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 6, current_sign_in_at: "2016-09-13 02:21:16", last_sign_in_at: "2016-09-11 02:12:10", current_sign_in_ip: "::1", last_sign_in_ip: "::1", user_name: "jabastian"}
-]) 
 Artist.create!([
   {name: "Da$H", city: "Hackensack", state: "NJ", vibe: "punk"},
   {name: "Vince Staples", city: "Long Beach", state: "CA", vibe: "punk"},
