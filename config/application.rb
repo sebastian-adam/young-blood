@@ -16,6 +16,9 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Used to configure rails_admin bootstrap theme
+ENV['RAILS_ADMIN_THEME'] = 'rollincode'
+
 module YoungBlood
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
