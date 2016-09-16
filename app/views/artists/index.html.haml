@@ -40,6 +40,8 @@
                   = link_to artist.name, artist_path(artist), class: "bubblegum"
                 -elsif artist.vibe == "word"
                   = link_to artist.name, artist_path(artist), class: "orange"
+                -elsif artist.vibe == "thump"
+                  = link_to artist.name, artist_path(artist), class: "lightblue"
                 -else
                   = link_to artist.name, artist_path(artist), class: "silver"
               .owl-carousel.owl-theme.row{:id => "#{artist.id}_carousel"}

@@ -3,5 +3,5 @@ class MusicVideo < ApplicationRecord
 
   validates :title, presence: true
   validates :year, presence: true
-  validates :link, presence: true
+  validates :link, presence: true, uniqueness: true
 end

@@ -20,7 +20,8 @@
           = link_to "punk", root_path, class: "bubblegum"
         .col-xs-2.vibe-col
           = link_to "word", root_path, class: "orange"
-        .nav-account.col-xs-2.col-xs-offset-2
+          = link_to "thump", root_path, class: "lightblue"
+        .nav-account.col-xs-2.col-xs-offset-1
           - if user_signed_in?
             = link_to "submit", new_artist_path
             = link_to "logout", destroy_user_session_path, method: :delete

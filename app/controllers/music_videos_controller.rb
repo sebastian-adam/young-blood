@@ -1,4 +1,5 @@
 class MusicVideosController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @artist = Artist.find(params[:artist_id])

@@ -19,6 +19,7 @@ gem 'owlcarousel-rails'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'rails_admin_rollincode', '~> 1.0'
+gem "cancan"
 
 
 group :development, :test do
