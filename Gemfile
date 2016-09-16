@@ -16,6 +16,8 @@ gem 'youtube_id'
 gem 'seed_dump'
 gem 'factory_girl_rails'
 gem 'owlcarousel-rails'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -27,7 +27,7 @@ $(document).ready(function() {
 //   $("#young_blood_header").delay(1600).fadeIn(800);
 //   $("#region_container").delay(2200).fadeIn().slideDown(1000);
 
-  for (i = 10; i < 100; i++) {
+  for (i = 10; i < 150; i++) {
     var owl = $("#" + i + "_carousel"),
     status = $("#owlStatus");
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
     });
   }
 
-  for (i = 10; i < 100; i++) {
+  for (i = 10; i < 150; i++) {
     $("#" + i + "_city").sticky({topSpacing:140});
   }
 

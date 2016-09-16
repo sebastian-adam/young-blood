@@ -18,6 +18,8 @@
         .col-xs-2.vibe-col
           = link_to "pop", root_path, class: "yellow"
           = link_to "punk", root_path, class: "bubblegum"
+        .col-xs-2.vibe-col
+          = link_to "word", root_path, class: "orange"
         .nav-account.col-xs-2.col-xs-offset-2
           - if user_signed_in?
             = link_to "submit", new_artist_path
