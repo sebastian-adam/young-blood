@@ -1,4 +1,13 @@
-.body.root
+.body.root.text-center
+  .tags
+    = link_to "thug", "?vibe=thug", class: "red"
+    = link_to "soul", "?vibe=soul", class: "purple"
+    = link_to "wavy", "?vibe=wavy", class: "cyan"
+    = link_to "chill", "?vibe=chill", class: "green"
+    = link_to "pop", "?vibe=pop", class: "yellow"
+    = link_to "punk", "?vibe=punk", class: "bubblegum"
+    = link_to "word", "?vibe=word", class: "brown"
+    = link_to "thump", "?vibe=thump", class: "mustard"
   .music-videos-wrapper
     - prev_city = nil
     - x = 0
@@ -39,9 +48,9 @@
                 -elsif artist.vibe == "punk"
                   = link_to artist.name, artist_path(artist), class: "bubblegum"
                 -elsif artist.vibe == "word"
-                  = link_to artist.name, artist_path(artist), class: "orange"
+                  = link_to artist.name, artist_path(artist), class: "brown"
                 -elsif artist.vibe == "thump"
-                  = link_to artist.name, artist_path(artist), class: "lightblue"
+                  = link_to artist.name, artist_path(artist), class: "mustard"
                 -else
                   = link_to artist.name, artist_path(artist), class: "silver"
               .owl-carousel.owl-theme.row{:id => "#{artist.id}_carousel"}
@@ -58,21 +67,21 @@
                           - else
                             = music_video.featuring
                         -if !music_video.featuring_2.empty?
-                          = ' & '
+                          = ' // '
                           - if @artists.exists?(name: music_video.featuring_2)
                             - featuring = @artists.find_by(name: music_video.featuring_2)
                             = link_to music_video.featuring_2, artist_path(featuring)
                           - else
                             = music_video.featuring_2
                         -if !music_video.featuring_3.empty?
-                          = ' & '
+                          = ' // '
                           - if @artists.exists?(name: music_video.featuring_3)
                             - featuring = @artists.find_by(name: music_video.featuring_3)
                             = link_to music_video.featuring_3, artist_path(featuring)
                           - else
                             = music_video.featuring_3
                         -if !music_video.featuring_4.empty?
-                          = ' & '
+                          = ' // '
                           - if @artists.exists?(name: music_video.featuring_4)
                             - featuring = @artists.find_by(name: music_video.featuring_4)
                             = link_to music_video.featuring_4, artist_path(featuring)

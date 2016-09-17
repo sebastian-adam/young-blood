@@ -1,8 +1,13 @@
 class ArtistsController < ApplicationController
+  before_action :set_artist, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @artists = Artist.order(:city)
+    if params[:vibe].present?
+      @artists = Artist.where("vibe = ?", params[:vibe]).order(:city)
+    else
+      @artists = Artist.order(:city)
+    end
   end
 
   def new

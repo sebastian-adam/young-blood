@@ -1,16 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
  *= require owl.carousel
  *= require owl.theme
  */
@@ -21,21 +9,31 @@
 @import 'https://fonts.googleapis.com/css?family=Modak';
 
 
+//**//  GENERAL LAYOUT //**//
 body {
   background-color: black;
   color: #fafafa;
-  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
-
+#header_container {
+  position: relative;
+  z-index: 9999;
+}
 #content_container {
   margin-top: 70px;
 }
-
 a {
   color: #1edbcc;
 }
+.footer {
+  height: 100px;
+}
+.tags {
+  margin-top: 50px;
+}
 
-// LOAD SCREEN
+
+//**//  LOAD SCREEN //**//
 // #landing_page {
 //   text-align: center;
 // }
@@ -49,6 +47,8 @@ a {
 //   display: none;
 // }
 
+
+//**//  NAVBAR //**//
 .navbar-default {
   margin-top: 30px;
   border: none;
@@ -57,42 +57,33 @@ a {
   }
   background:transparent repeat center top;
 }
-
 .navbar-container {
   width: 90%;
   margin: 0 auto;
 }
-
 .logo-nav img {
   height: 50px;
 }
-
-// BOOTSTRAP NAV ALWAYS COLLAPSED
-
-.navbar-collapse.collapse {
-  display: none!important;
+.nav-vibes {
+  display: inline-block;
+  width: 100%;
+  text-align: justify;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9888;
+  padding-bottom: 5px;
 }
-
-.navbar-collapse.collapse.in{
-  display: block!important;
+.nav-account {
+  display: inline-block;
 }
-
-.navbar-toggle {
+.nav-account a {
+  font-size: 2em;
+  font-family: 'helvetica', cursive;
   display: block;
+  color: white;
 }
 
-.navbar-header {
-  float: none;
-  position: relative;
-  z-index: 9889;
-}
 
-.collapsing {
-  -webkit-transition: none;
-  transition: none;
-}
-
-// CAROUSEL
+//**//  CAROUSEL //**//
 .owl-carousel .music-video-tile {
   margin: 0 10px;
   text-align: center;
@@ -105,116 +96,35 @@ a {
 }
 
 
-// MUSIC VIDEOS
+//**//  MUSIC VIDEO TILES //**//
 .music-videos-wrapper {
   padding-top: 40px;
   margin: 0 auto;
   max-width: 642px;
   width: 100%;
 }
-
 .music-video-tile {
   margin-bottom: 70px;
 }
-
-.form-wrapper {
-  width: 60%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 40px;
-  border: 1px solid #eeefef;
-  border-radius: 3px;
-}
-
-.edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
 .center_column_body {
   font-size: 30px;
   line-height: 35px;
 }
-
 .side_column_body {
   font-size: 15px;
   line-height: 30px;
 }
-
 .artist_title {
   font-family: 'Modak', cursive;
   font-size: 50px;
   text-align: left;
   padding-top: 10px;
 }
-
 .track_title {
   font-size: 15px;
   text-align: left;
   letter-spacing: .3em;
 }
-
-
-// LAZY LOADER for IFRAMES
-.youtube-player {
-    position: relative;
-    padding-bottom: 56.23%;
-    /* Use 75% for 4:3 videos */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    margin: 5px;
-}
-
-.youtube-player-container {
-
-}
-
-.youtube-player iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background: transparent;
-}
-
-.youtube-player img {
-    bottom: 0;
-    display: block;
-    left: 0;
-    margin: auto;
-    max-width: 100%;
-    width: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    border: none;
-    height: auto;
-    cursor: pointer;
-    -webkit-transition: .4s all;
-    -moz-transition: .4s all;
-    transition: .4s all;
-}
-
-.youtube-player img:hover {
-    -webkit-filter: brightness(75%);
-}
-
-.youtube-player .play {
-    height: 72px;
-    width: 72px;
-    left: 50%;
-    top: 50%;
-    margin-left: -36px;
-    margin-top: -36px;
-    position: absolute;
-    background: url("//i.imgur.com/TxzC70f.png") no-repeat;
-    cursor: pointer;
-}
-
 .city_title {
   height: 400px;
   font-size: 15px;
@@ -222,19 +132,9 @@ a {
   text-align: center;
   padding: 0 2px;
 }
-
 .city_title p {
   margin: 0;
 }
-
-.gold {
-  color: #f6ce26;
-}
-
-.silver {
-  color: #fafafa;
-}
-
 .city_divider {
   position: relative;
   margin-top: -80px;
@@ -244,88 +144,108 @@ a {
   background-color: black;
   z-index: 9997
 }
-
 .music-video-tile {
   height: 380px;
 }
-
-.footer {
-  height: 100px;
+.music-videos-wrapper {
+  margin-top: 50px;
 }
 
+
+// LAZY LOADER for IFRAMES
+.youtube-player {
+  position: relative;
+  padding-bottom: 56.23%;
+  /* Use 75% for 4:3 videos */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  margin: 5px;
+}
+.youtube-player-container {
+
+}
+.youtube-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: transparent;
+}
+.youtube-player img {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  height: auto;
+  cursor: pointer;
+  -webkit-transition: .4s all;
+  -moz-transition: .4s all;
+  transition: .4s all;
+}
+.youtube-player img:hover {
+  -webkit-filter: brightness(75%);
+}
+.youtube-player .play {
+  height: 72px;
+  width: 72px;
+  left: 50%;
+  top: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  position: absolute;
+  background: url("//i.imgur.com/TxzC70f.png") no-repeat;
+  cursor: pointer;
+}
+
+
+//**//  MUSIC VIDEO SHOW //**//
+.edit-links {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+
+//**//  COLORS //**//
+.gold {
+  color: #f6ce26;
+}
+.silver {
+  color: #fafafa;
+}
 .cyan {
   color: #18d4bc;
 }
-
 .purple {
   color: #b821d4;
 }
-
 .red {
   color: #c71818;
 }
-
 .green {
   color: #7fb81a;
 }
-
 .bubblegum {
   color: #ffb4ce;
 }
-
 .yellow {
   color: #FAFAD2;
 }
-
-.orange {
+.brown {
   color: rgb(196,82,56);
 }
-
-.lightblue {
+.mustard {
   color: #ffdb19;
 }
-
 .silver {
   color: silver;
-}
-
-
-.nav-vibes {
-  display: inline-block;
-  width: 100%;
-  text-align: justify;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 9888;
-  padding-bottom: 5px;
-}
-
-.nav-account {
-  display: inline-block;
-  padding-left: 4%;
-}
-
-.vibe-col {
-}
-
-.nav-vibes a, .nav-account a {
-  font-size: 2em;
-  font-family: 'helvetica', cursive;
-  display: block;
-}
-
-.nav-account a {
-  color: white;
-}
-
-.my-nav {
-  text-align: justify;
-}
-
-#header_container {
-  position: relative;
-  z-index: 9999;
-}
-
-.music-videos-wrapper {
-  margin-top: 50px;
 }
