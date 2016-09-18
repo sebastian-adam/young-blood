@@ -4,5 +4,8 @@ FactoryGirl.define do
     user_name 'MFDOOM'
     password '123456'
     id 1
+    factory :admin do
+      admin true
+    end
   end
 end
