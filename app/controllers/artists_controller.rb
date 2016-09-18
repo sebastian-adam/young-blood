@@ -39,6 +39,7 @@ class ArtistsController < ApplicationController
       redirect_to artists_path
     else
       flash.now[:alert] = "Error saving"
+      render :edit
     end
   end
 

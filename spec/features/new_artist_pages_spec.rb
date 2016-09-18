@@ -20,6 +20,7 @@ describe "the add an artist process" do
     login_as(user, :scope => :user)
     visit root_path
     click_on "submit"
-    expect(page).to have_content "New save"
+    click_on "Create Artist"
+    expect(page).to have_content "Error saving"
   end
 end
