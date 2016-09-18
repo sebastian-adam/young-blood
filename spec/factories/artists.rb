@@ -4,7 +4,6 @@ FactoryGirl.define do
     city "New York"
     state "NY"
     vibe "thump"
-    artist_id 100
     factory :artist_with_videos do
       transient do
         music_videos_count 2

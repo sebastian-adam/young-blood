@@ -8,9 +8,9 @@ class MusicVideosController < ApplicationController
 
   def create
     @artist = Artist.find(params[:artist_id])
-    if @music_video = @artist.music_videos.create(music_video_params)
-      @music_video.youtube_id = YoutubeID.from(@music_video.link)
-      @music_video.save
+    @music_video = @artist.music_videos.new(music_video_params)
+    @music_video.youtube_id = YoutubeID.from(@music_video.link)
+    if @music_video.save
       flash[:success] = "New save"
       redirect_to new_artist_path
     else

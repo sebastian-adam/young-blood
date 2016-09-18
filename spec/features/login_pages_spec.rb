@@ -1,20 +1,21 @@
 require 'rails_helper'
 
-feature 'User authentication' do
-  background do
-    user = create(:user)
+describe "the user login path" do
+  it "logs in a user" do
+    user = FactoryGirl.create(:user)
+    visit root_path
+    click_on "login"
+    fill_in "Email", :with => user.email
+    fill_in "user_password", :with => user.password
+    click_button "Log in"
+    expect(page).to have_content "Signed in successfully."
   end
-  scenario 'can log in from the index' do
-    visit '/'
-    expect(page).to_not have_content('CONTRIBUTE')
 
-    click_link 'LOGIN'
-    fill_in 'Email', with: 'mfdoom@gmail.com'
-    fill_in 'Password', with: '123456'
-    click_button 'Log in'
-
-    expect(page).to have_content('Signed in successfully.')
-    expect(page).to_not have_content('START REPPING')
-    expect(page).to have_content('LOG OUT')
+  it "fails to login user if error" do
+    visit new_user_session_path
+    fill_in "Email", :with => "bad email"
+    fill_in "user_password", :with => "bad password"
+    click_button "Log in"
+    expect(page).to have_content "Invalid Email or password"
   end
 end

@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 describe Artist do
-  it { should have_many :music_videos }
+  validates_presence_of :name, :city, :state, :vibe
+  has_many :music_videos
 end

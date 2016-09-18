@@ -16,10 +16,12 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    if @artist = Artist.create(artist_params)
+    @artist = Artist.new(artist_params)
+    if @artist.save
       flash[:success] = "New save"
       redirect_to new_artist_path
     else
+      @artists = Artist.order(:city)
       flash.now[:alert] = "Error saving"
       render :new
     end
