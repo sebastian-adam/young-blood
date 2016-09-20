@@ -19,14 +19,7 @@
 //= require_tree .
 
 
-
-
 $(document).ready(function() {
-//
-//   $("#landing_page").show().delay(800).slideUp(1000).delay(400);
-//   $("#young_blood_header").delay(1600).fadeIn(800);
-//   $("#region_container").delay(2200).fadeIn().slideDown(1000);
-
   for (i = 10; i < 150; i++) {
     var owl = $("#" + i + "_carousel"),
     status = $("#owlStatus");
@@ -39,8 +32,8 @@ $(document).ready(function() {
     });
   }
 
+
   for (i = 10; i < 150; i++) {
     $("#" + i + "_city").sticky({topSpacing:140});
   }
-
 });

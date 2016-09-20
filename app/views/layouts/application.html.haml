@@ -12,8 +12,10 @@
 
 
   %body
-    -# #landing_page
-    -#   = image_tag "young_blood_logo_white_text.png"
+    #landing_page
+      = image_tag "young_blood_logo_white_text.png"
+    %script(type='text/javascript')
+      $("#landing_page").show().delay(800).slideUp(1000).delay(400);
     #header_container
       #young_blood_header
         = render 'layouts/navbar'
@@ -21,4 +23,7 @@
       -flash.each do |name, msg|
         = content_tag :div, msg, class: [:alert, alert_for(name)]
       = yield
+    %script(type='text/javascript')
+      $("#young_blood_header").delay(1600).fadeIn(800);
+      $("#content_container").delay(2600).show();
     .footer

@@ -4,9 +4,9 @@ class ArtistsController < ApplicationController
 
   def index
     if params[:vibe].present?
-      @artists = Artist.where("vibe = ?", params[:vibe]).order(:city)
+      @artists = Artist.where("vibe = ?", params[:vibe]).order(:city).includes(:music_videos)
     else
-      @artists = Artist.paginate(page: params[:page], per_page: 15).order(:city)
+      @artists = Artist.order(:city).includes(:music_videos)
     end
   end
 
