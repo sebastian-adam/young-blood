@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
     if params[:vibe].present?
       @artists = Artist.where("vibe = ?", params[:vibe]).order(:city)
     else
-      @artists = Artist.order(:city)
+      @artists = Artist.paginate(page: params[:page], per_page: 15).order(:city)
     end
   end
 
