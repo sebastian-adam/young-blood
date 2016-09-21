@@ -5,6 +5,19 @@ class ArtistsController < ApplicationController
   def index
     if params[:vibe].present?
       @artists = Artist.where("vibe = ?", params[:vibe]).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:city].present?
+      @artists = Artist.where("city = ?", params[:city]).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:year].present?
+      @artists = Artist.joins(:music_videos).where(music_videos: {year: [params[:year]]}).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
     else
       @artists = Artist.order(:city).includes(:music_videos)
     end

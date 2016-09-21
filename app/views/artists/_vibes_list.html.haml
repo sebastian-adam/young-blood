@@ -1,9 +1,9 @@
 .tags
-  = link_to "thug", "?vibe=thug", class: "red"
-  = link_to "soul", "?vibe=soul", class: "purple"
-  = link_to "wavy", "?vibe=wavy", class: "cyan"
-  = link_to "chill", "?vibe=chill", class: "green"
-  = link_to "pop", "?vibe=pop", class: "yellow"
-  = link_to "punk", "?vibe=punk", class: "bubblegum"
-  = link_to "word", "?vibe=word", class: "brown"
-  = link_to "thump", "?vibe=thump", class: "mustard"
+  = link_to "thug", root_path(vibe: "thug"), class: "red vibe", remote: true
+  = link_to "soul", root_path(vibe: "soul"), class: "purple vibe", remote: true
+  = link_to "wavy", root_path(vibe: "wavy"), class: "cyan vibe", remote: true
+  = link_to "chill", root_path(vibe: "chill"), class: "green vibe", remote: true
+  = link_to "pop", root_path(vibe: "pop"), class: "yellow vibe", remote: true
+  = link_to "punk", root_path(vibe: "punk"), class: "bubblegum vibe", remote: true
+  = link_to "word", root_path(vibe: "word"), class: "brown vibe", remote: true
+  = link_to "thump", root_path(vibe: "thump"), class: "mustard vibe", remote: true

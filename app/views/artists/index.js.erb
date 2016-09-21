@@ -1,1 +1,26 @@
-alert('hi')
+$('.music-videos-wrapper').html("<%= escape_javascript(render 'filtered_result')%>");
+
+for (i = 10; i < 150; i++) {
+  var owl = $("#" + i + "_carousel"),
+  status = $("#owlStatus");
+  $("#" + i + "_carousel").owlCarousel({
+    navigation : false, // Show next and prev buttons
+    slideSpeed : 400,
+    paginationSpeed : 400,
+    singleItem: true,
+  });
+
+}
+for (i = 10; i < 150; i++) {
+  $("#" + i + "_city").sticky({topSpacing:140});
+}
+
+var div, n,
+v = document.getElementsByClassName("youtube-player");
+for (n = 0; n < v.length; n++) {
+  div = document.createElement("div");
+  div.setAttribute("data-id", v[n].dataset.id);
+  div.innerHTML = labnolThumb(v[n].dataset.id);
+  div.onclick = labnolIframe;
+  v[n].appendChild(div);
+}
