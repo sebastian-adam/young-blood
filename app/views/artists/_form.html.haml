@@ -1,7 +1,7 @@
 %h3 Add new artist
 %br
 
-= simple_form_for @artist do |f|
+= simple_form_for(@artist, method: 'post', remote: true) do |f|
   .form-group
     = f.input :name
   .form-group

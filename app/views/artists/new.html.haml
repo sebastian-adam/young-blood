@@ -2,7 +2,5 @@
 %h3 Click on Artist Name to add new Music Video
 %br
 .row
-  .col-xs-12
-  - @artists.each do |artist|
-    .col-xs-3
-      = link_to artist.name, new_artist_music_video_path(artist)
+  .col-xs-12.new_music_video_links
+    = render 'new_music_video_links'

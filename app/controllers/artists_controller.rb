@@ -70,7 +70,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
     if @artist.save
       flash[:success] = "New save"
-      redirect_to new_artist_path
+      @artists = Artist.order(:name)
+      respond_to do |format|
+        format.js
+      end
     else
       @artists = Artist.order(:city)
       flash.now[:alert] = "Error saving"
