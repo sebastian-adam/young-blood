@@ -1,8 +1,8 @@
-%h1= @year
-%h1= @city
-%h1= @vibe
-%h1= @region
-= link_to 'clear', root_path, remote: true
+%h1.filter-title= @city
+%h1.filter-title= @region
+%h1.filter-title= @vibe
+%h1.filter-title= @year
+
 - prev_city = nil
 - x = 0
 - @artists.each do |artist|

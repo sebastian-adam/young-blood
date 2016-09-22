@@ -1,3 +1,5 @@
+$('.filters').html("<%= escape_javascript(render 'filters_list')%>");
+
 $('.music-videos-wrapper').html("<%= escape_javascript(render 'filtered_result')%>");
 
 for (i = 10; i < 150; i++) {

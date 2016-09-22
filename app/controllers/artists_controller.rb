@@ -3,7 +3,36 @@ class ArtistsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    if params[:vibe].present?
+    if params[:vibe].present? && params[:region].present? && params[:year].present?
+      @vibe = params[:vibe]
+      @region = params[:region]
+      @year = params[:year]
+      @artists = Artist.where("vibe = ?", @vibe).where("region = ?", @region).joins(:music_videos).where(music_videos: {year: [@year]}).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:vibe].present? && params[:region].present?
+      @vibe = params[:vibe]
+      @region = params[:region]
+      @artists = Artist.where("vibe = ?", @vibe).where("region = ?", @region).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:vibe].present? && params[:year].present?
+      @vibe = params[:vibe]
+      @year = params[:year]
+      @artists = Artist.where("vibe = ?", @vibe).joins(:music_videos).where(music_videos: {year: [@year]}).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:region].present? && params[:year].present?
+      @region = params[:region]
+      @year = params[:year]
+      @artists = Artist.where("region = ?", @region).joins(:music_videos).where(music_videos: {year: [@year]}).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:vibe].present?
       @vibe = params[:vibe]
       @artists = Artist.where("vibe = ?", @vibe).order(:city).includes(:music_videos)
       respond_to do |format|
