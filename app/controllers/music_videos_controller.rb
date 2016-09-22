@@ -12,7 +12,9 @@ class MusicVideosController < ApplicationController
     @music_video.youtube_id = YoutubeID.from(@music_video.link)
     if @music_video.save
       flash[:success] = "New save"
-      redirect_to new_artist_path
+      respond_to do |format|
+        format.js
+      end
     else
       flash.now[:alert] = "Error saving"
       render :new
