@@ -1,3 +1,8 @@
+%h1= @year
+%h1= @city
+%h1= @vibe
+%h1= @region
+= link_to 'clear', root_path, remote: true
 - prev_city = nil
 - x = 0
 - @artists.each do |artist|

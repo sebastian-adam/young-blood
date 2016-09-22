@@ -4,17 +4,26 @@ class ArtistsController < ApplicationController
 
   def index
     if params[:vibe].present?
-      @artists = Artist.where("vibe = ?", params[:vibe]).order(:city).includes(:music_videos)
+      @vibe = params[:vibe]
+      @artists = Artist.where("vibe = ?", @vibe).order(:city).includes(:music_videos)
       respond_to do |format|
         format.js
       end
     elsif params[:city].present?
-      @artists = Artist.where("city = ?", params[:city]).order(:city).includes(:music_videos)
+      @city = params[:city]
+      @artists = Artist.where("city = ?", @city).order(:city).includes(:music_videos)
+      respond_to do |format|
+        format.js
+      end
+    elsif params[:region].present?
+      @region = params[:region]
+      @artists = Artist.where("region = ?", @region).order(:city).includes(:music_videos)
       respond_to do |format|
         format.js
       end
     elsif params[:year].present?
-      @artists = Artist.joins(:music_videos).where(music_videos: {year: [params[:year]]}).order(:city).includes(:music_videos)
+      @year = params[:year]
+      @artists = Artist.joins(:music_videos).where(music_videos: {year: [@year]}).order(:city).includes(:music_videos)
       respond_to do |format|
         format.js
       end
@@ -64,7 +73,7 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :city, :state, :vibe)
+    params.require(:artist).permit(:name, :city, :state,:region, :vibe)
   end
 
   def set_artist
