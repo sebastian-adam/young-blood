@@ -20,27 +20,33 @@
 
 
 $(document).ready(function() {
-  for (i = 10; i < 150; i++) {
-    var owl = $("#" + i + "_carousel"),
-    status = $("#owlStatus");
-    $("#" + i + "_carousel").owlCarousel({
-      navigation : false, // Show next and prev buttons
-      slideSpeed : 400,
-      paginationSpeed : 400,
-      singleItem: true,
+  if (window.location.pathname == '/') {
+    $('.tags').show();
+
+    for (i = 10; i < 150; i++) {
+      var owl = $("#" + i + "_carousel"),
+      status = $("#owlStatus");
+      $("#" + i + "_carousel").owlCarousel({
+        navigation : false, // Show next and prev buttons
+        slideSpeed : 400,
+        paginationSpeed : 400,
+        singleItem: true,
+      });
+    }
+
+    for (i = 10; i < 150; i++) {
+      $("#" + i + "_city").sticky({topSpacing:200});
+    }
+
+    $('#advanced_toggle').on("click", function() {
+      $('.filter_radio').toggle();
+      if ($("#advanced_toggle").text() == 'advanced search') {
+        $('#advanced_toggle').text('simple search');
+      } else {
+        $('#advanced_toggle').text('advanced search');
+      };
     });
-  }
-
-  for (i = 10; i < 150; i++) {
-    $("#" + i + "_city").sticky({topSpacing:200});
-  }
-
-  $('#advanced_toggle').on("click", function() {
-    $('.filter_radio').toggle();
-    if ($("#advanced_toggle").text() == 'advanced search') {
-      $('#advanced_toggle').text('simple search');
-    } else {
-      $('#advanced_toggle').text('advanced search');
-    };
-  });
+  } else {
+    $('.tags').hide();
+  };
 });
