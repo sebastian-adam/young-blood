@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the edit an artist process" do
-  it "updates an artist" do
+  it "updates an artist", js: true do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     artist = FactoryGirl.create(:artist)
@@ -14,7 +14,7 @@ describe "the edit an artist process" do
     expect(page).to have_content "Changes saved"
   end
 
-  it "fails if it's missing parameters" do
+  it "fails if it's missing parameters", js: true do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     artist = FactoryGirl.create(:artist)

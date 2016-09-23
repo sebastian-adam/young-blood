@@ -20,7 +20,7 @@ body {
   z-index: 9999;
 }
 #content_container {
-  margin-top: 70px;
+  margin-top: 90px;
 }
 a {
   color: #1edbcc;
@@ -28,28 +28,22 @@ a {
 .footer {
   height: 100px;
 }
-.tags {
-  font-size: 20px;
-  .submit {
-    color: black;
-  }
-}
 
 
 //**//  LOAD SCREEN //**//
-#landing_page {
-  text-align: center;
-}
-
-#landing_page img {
-  max-width: 200px;
-  margin-top: 15%;
-  margin-bottom: 15%;
-}
-
-#landing_page, #content_container, #young_blood_header {
-  display: none;
-}
+// #landing_page {
+//   text-align: center;
+// }
+//
+// #landing_page img {
+//   max-width: 200px;
+//   margin-top: 15%;
+//   margin-bottom: 15%;
+// }
+//
+// #landing_page, #content_container, #young_blood_header {
+//   display: none;
+// }
 
 
 //**//  NAVBAR //**//
@@ -87,6 +81,15 @@ a {
 }
 .filter-title {
   display: inline-block;
+}
+.filter_radio {
+  display: none;
+}
+.tags {
+  font-size: 20px;
+  .submit, #advanced_toggle {
+    color: black;
+  }
 }
 
 

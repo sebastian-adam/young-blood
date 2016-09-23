@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the add a music video process" do
-  it "creates a music video" do
+  it "creates a music video", js: true do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     artist = FactoryGirl.create(:artist)
@@ -17,7 +17,7 @@ describe "the add a music video process" do
     expect(page).to have_content "New save"
   end
 
-  it "fails if it's missing parameters" do
+  it "fails if it's missing parameters", js: true do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     artist = FactoryGirl.create(:artist)

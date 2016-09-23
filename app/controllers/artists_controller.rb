@@ -69,11 +69,11 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      flash[:success] = "New save"
       @artists = Artist.order(:name)
       respond_to do |format|
         format.js
       end
+      flash[:success] = "New save"
     else
       @artists = Artist.order(:city)
       flash.now[:alert] = "Error saving"

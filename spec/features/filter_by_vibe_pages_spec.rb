@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the filter artist by vibe process" do
-  it "filters the home page artists list" do
+  it "filters the home page artists list", js: true do
     artist = FactoryGirl.create(:artist)
     visit root_path
     expect(page).to have_content artist.name

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the add an artist process" do
-  it "creates an artist" do
+  it "creates an artist", js: true do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     visit root_path
@@ -15,7 +15,7 @@ describe "the add an artist process" do
     expect(page).to have_content "New save"
   end
 
-  it "fails if it's missing parameters" do
+  it "fails if it's missing parameters", js: true do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
     visit root_path

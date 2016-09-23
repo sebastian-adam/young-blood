@@ -42,5 +42,7 @@
     = radio_button_tag 'year', '2015', false, year: '2015', class: 'filter_radio'
     = link_to "2016", root_path(year: "2016"), class: "year", remote: true
     = radio_button_tag 'year', '2016', false, year: '2016', class: 'filter_radio'
-    
-    = submit_tag "filter", class: 'submit'
+
+    = submit_tag "filter", class: 'submit filter_radio'
+
+  =button_tag "advanced search", id: 'advanced_toggle', remote: true
