@@ -1,18 +1,22 @@
+%h3 Add new video
+%br
+
 = simple_form_for([@artist, @music_video], method: 'post', remote: true) do |f|
   .form-group
     = f.input :title
-  .row
-    .form-group.col-xs-3
-      = f.input :featuring
-    .form-group.col-xs-3
-      = f.input :featuring_2
-    .form-group.col-xs-3
-      = f.input :featuring_3
-    .form-group.col-xs-3
-      = f.input :featuring_4
   .form-group
     = f.input :year
   .form-group
     = f.input :link
+  .row
+    .form-group.col-xs-10
+      = f.input :featuring
+    .form-group.col-xs-10#ft-2
+      = f.input :featuring_2
+    .form-group.col-xs-10#ft-3
+      = f.input :featuring_3
+    .form-group.col-xs-10#ft-4
+      = f.input :featuring_4
+    = button_tag "+", type: 'button', id: 'plus-feature'
   .form-group.text-center
     = f.button :submit

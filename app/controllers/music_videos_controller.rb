@@ -4,6 +4,9 @@ class MusicVideosController < ApplicationController
   def new
     @artist = Artist.find(params[:artist_id])
     @music_video = @artist.music_videos.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -27,6 +30,9 @@ class MusicVideosController < ApplicationController
   def edit
     @artist = Artist.find(params[:artist_id])
     @music_video = MusicVideo.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
@@ -36,7 +42,7 @@ class MusicVideosController < ApplicationController
       @music_video.youtube_id = YoutubeID.from(@music_video.link)
       @music_video.save
       flash[:success] = "Changes saved"
-      redirect_to artist_path(@artist)
+      redirect_to edit_artist_path(@artist)
     else
       flash.now[:alert] = "Error saving"
       render :edit

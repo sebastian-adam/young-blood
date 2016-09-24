@@ -68,16 +68,15 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
+    @artists = Artist.order(:name)
     if @artist.save
-      @artists = Artist.order(:name)
       respond_to do |format|
-        format.js
+        format.js { flash.now[:success] = "Artist saved" }
       end
-      flash[:success] = "New save"
     else
-      @artists = Artist.order(:city)
-      flash.now[:alert] = "Error saving"
-      render :new
+      respond_to do |format|
+        format.js { flash.now[:alert] = "Error saving artist" }
+      end
     end
   end
 
@@ -89,17 +88,19 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
-      flash[:success] = "Changes saved"
-      redirect_to artists_path
+      respond_to do |format|
+        format.js { flash.now[:success] = "Artist updated" }
+      end
     else
-      flash.now[:alert] = "Error saving"
-      render :edit
+      respond_to do |format|
+        format.js { flash.now[:alert] = "Error updating artist" }
+      end
     end
   end
 
   def destroy
     @artist.destroy
-    redirect_to artists_path
+    redirect_to new_artist_path
   end
 
   private

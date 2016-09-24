@@ -1,0 +1,6 @@
+- @artist.music_videos.each do |music_video|
+  .row
+    = music_video.title
+  .carousel_contents
+    .youtube-player-container
+      .youtube-player{ :data => {:id => music_video.youtube_id } }

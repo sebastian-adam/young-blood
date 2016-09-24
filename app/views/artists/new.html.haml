@@ -1,6 +1,13 @@
-= render 'form'
-%h3 Click on Artist Name to add new Music Video
-%br
 .row
-  .col-xs-12.new_music_video_links
-    = render 'new_music_video_links'
+  .col-xs-4
+    .artist-form
+      = render 'new_form'
+    .edit-artist-form
+    .music-video-form
+  .col-xs-8
+    %h3 Artists
+    -# =link_to "new_form"
+    %br
+    .row
+      .col-xs-12.artist-links
+        = render 'artist_links'

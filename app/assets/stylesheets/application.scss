@@ -82,14 +82,23 @@ a {
 .filter-title {
   display: inline-block;
 }
-.filter_radio {
+.filter_radio, #reset-radio {
   display: none;
 }
 .tags {
   font-size: 20px;
-  .submit, #advanced_toggle {
+  .submit {
     color: black;
   }
+}
+#advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video {
+  color: black;
+}
+#edit-artist, #close-new-music-video {
+  float: inline;
+}
+.inline h3 {
+  display: inline-block;
 }
 
 
@@ -218,10 +227,9 @@ a {
 }
 
 
-//**//  MUSIC VIDEO SHOW //**//
-.edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
+//**//  FORMS //**//
+#ft-2, #ft-3, #ft-4 {
+  display: none;
 }
 
 

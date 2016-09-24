@@ -1,4 +1,6 @@
-$('.new_music_video_links').html("<%= escape_javascript(render 'new_music_video_links')%>");
+$("#flash-response").html('<%= j render "flash_response" %>');
+
+$('.artist-links').html('<%= j render "artist_links" %>');
 
 $('#artist_name').val('');
 $('#artist_city').val('');

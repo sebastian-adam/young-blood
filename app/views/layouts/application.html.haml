@@ -20,8 +20,8 @@
       #young_blood_header
         = render 'layouts/navbar'
     #content_container.container
-      -flash.each do |name, msg|
-        = content_tag :div, msg, class: [:alert, alert_for(name)]
+      #flash-response
+        = render 'flash_response'
       = yield
     -# %script(type='text/javascript')
       -# $("#young_blood_header").delay(1600).fadeIn(800);

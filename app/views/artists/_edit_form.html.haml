@@ -1,0 +1,18 @@
+.inline
+  %h3 Edit profile
+  %br
+
+= simple_form_for(@artist, method: 'patch', remote: true) do |f|
+  .form-group
+    = f.input :name
+  .form-group
+    = f.input :city
+  .form-group
+    = f.input :state
+  .form-group
+    = f.input :region, :collection => ['east', 'west', 'south', 'midwest', 'global']
+  .form-group
+    = f.input :vibe, :collection => ['thug','wavy','soul','chill','pop','punk','word','thump']
+  .form-group.text-center
+    = f.button :submit
+%br

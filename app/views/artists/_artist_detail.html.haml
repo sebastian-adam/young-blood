@@ -1,0 +1,14 @@
+%h3= @artist.name
+
+.edit-artist
+  = link_to "Edit Profile", edit_artist_path(@artist)
+  |
+  = link_to "Delete Artist", artist_path(@artist), method: :delete, data: { confirm: 'Are you sure you want to delete "' + @artist.name + '"?' }
+
+.new-music-video-form
+  .inline
+    %h3 Videos
+    %h3= button_to '+', new_artist_music_video_path(@artist), method: :get, remote: true, id: 'add-new-music-video'
+  - @artist.music_videos.each do |music_video|
+    = music_video.title + ' ' + music_video.year + ' '
+    %br
