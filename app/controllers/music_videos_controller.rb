@@ -14,13 +14,13 @@ class MusicVideosController < ApplicationController
     @music_video = @artist.music_videos.new(music_video_params)
     @music_video.youtube_id = YoutubeID.from(@music_video.link)
     if @music_video.save
-      flash[:success] = "New save"
       respond_to do |format|
-        format.js
+        format.js { flash.now[:success] = "Music video saved" }
       end
     else
-      flash.now[:alert] = "Error saving"
-      render :new
+      respond_to do |format|
+        format.js { flash.now[:alert] = "Error saving music video" }
+      end
     end
   end
 
@@ -41,11 +41,13 @@ class MusicVideosController < ApplicationController
     if @music_video.update(music_video_params)
       @music_video.youtube_id = YoutubeID.from(@music_video.link)
       @music_video.save
-      flash[:success] = "Changes saved"
-      redirect_to edit_artist_path(@artist)
+      respond_to do |format|
+        format.js { flash.now[:success] = "Music video updated" }
+      end
     else
-      flash.now[:alert] = "Error saving"
-      render :edit
+      respond_to do |format|
+        format.js { flash.now[:alert] = "Error updating music video" }
+      end
     end
   end
 
@@ -53,7 +55,7 @@ class MusicVideosController < ApplicationController
     @artist = Artist.find(params[:artist_id])
     @music_video = MusicVideo.find(params[:id])
     @music_video.destroy
-    redirect_to artist_path(@artist)
+    redirect_to edit_artist_path(@artist)
   end
 
   private

@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:vibe].present? && params[:region].present? && params[:year].present?

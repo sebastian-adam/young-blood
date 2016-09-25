@@ -4,7 +4,7 @@
   %h3 "
 %br
 
-= simple_form_for([@artist, @music_video], method: 'patch') do |f|
+= simple_form_for([@artist, @music_video], method: 'patch', remote: true) do |f|
   .form-group
     = f.input :title
   .form-group
