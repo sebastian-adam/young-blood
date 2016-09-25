@@ -14,7 +14,7 @@ describe "the add a music video process" do
     fill_in 'Year', :with => music_video.year
     fill_in 'Link', :with => music_video.link
     click_on "Create Music video"
-    expect(page).to have_content "New save"
+    expect(page).to have_content "Music video saved"
   end
 
   it "fails if it's missing parameters", js: true do
@@ -25,6 +25,6 @@ describe "the add a music video process" do
     click_on "submit"
     click_on artist.name
     click_on "Create Music video"
-    expect(page).to have_content "Error saving"
+    expect(page).to have_content "Error saving music video"
   end
 end

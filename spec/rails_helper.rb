@@ -71,6 +71,10 @@ RSpec.configure do |config|
 
   # Include Warden test helpers
   config.include Warden::Test::Helpers
+
+  config.after :each do
+    Warden.test_reset!
+  end
 end
 
 Shoulda::Matchers.configure do |config|

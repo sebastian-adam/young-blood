@@ -1,6 +1,5 @@
 $(document).ready(function() {
   if (window.location.pathname == '/') {
-    $('.tags').show();
 
     for (i = 10; i < 150; i++) {
       var owl = $("#" + i + "_carousel"),
@@ -33,5 +32,7 @@ $(document).ready(function() {
 
   } else {
     $('.tags').hide();
+    $('#my-nav').removeClass('navbar-fixed-top');
+    $('#content_container').css({'margin-top' : '0'});
   };
 });
