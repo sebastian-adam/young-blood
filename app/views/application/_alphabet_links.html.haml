@@ -1,0 +1,5 @@
+- alphabet = (10...36).map{ |i| i.to_s 36}
+- alphabet.each do |char|
+  - char.upcase!
+  = button_tag char, type: 'button', class: 'alphabet-marker btn-link', id: "#{char}-char"
+  %br

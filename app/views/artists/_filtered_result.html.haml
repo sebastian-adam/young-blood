@@ -4,9 +4,9 @@
 %h1.filter-title= @year
 
 - prev_city = nil
-- x = 0
+- first = true
 - @artists.each do |artist|
-  - if x == 0
+  - if first == true
     - prev_city = 'nil'
   - current_city = artist.city
   - if current_city != prev_city && artist != @artists.first
@@ -15,6 +15,8 @@
     .music-video-head
       .side_column_body.col-xs-1
         - if current_city != prev_city
+          - alphabet_character = artist.city[0]
+          .alphabet-marker{class: "#{alphabet_character}-char"}
           = link_to root_path(city: "#{artist.city}"), remote: true do
             .city_title{id: "#{artist.id}_city"}
               - artist.city.upcase.split('').each do |character|
@@ -25,7 +27,7 @@
                   %p.silver
                     = character
         - prev_city = current_city
-        - x += 1
+        - first = false
         -# = render 'city_title', artist: artist, current_city: current_city, prev_city: prev_city, x: x
       .center_column_body.col-xs-11
         = render 'artist_title', artist: artist

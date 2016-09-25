@@ -30,6 +30,12 @@ $(document).ready(function() {
       $('.filter_radio').prop('checked', false);
     });
 
+    $('.alphabet-marker').on('click', function() {
+      var alphabet_character = $(this).attr('id')[0]
+      position = $('.' + alphabet_character + '-char').first().offset();
+      window.scrollTo( 0, position.top - 200)
+    });
+
   } else {
     $('.tags').hide();
     $('#my-nav').removeClass('navbar-fixed-top');

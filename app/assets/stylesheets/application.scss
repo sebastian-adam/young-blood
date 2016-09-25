@@ -19,6 +19,12 @@ body {
   position: relative;
   z-index: 9999;
 }
+
+#alphabet-container {
+  position: fixed;
+  top: 200px;
+  left: 200px;
+}
 #content_container {
   margin-top: 90px;
 }
@@ -93,6 +99,15 @@ a {
 }
 #advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video {
   color: black;
+}
+
+.alphabet-marker {
+  line-height: 12px;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+    color: gold;
+  }
 }
 #edit-artist, #close-new-music-video {
   float: inline;
