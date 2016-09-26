@@ -146,11 +146,14 @@ a {
 
 
 //**//  MUSIC VIDEO TILES //**//
-.music-videos-wrapper {
+.music-videos-wrapper, .filtered-videos-wrapper {
   padding-top: 40px;
-  margin: 0 auto;
+  margin: 50 auto 0;
   max-width: 642px;
   width: 100%;
+}
+.filtered-videos-wrapper {
+  display: none;
 }
 .music-video-tile {
   margin-bottom: 70px;
@@ -195,9 +198,6 @@ a {
 }
 .music-video-tile {
   height: 380px;
-}
-.music-videos-wrapper {
-  margin-top: 50px;
 }
 
 

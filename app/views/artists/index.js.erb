@@ -1,8 +1,20 @@
-$('.music-videos-wrapper').html("<%= escape_javascript(render 'filtered_result')%>");
+$('.filtered-videos-wrapper').html("<%= escape_javascript(render 'filtered_result')%>").show();
+
+$('.music-videos-wrapper').hide()
 
 $('#alphabet-container').hide()
 
+$('#filter-header').prepend("<h3><%= j button_tag 'x', type: 'button', class: 'btn-link', id: 'remove-filter' %></h3>");
+
 window.scrollTo( 0, 0)
+
+
+
+$('#remove-filter').on("click", function() {
+  $('.music-videos-wrapper').show();
+  $('.filtered-videos-wrapper').html('').hide();
+  $('#alphabet-container').show()
+});
 
 for (i = 10; i < 150; i++) {
   var owl = $("#" + i + "_carousel"),
