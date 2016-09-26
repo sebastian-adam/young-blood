@@ -1,5 +1,5 @@
 class Artist < ApplicationRecord
-  has_many :music_videos
+  has_many :music_videos, -> {order(year: :desc)}
 
   validates :name, presence: true, uniqueness: true
   validates :city, presence: true

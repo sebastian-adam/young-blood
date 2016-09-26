@@ -21,9 +21,9 @@
         = render 'layouts/navbar'
     #content_container.container
       #alphabet-container.text-center
-        = render 'alphabet_links'
+        = render 'layouts/alphabet_links'
       #flash-response
-        = render 'flash_response'
+        = render 'layouts/flash_response'
       = yield
     -# %script(type='text/javascript')
       -# $("#young_blood_header").delay(1600).fadeIn(800);

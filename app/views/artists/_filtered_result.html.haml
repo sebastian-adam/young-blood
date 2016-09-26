@@ -21,6 +21,8 @@
           = link_to root_path(city: "#{artist.city}"), remote: true do
             .city_title{id: "#{artist.id}_city"}
               - artist.city.upcase.split('').each do |character|
+                - if character == ' '
+                  .spacer
                 - if current_city == "Chicago" || current_city == "Atlanta" || current_city == "New York" || current_city == "Los Angeles" || current_city == "Miami"
                   %p.gold
                     = character

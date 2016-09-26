@@ -1,1 +1,13 @@
 $("#flash-response").html('<%= j render "flash_response" %>');
+
+$(".preview-videos").html('<%= j render "artists/preview_videos" %>');
+
+var div, n,
+v = document.getElementsByClassName("youtube-player");
+for (n = 0; n < v.length; n++) {
+  div = document.createElement("div");
+  div.setAttribute("data-id", v[n].dataset.id);
+  div.innerHTML = labnolThumb(v[n].dataset.id);
+  div.onclick = labnolIframe;
+  v[n].appendChild(div);
+}

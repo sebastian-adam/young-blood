@@ -7,6 +7,8 @@ describe "the destroy an artist process" do
     artist = FactoryGirl.create(:artist)
     visit new_artist_path
     find(artist.name).trigger('click')
+    save_and_open_screenshot
+    binding.pry
     click_on "Delete Artist"
     expect(page).to have_no_content artist.name
   end

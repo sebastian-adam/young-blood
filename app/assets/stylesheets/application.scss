@@ -21,8 +21,8 @@ body {
 }
 #alphabet-container {
   position: fixed;
-  top: 200px;
-  left: 200px;
+  top: 140px;
+  left: 10px;
 }
 #content_container {
   margin-top: 108px;
@@ -106,7 +106,7 @@ a {
     margin-bottom: 0;
   }
 }
-#advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video {
+#advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video, #add-new-artist {
   color: black;
 }
 
@@ -114,6 +114,12 @@ a {
   font-size: 12px;
   margin: 0;
 }
+
+#add-new-artist {
+  display: none;
+  margin-bottom: 0;
+}
+
 
 .alphabet-marker {
   line-height: 12px;
@@ -186,6 +192,9 @@ a {
 }
 .city_title p {
   line-height: 13px;
+}
+.spacer {
+  height: 2px;
 }
 .city_divider {
   position: relative;

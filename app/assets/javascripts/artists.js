@@ -1,7 +1,7 @@
 $(document).ready(function() {
   if (window.location.pathname == '/') {
 
-    for (i = 10; i < 150; i++) {
+    for (i = 10; i < 200; i++) {
       var owl = $("#" + i + "_carousel"),
       status = $("#owlStatus");
       $("#" + i + "_carousel").owlCarousel({
