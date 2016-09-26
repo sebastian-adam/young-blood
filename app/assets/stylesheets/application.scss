@@ -19,14 +19,18 @@ body {
   position: relative;
   z-index: 9999;
 }
-
 #alphabet-container {
   position: fixed;
   top: 200px;
   left: 200px;
 }
 #content_container {
-  margin-top: 90px;
+  margin-top: 108px;
+}
+#filter-header {
+  position: fixed;
+  top: 150px;
+  left: 50px;
 }
 a {
   color: #1edbcc;
@@ -85,20 +89,30 @@ a {
   display: block;
   color: white;
 }
-.filter-title {
-  display: inline-block;
-}
 .filter_radio, #reset-radio {
   display: none;
+}
+.filter_radio {
+  margin: 0;
+  padding: 0;
 }
 .tags {
   font-size: 20px;
   .submit {
     color: black;
+    margin-bottom: 0;
+  }
+  form  {
+    margin-bottom: 0;
   }
 }
 #advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video {
   color: black;
+}
+
+#advanced-toggle, #reset-radio {
+  font-size: 12px;
+  margin: 0;
 }
 
 .alphabet-marker {
@@ -109,6 +123,7 @@ a {
     color: gold;
   }
 }
+
 #edit-artist, #close-new-music-video {
   float: inline;
 }
@@ -167,7 +182,7 @@ a {
   padding: 0 2px;
 }
 .city_title p {
-  margin: 0;
+  line-height: 13px;
 }
 .city_divider {
   position: relative;

@@ -1,5 +1,9 @@
 $('.music-videos-wrapper').html("<%= escape_javascript(render 'filtered_result')%>");
 
+$('#alphabet-container').hide()
+
+window.scrollTo( 0, 0)
+
 for (i = 10; i < 150; i++) {
   var owl = $("#" + i + "_carousel"),
   status = $("#owlStatus");
@@ -12,7 +16,7 @@ for (i = 10; i < 150; i++) {
 
 }
 for (i = 10; i < 150; i++) {
-  $("#" + i + "_city").sticky({topSpacing:200});
+  $("#" + i + "_city").sticky({topSpacing:192});
 }
 
 var div, n,
