@@ -32,11 +32,11 @@ for (i = 10; i < 150; i++) {
 }
 
 var div, n,
-v = document.getElementsByClassName("youtube-player");
+  v = document.getElementsByClassName("youtube-player");
 for (n = 0; n < v.length; n++) {
   div = document.createElement("div");
   div.setAttribute("data-id", v[n].dataset.id);
-  div.innerHTML = labnolThumb(v[n].dataset.id);
-  div.onclick = labnolIframe;
+  div.innerHTML = buildThumb(v[n].dataset.id);
+  div.onclick = buildIframe;
   v[n].appendChild(div);
 }

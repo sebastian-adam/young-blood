@@ -12,21 +12,22 @@ $(document).ready(function() {
   for (n = 0; n < v.length; n++) {
     div = document.createElement("div");
     div.setAttribute("data-id", v[n].dataset.id);
-    div.innerHTML = labnolThumb(v[n].dataset.id);
-    div.onclick = labnolIframe;
+    div.innerHTML = buildThumb(v[n].dataset.id);
+    div.onclick = buildIframe;
     v[n].appendChild(div);
   }
 });
 
-function labnolThumb(id) {
+function buildThumb(id) {
   var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
-      play = '<div class="play"></div>';
+    play = '<div class="play"></div>';
   return thumb.replace("ID", id) + play;
 }
 
 var initialized_vids = [];
 var current_vid;
-function labnolIframe() {
+var player;
+function buildIframe() {
   player = new YT.Player(this.dataset.id, {
     videoId: this.dataset.id,
     playerVars: { 'autoplay': 1, 'showinfo': 0 },
@@ -44,9 +45,12 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
+  if (event.target.getPlayerState() == YT.PlayerState.PLAYING) {
+    current_vid = event.target.getVideoData()['video_id'];
+  }
   initialized_vids.forEach(function(vid) {
     if(vid.getVideoData()['video_id'] != current_vid && vid.getPlayerState() == YT.PlayerState.PLAYING) {
-      vid.stopVideo()
+      vid.pauseVideo()
     }
   });
 }
