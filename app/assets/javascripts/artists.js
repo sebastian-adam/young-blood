@@ -79,6 +79,38 @@ $(document).ready(function() {
       });
     });
 
+    $('#advanced-filter-submit').on("click", function() {
+      var vibe = $("input[name=vibe]:checked").val() ? $("input[name=vibe]:checked").val() : 'artist';
+      var region = $("input[name=region]:checked").val() ? $("input[name=region]:checked").val() : 'artist';
+      var year = $("input[name=year]:checked").val() ? $("input[name=year]:checked").val() : 'artist';
+      $('.carousel-tile').show();
+      $('.owl-page').show();
+      $('.artist').show();
+      $('.artist').not('.' + vibe + '.' + region + '.' + year).hide();
+
+      if (year && year != 'artist') {
+        $('.carousel-tile').not('.' + year).hide();
+        $('.owl-carousel').trigger('owl.jumpTo', 0);
+
+        $.each($('.owl-item').children('.carousel-tile').not('.' + year), function() {
+          var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
+          route_to_pagination.find('.owl-page:visible:last').hide();
+          if(route_to_pagination.find('.owl-page:visible').length == 1) {
+            route_to_pagination.find('.owl-page:visible').hide()
+          }
+        });
+      }
+
+      vibe = vibe ? vibe : ''
+      region = region ? region : ''
+      year = year ? year : ''
+
+      $('#filter-title').html(region + vibe + year);
+
+
+    });
+
+
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id')[0]
       position = $('.' + alphabet_character + '-marker').first().offset();

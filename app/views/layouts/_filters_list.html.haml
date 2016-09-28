@@ -43,7 +43,7 @@
     = link_to "2016", artists_path, class: "year", year: '2016', remote: true
     = radio_button_tag 'year', '2016', false, year: '2016', class: 'filter-radio'
 
-    = submit_tag "filter", class: 'submit filter-radio'
+    = submit_tag "filter", class: 'submit filter-radio', id: 'advanced-filter-submit'
 
   =button_tag "advanced search", id: 'advanced-toggle'
   =button_tag "reset", id: 'reset-radio'
