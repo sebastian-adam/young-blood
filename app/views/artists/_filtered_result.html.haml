@@ -34,13 +34,14 @@
         -# = render 'city_title', artist: artist, current_city: current_city, prev_city: prev_city, x: x
       .center_column_body.col-xs-11
         = render 'artist_title', artist: artist
-        .owl-carousel.owl-theme.row{:id => "#{artist.id}_carousel"}
+        .owl-carousel.owl-theme.row{id: "#{artist.id}_carousel"}
           - artist.music_videos.each do |music_video|
             .carousel_contents
               .col-xs-11
                 = render 'track_title', music_video: music_video
                 .youtube-player-container
-                  .youtube-player{ :data => {:id => music_video.youtube_id } }
+                  .youtube-player{ data: {id: music_video.youtube_id } }
+                    .youtube-iframe{ id: music_video.youtube_id }
               .side_column_body.col-xs-1
                 = link_to root_path(year: "#{music_video.year}"), remote: true do
                   - music_video.year.split('').each do |character|
