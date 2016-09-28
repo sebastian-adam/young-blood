@@ -1,4 +1,49 @@
 .root.text-center
-  .filtered-videos-wrapper
+  #filter-header
+    %h3
+      %span#filter-title
+      = button_tag 'x', type: 'button', class: 'btn-link', id: 'remove-filter'
   .music-videos-wrapper
-    = render 'filtered_result'
+    - prev_city = nil
+    - first = true
+    - @artists.each do |artist|
+      .artist{class: "#{artist.vibe} #{artist.region} #{artist.city} #{artist.music_videos.map(&:year).join(' ')}"}
+        - if first == true
+          - prev_city = 'nil'
+        - current_city = artist.city
+        - if current_city != prev_city && artist != @artists.first
+          .city_divider
+        .music-video-tile
+          .music-video-head
+            .side-column-body.col-xs-1
+              - if current_city != prev_city
+                - alphabet_character = artist.city[0]
+                .alphabet-marker{class: "#{alphabet_character}-marker"}
+                = link_to artists_path, class: "city", city: "#{artist.city}", remote: true do
+                  .city-title{id: "#{artist.id}-city-title"}
+                    - artist.city.upcase.split('').each do |character|
+                      - if character == ' '
+                        .spacer
+                      - if current_city == "Chicago" || current_city == "Atlanta" || current_city == "New York" || current_city == "Los Angeles" || current_city == "Miami"
+                        %p.gold
+                          = character
+                      -else
+                        %p.silver
+                          = character
+              - prev_city = current_city
+              - first = false
+            .center-column-body.col-xs-11
+              = render 'artist_title', artist: artist
+              .owl-carousel.owl-theme.row{id: "#{artist.id}-carousel"}
+                - artist.music_videos.each do |music_video|
+                  .carousel-tile{class: "#{music_video.year}", title: "#{music_video.year}"}
+                    .col-xs-11
+                      = render 'track_title', music_video: music_video
+                      .youtube-player-container
+                        .youtube-player{ data: {id: music_video.youtube_id } }
+                          .youtube-iframe{ id: music_video.youtube_id }
+                    .side-column-body.col-xs-1
+                      = link_to root_path(year: "#{music_video.year}"), remote: true do
+                        - music_video.year.split('').each do |character|
+                          .row
+                            = character

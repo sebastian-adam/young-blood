@@ -1,42 +1,13 @@
-$('.filtered-videos-wrapper').html("<%= escape_javascript(render 'filtered_result')%>").show();
-
-$('.music-videos-wrapper').hide()
-
-$('#alphabet-container').hide()
-
-$('#filter-header').prepend("<h3><%= j button_tag 'x', type: 'button', class: 'btn-link', id: 'remove-filter' %></h3>");
-
 window.scrollTo( 0, 0)
 
-
+$('#alphabet-container').hide();
+$('#filter-header').show();
 
 $('#remove-filter').on("click", function() {
-  $('.music-videos-wrapper').show();
-  $('.filtered-videos-wrapper').html('').hide();
+  window.scrollTo( 0, 0)
   $('#alphabet-container').show()
+  $('.artist').show();
+  $('.carousel-tile').show();
+  $('.owl-page').show()
+  $('#filter-header').hide()
 });
-
-for (i = 10; i < 200; i++) {
-  var owl = $("#" + i + "_carousel"),
-  status = $("#owlStatus");
-  $("#" + i + "_carousel").owlCarousel({
-    navigation : false, // Show next and prev buttons
-    slideSpeed : 400,
-    paginationSpeed : 400,
-    singleItem: true,
-  });
-
-}
-for (i = 10; i < 150; i++) {
-  $("#" + i + "_city").sticky({topSpacing:192});
-}
-
-var div, n,
-  v = document.getElementsByClassName("youtube-player");
-for (n = 0; n < v.length; n++) {
-  div = document.createElement("div");
-  div.setAttribute("data-id", v[n].dataset.id);
-  div.innerHTML = buildThumb(v[n].dataset.id);
-  div.onclick = buildIframe;
-  v[n].appendChild(div);
-}
