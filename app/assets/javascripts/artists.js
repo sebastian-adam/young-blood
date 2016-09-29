@@ -1,7 +1,8 @@
 $(document).ready(function() {
   if (window.location.pathname == '/') {
 
-    for (i = 10; i < 200; i++) {
+    var number_of_artists = $('.music-videos-wrapper > div').length;
+    for (i = 0; i < number_of_artists; i++) {
       var owl = $("#" + i + "-carousel"),
       status = $("#owlStatus");
       $("#" + i + "-carousel").owlCarousel({
@@ -14,7 +15,15 @@ $(document).ready(function() {
       });
     }
 
-    for (i = 10; i < 150; i++) {
+    $(".pagination-marker").on("click", function(){
+        var carousel_id = $(this).siblings('.owl-carousel').attr('id');
+        var carousel_number = carousel_id.split('-')[0]
+        var pagination_id = $(this).attr('id');
+        var pagination_position = pagination_id.split('-')[0]
+        $('#' + carousel_number + '-carousel').trigger('owl.goTo', pagination_position)
+    });
+
+    for (i = 0; i < number_of_artists; i++) {
       $("#" + i + "-city-title").sticky({topSpacing:192});
     }
 

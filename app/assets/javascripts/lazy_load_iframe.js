@@ -28,7 +28,7 @@ $(document).ready(function() {
   var video_counter = 0;
   $('#playlist-start').on('click', function() {
     var qued_video_id = playlist[video_counter].attr('id');
-    $('html, body').animate({scrollTop: $('#' + qued_video_id).offset().top - 400}, 1000);
+    $('html, body').animate({scrollTop: $('#' + qued_video_id).offset().top - 290}, 1000);
     $('#' + qued_video_id).click();
     video_counter += 1;
   });
@@ -72,13 +72,9 @@ function buildIframe() {
 
 function onPlayerReady(event) {
   event.target.playVideo();
-  console.log(event)
-
 }
 
 function onPlayerStateChange(event) {
-  console.log(event)
-  console.log(event.target.a.id)
   if (event.target.getPlayerState() == YT.PlayerState.PLAYING) {
     current_vid = event.target.getVideoData()['video_id'];
   }

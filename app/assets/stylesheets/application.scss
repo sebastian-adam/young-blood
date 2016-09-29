@@ -146,10 +146,11 @@ a {
 
 //**//  CAROUSEL //**//
 .owl-pagination {
-  position: absolute;
-  left: 10px;
-  top: -75;
-  z-index: 9998;
+  display: none;
+  // position: absolute;
+  // left: 10px;
+  // top: -75;
+  // z-index: 9998;
 }
 
 //**//  MUSIC VIDEO TILES //**//

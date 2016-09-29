@@ -5,7 +5,9 @@
   .music-videos-wrapper
     - prev_city = nil
     - first = true
+    - artist_counter = -1
     - @artists.each do |artist|
+      - artist_counter += 1
       .artist{class: "#{artist.vibe} #{artist.region} #{artist.city} #{artist.music_videos.map(&:year).join(' ')}"}
         - if first == true
           - prev_city = 'nil'
@@ -31,8 +33,12 @@
             - prev_city = current_city
             - first = false
           .center-column-body.col-xs-11
+            - music_video_counter = 0
+            - artist.music_videos.each do |music_video|
+              = button_tag "*", class: 'pagination-marker', id: "#{music_video_counter}-pagination"
+              - music_video_counter += 1
             = render 'artist_title', artist: artist
-            .owl-carousel.owl-theme.row{id: "#{artist.id}-carousel"}
+            .owl-carousel.owl-theme.row{id: "#{artist_counter}-carousel"}
               - artist.music_videos.each do |music_video|
                 .carousel-tile{class: "#{music_video.year}", title: "#{music_video.year}"}
                   .col-xs-11
