@@ -10,7 +10,7 @@ $(document).ready(function() {
         paginationSpeed : 400,
         singleItem: true,
         touchDrag: false,
-        mouseDrag: false
+        mouseDrag: false,
       });
     }
 
@@ -32,7 +32,18 @@ $(document).ready(function() {
       $('.filter-radio').prop('checked', false);
     });
 
+    $('#remove-filter').on("click", function() {
+      year = false;
+      $('.carousel-tile').show();
+      $('.artist').show();
+      $('.owl-page').show()
+      $('#filter-header').hide()
+      $('#alphabet-container').show()
+      window.scrollTo( 0, 0)
+    });
+
     $('.vibe').on("click", function(e) {
+      year = false;
       $('.carousel-tile').show();
       $('.owl-page').show()
       var vibe = $(this).attr('vibe');
@@ -42,6 +53,7 @@ $(document).ready(function() {
     });
 
     $('.region').on("click", function() {
+      year = false;
       $('.carousel-tile').show();
       $('.owl-page').show()
       var region = $(this).attr('region');
@@ -51,6 +63,7 @@ $(document).ready(function() {
     });
 
     $('.city').on("click", function() {
+      year = false;
       $('.carousel-tile').show();
       $('.owl-page').show()
       var city = $(this).attr('city');
@@ -59,10 +72,13 @@ $(document).ready(function() {
       $('#filter-title').html(city);
     });
 
+
+    var year;
+
     $('.year').on("click", function() {
       $('.carousel-tile').show();
       $('.owl-page').show()
-      var year = $(this).attr('year');
+      year = $(this).attr('year');
       $('.artist').not('.' + year).hide();
       $('.' + year).show();
       $('#filter-title').html(year);
@@ -70,8 +86,9 @@ $(document).ready(function() {
       $('.carousel-tile').not('.' + year).hide();
       $('.owl-carousel').trigger('owl.jumpTo', 0);
 
-      $.each($('.owl-item').children('.carousel-tile').not('.' + year), function() {
+      $.each($('.carousel-tile').not('.' + year), function() {
         var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
+        route_to_pagination.find('.owl-pagination').addClass('delay-reveal')
         route_to_pagination.find('.owl-page:visible:last').hide();
         if(route_to_pagination.find('.owl-page:visible').length == 1) {
           route_to_pagination.find('.owl-page:visible').hide()
@@ -82,7 +99,11 @@ $(document).ready(function() {
     $('#advanced-filter-submit').on("click", function() {
       var vibe = $("input[name=vibe]:checked").val() ? $("input[name=vibe]:checked").val() : 'artist';
       var region = $("input[name=region]:checked").val() ? $("input[name=region]:checked").val() : 'artist';
-      var year = $("input[name=year]:checked").val() ? $("input[name=year]:checked").val() : 'artist';
+      year = $("input[name=year]:checked").val() ?
+      $("input[name=year]:checked").val() : 'artist';
+
+      var instance_year = year;
+
       $('.carousel-tile').show();
       $('.owl-page').show();
       $('.artist').show();
@@ -92,7 +113,7 @@ $(document).ready(function() {
         $('.carousel-tile').not('.' + year).hide();
         $('.owl-carousel').trigger('owl.jumpTo', 0);
 
-        $.each($('.owl-item').children('.carousel-tile').not('.' + year), function() {
+        $.each($('.carousel-tile').not('.' + year), function() {
           var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
           route_to_pagination.find('.owl-page:visible:last').hide();
           if(route_to_pagination.find('.owl-page:visible').length == 1) {
@@ -101,15 +122,40 @@ $(document).ready(function() {
         });
       }
 
-      vibe = vibe ? vibe : ''
-      region = region ? region : ''
-      year = year ? year : ''
+      if(vibe == "artist") {
+        vibe = '';
+      }
+      if(region == "artist") {
+        region = '';
+      }
+      if(instance_year == "artist") {
+        instance_year = '';
+      }
 
-      $('#filter-title').html(region + vibe + year);
-
+      $('#filter-title').html(region + vibe + instance_year);
 
     });
 
+    var resizeId;
+    $(window).resize(function() {
+        clearTimeout(resizeId);
+        resizeId = setTimeout(doneResizing, 500);
+    });
+
+    function doneResizing() {
+      if (year) {
+        $.each($('.owl-carousel:visible').find('.carousel-tile').not('.' + year), function() {
+          console.log(this);
+          var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
+          route_to_pagination.find('.owl-page:visible:last').hide();
+          if(route_to_pagination.find('.owl-page:visible').length == 1) {
+            route_to_pagination.find('.owl-page:visible').hide()
+          }
+        });
+      };
+      return year;
+
+    }
 
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id')[0]
