@@ -185,6 +185,7 @@ $(document).ready(function() {
       }
     });
 
+
   } else {
     $('.tags').hide();
     $('#alphabet-container').hide();

@@ -16,7 +16,37 @@ $(document).ready(function() {
     div.onclick = buildIframe;
     v[n].appendChild(div);
   }
+
+  var unplayed_videos = [];
+  var unplayed_counter = 0;
+  $('.youtube-player div[data-id]').each(function() {
+    unplayed_videos.push($(this).attr('id', unplayed_counter.toString() + '-play-btn'));
+    unplayed_counter += 1;
+  });
+
+  var playlist = shuffle(unplayed_videos);
+  var video_counter = 0;
+  $('#playlist-start').on('click', function() {
+    var qued_video_id = playlist[video_counter].attr('id');
+    $('html, body').animate({scrollTop: $('#' + qued_video_id).offset().top - 400}, 1000);
+    $('#' + qued_video_id).click();
+    video_counter += 1;
+  });
 });
+
+function shuffle(array) {
+  var m = array.length, t, i;
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+  return array;
+}
 
 function buildThumb(id) {
   var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
@@ -32,8 +62,8 @@ function buildIframe() {
     videoId: this.dataset.id,
     playerVars: { 'autoplay': 1, 'showinfo': 0 },
     events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
+      'onStateChange': onPlayerStateChange,
+      'onReady': onPlayerReady
     }
   });
   initialized_vids.push(player);
@@ -42,12 +72,17 @@ function buildIframe() {
 
 function onPlayerReady(event) {
   event.target.playVideo();
+  console.log(event)
+
 }
 
 function onPlayerStateChange(event) {
+  console.log(event)
+  console.log(event.target.a.id)
   if (event.target.getPlayerState() == YT.PlayerState.PLAYING) {
     current_vid = event.target.getVideoData()['video_id'];
   }
+
   initialized_vids.forEach(function(vid) {
     if(vid.getVideoData()['video_id'] != current_vid && vid.getPlayerState() == YT.PlayerState.PLAYING) {
       vid.pauseVideo()
