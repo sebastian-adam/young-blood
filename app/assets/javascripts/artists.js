@@ -153,8 +153,6 @@ $(document).ready(function() {
           }
         });
       };
-      return year;
-
     }
 
     $('.alphabet-marker').on('click', function() {
