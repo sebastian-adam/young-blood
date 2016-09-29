@@ -1,5 +1,7 @@
+/* Inspired by */
 /* Light YouTube Embeds by @labnol */
 /* Web: http://labnol.org/?p=27941 */
+
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -85,12 +87,3 @@ function onPlayerStateChange(event) {
     }
   });
 }
-
-
-
-// var iframe = document.createElement("iframe");
-// var embed = "https://www.youtube.com/embed/ID?enablejsapi=1&autoplay=1&autohide=1&showinfo=0";
-// iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
-// iframe.setAttribute("frameborder", "0");
-// iframe.setAttribute("allowfullscreen", "1");
-// this.parentNode.replaceChild(iframe, this);

@@ -1,6 +1,12 @@
 $(document).ready(function() {
   if (window.location.pathname == '/') {
 
+    $.each($('.center-column-body'), function() {
+      if($(this).children('button:visible').length == 1) {
+        $(this).children('button:visible').remove();
+      }
+    });
+
     var number_of_artists = $('.music-videos-wrapper > div').length;
     for (i = 0; i < number_of_artists; i++) {
       var owl = $("#" + i + "-carousel"),
@@ -45,7 +51,7 @@ $(document).ready(function() {
       year = false;
       $('.carousel-tile').show();
       $('.artist').show();
-      $('.owl-page').show()
+      $('.pagination-marker').show()
       $('#filter-header').hide()
       $('#alphabet-container').show()
       window.scrollTo( 0, 0)
@@ -54,7 +60,7 @@ $(document).ready(function() {
     $('.vibe').on("click", function(e) {
       year = false;
       $('.carousel-tile').show();
-      $('.owl-page').show()
+      $('.pagination-marker').show()
       var vibe = $(this).attr('vibe');
       $('.artist').not('.' + vibe).hide();
       $('.' + vibe).show();
@@ -64,7 +70,7 @@ $(document).ready(function() {
     $('.region').on("click", function() {
       year = false;
       $('.carousel-tile').show();
-      $('.owl-page').show()
+      $('.pagination-marker').show()
       var region = $(this).attr('region');
       $('.artist').not('.' + region).hide();
       $('.' + region).show();
@@ -74,20 +80,17 @@ $(document).ready(function() {
     $('.city').on("click", function() {
       year = false;
       $('.carousel-tile').show();
-      $('.owl-page').show()
+      $('.pagination-marker').show()
       var city = $(this).attr('city');
       $('.artist').not('.' + city).hide();
       $('.' + city).show();
       $('#filter-title').html(city);
     });
 
-
-    var year;
-
     $('.year').on("click", function() {
       $('.carousel-tile').show();
-      $('.owl-page').show()
-      year = $(this).attr('year');
+      $('.pagination-marker').show()
+      var year = $(this).attr('year');
       $('.artist').not('.' + year).hide();
       $('.' + year).show();
       $('#filter-title').html(year);
@@ -95,74 +98,60 @@ $(document).ready(function() {
       $('.carousel-tile').not('.' + year).hide();
       $('.owl-carousel').trigger('owl.jumpTo', 0);
 
-      $.each($('.carousel-tile').not('.' + year), function() {
-        var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
-        route_to_pagination.find('.owl-pagination').addClass('delay-reveal')
-        route_to_pagination.find('.owl-page:visible:last').hide();
-        if(route_to_pagination.find('.owl-page:visible').length == 1) {
-          route_to_pagination.find('.owl-page:visible').hide()
+      $.each($('.artist:visible .carousel-tile:hidden'), function() {
+        var carousel_tile_number = $(this).attr('id').split('-')[0];
+        var carousel_artist = $(this).attr('artist');
+        $('.pagination-marker[id="' + carousel_tile_number + '-pagination"][artist="' + carousel_artist + '"]').hide();
+      });
+
+      $.each($('.center-column-body'), function() {
+        if($(this).children('button:visible').length == 1) {
+          $(this).children('button:visible').hide();
         }
       });
     });
 
     $('#advanced-filter-submit').on("click", function() {
-      var vibe = $("input[name=vibe]:checked").val() ? $("input[name=vibe]:checked").val() : 'artist';
-      var region = $("input[name=region]:checked").val() ? $("input[name=region]:checked").val() : 'artist';
-      year = $("input[name=year]:checked").val() ?
-      $("input[name=year]:checked").val() : 'artist';
-
-      var instance_year = year;
+      var vibe = $("input[name=vibe]:checked").val() ? $("input[name=vibe]:checked").val() : 'placeholder';
+      var region = $("input[name=region]:checked").val() ? $("input[name=region]:checked").val() : 'placeholder';
+      var year = $("input[name=year]:checked").val() ?
+      $("input[name=year]:checked").val() : 'placeholder';
 
       $('.carousel-tile').show();
       $('.owl-page').show();
       $('.artist').show();
       $('.artist').not('.' + vibe + '.' + region + '.' + year).hide();
 
-      if (year && year != 'artist') {
+      if (year && year != 'placeholder') {
         $('.carousel-tile').not('.' + year).hide();
         $('.owl-carousel').trigger('owl.jumpTo', 0);
 
-        $.each($('.carousel-tile').not('.' + year), function() {
-          var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
-          route_to_pagination.find('.owl-page:visible:last').hide();
-          if(route_to_pagination.find('.owl-page:visible').length == 1) {
-            route_to_pagination.find('.owl-page:visible').hide()
+        $.each($('.artist:visible .carousel-tile:hidden'), function() {
+          var carousel_tile_number = $(this).attr('id').split('-')[0];
+          var carousel_artist = $(this).attr('artist');
+          $('.pagination-marker[id="' + carousel_tile_number + '-pagination"][artist="' + carousel_artist + '"]').hide();
+        });
+
+        $.each($('.center-column-body'), function() {
+          if($(this).children('button:visible').length == 1) {
+            $(this).children('button:visible').hide();
           }
         });
       }
 
-      if(vibe == "artist") {
+      if(vibe == "placeholder") {
         vibe = '';
       }
-      if(region == "artist") {
+      if(region == "placeholder") {
         region = '';
       }
-      if(instance_year == "artist") {
-        instance_year = '';
+      if(year == "placeholder") {
+        year = '';
       }
 
-      $('#filter-title').html(region + vibe + instance_year);
+      $('#filter-title').html(region + vibe + year);
 
     });
-
-    var resizeId;
-    $(window).resize(function() {
-        clearTimeout(resizeId);
-        resizeId = setTimeout(doneResizing, 500);
-    });
-
-    function doneResizing() {
-      if (year) {
-        $.each($('.owl-carousel:visible').find('.carousel-tile').not('.' + year), function() {
-          console.log(this);
-          var route_to_pagination = $(this).parents('.owl-wrapper-outer').siblings('.owl-controls');
-          route_to_pagination.find('.owl-page:visible:last').hide();
-          if(route_to_pagination.find('.owl-page:visible').length == 1) {
-            route_to_pagination.find('.owl-page:visible').hide()
-          }
-        });
-      };
-    }
 
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id')[0]
