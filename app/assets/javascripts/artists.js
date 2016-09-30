@@ -23,9 +23,13 @@ $(document).ready(function() {
 
     $(".pagination-marker").on("click", function(){
         var carousel_id = $(this).siblings('.owl-carousel').attr('id');
-        var carousel_number = carousel_id.split('-')[0]
+        var carousel_number = carousel_id.split('-')[0];
         var pagination_id = $(this).attr('id');
-        var pagination_position = pagination_id.split('-')[0]
+        var pagination_position = pagination_id.split('-')[0];
+
+        var adjust_for_hidden = $(this).prevAll('.pagination-marker:hidden').length;
+        pagination_position -= adjust_for_hidden;
+
         $('#' + carousel_number + '-carousel').trigger('owl.goTo', pagination_position)
     });
 
@@ -129,6 +133,7 @@ $(document).ready(function() {
         $.each($('.artist:visible .carousel-tile:hidden'), function() {
           var carousel_tile_number = $(this).attr('id').split('-')[0];
           var carousel_artist = $(this).attr('artist');
+
           $('.pagination-marker[id="' + carousel_tile_number + '-pagination"][artist="' + carousel_artist + '"]').hide();
         });
 

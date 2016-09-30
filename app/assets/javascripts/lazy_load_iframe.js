@@ -3,6 +3,8 @@
 /* Web: http://labnol.org/?p=27941 */
 
 var tag = document.createElement('script');
+var playlist;
+var counter;
 
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -26,12 +28,21 @@ $(document).ready(function() {
     unplayed_counter += 1;
   });
 
-  var playlist = shuffle(unplayed_videos);
-  var video_counter = 0;
+  playlist = shuffle(unplayed_videos);
+  video_counter = 0;
+
   $('#playlist-start').on('click', function() {
     var qued_video_id = playlist[video_counter].attr('id');
     $('html, body').animate({scrollTop: $('#' + qued_video_id).offset().top - 290}, 1000);
-    $('#' + qued_video_id).click();
+    setTimeout(function () {
+      var carousel_number = parseInt($('#' + qued_video_id).parents('.owl-carousel').attr('id').split('-')[0]);
+      var pagination_number = parseInt($('#' + qued_video_id).parents('div[artist]').attr('id').split('-')[0]);
+
+      $('#' + carousel_number + '-carousel').trigger('owl.goTo', pagination_number);
+
+      $('#' + qued_video_id).click();
+    }, 1000);
+
     video_counter += 1;
   });
 });
@@ -79,6 +90,13 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
   if (event.target.getPlayerState() == YT.PlayerState.PLAYING) {
     current_vid = event.target.getVideoData()['video_id'];
+  } else if (event.target.getPlayerState() == YT.PlayerState.ENDED) {
+    var qued_video_id = playlist[video_counter].attr('id');
+    $('html, body').animate({scrollTop: $('#' + qued_video_id).offset().top - 290}, 1000);
+    setTimeout(function () {
+      $('#' + qued_video_id).click();
+    }, 1000);
+    video_counter += 1;
   }
 
   initialized_vids.forEach(function(vid) {
