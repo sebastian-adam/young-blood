@@ -155,7 +155,7 @@ a {
 
 //**//  MUSIC VIDEO TILES //**//
 .music-videos-wrapper {
-  padding-top: 40px;
+  padding-top: 100px;
   margin: 50 auto 0;
   max-width: 642px;
   width: 100%;
@@ -196,7 +196,7 @@ a {
 .spacer {
   height: 2px;
 }
-.city_divider {
+.city-divider {
   position: relative;
   margin-top: -80px;
   margin-bottom: 0px;
@@ -276,9 +276,6 @@ a {
 .gold {
   color: #f6ce26;
 }
-.silver {
-  color: #fafafa;
-}
 .cyan {
   color: #00ffe1;
 }
@@ -302,4 +299,7 @@ a {
 }
 .mustard {
   color: #ffcd04;
+}
+.hidden {
+  display: none;
 }

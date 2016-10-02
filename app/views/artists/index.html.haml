@@ -13,23 +13,27 @@
           - prev_city = 'nil'
         - current_city = artist.city
         - if current_city != prev_city && artist != @artists.first
-          .city_divider
+          .city-divider
+        - elsif
+          .city-divider.hidden
         .music-video-tile
           .side-column-body.col-xs-1
+            - alphabet_character = artist.city[0]
+            .alphabet-marker{class: "#{alphabet_character}-position"}
             - if current_city != prev_city
-              - alphabet_character = artist.city[0]
-              .alphabet-marker{id: "#{alphabet_character}-position"}
-              = link_to artists_path, class: "city", city: "#{artist.city}", remote: true do
-                .city-title{id: "#{artist.id}-city-title"}
-                  - artist.city.upcase.split('').each do |character|
-                    - if character == ' '
-                      .spacer
-                    - if current_city == "Chicago" || current_city == "Atlanta" || current_city == "New York" || current_city == "Los Angeles" || current_city == "Miami"
-                      %p.gold
-                        = character
-                    -else
-                      %p.silver
-                        = character
+              .city-title{id: "#{artist_counter}-city-title", city: "#{artist.city}"}
+                - artist.city.upcase.split('').each do |character|
+                  - if character == ' '
+                    .spacer
+                  %p
+                    = character
+            - else
+              .city-title{id: "#{artist_counter}-city-title", class: "hidden", city: "#{artist.city}"}
+                - artist.city.upcase.split('').each do |character|
+                  - if character == ' '
+                    .spacer
+                  %p
+                    = character
             - prev_city = current_city
             - first = false
           .center-column-body.col-xs-11
