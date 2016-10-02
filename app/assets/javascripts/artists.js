@@ -105,7 +105,7 @@ $(document).ready(function() {
       $.each($('.artist:visible .carousel-tile:hidden'), function() {
         var carousel_tile_number = $(this).attr('id').split('-')[0];
         var carousel_artist = $(this).attr('artist');
-        $('.pagination-marker[id="' + carousel_tile_number + '-pagination"][artist="' + carousel_artist + '"]').hide();
+        $('.pagination-marker[pagination="' + carousel_tile_number + '"][artist="' + carousel_artist + '"]').hide();
       });
 
       $.each($('.center-column-body'), function() {
@@ -116,17 +116,17 @@ $(document).ready(function() {
     });
 
     $('#advanced-filter-submit').on("click", function() {
-      var vibe = $("input[name=vibe]:checked").val() ? $("input[name=vibe]:checked").val() : 'placeholder';
-      var region = $("input[name=region]:checked").val() ? $("input[name=region]:checked").val() : 'placeholder';
+      var vibe = $("input[name=vibe]:checked").val() ? $("input[name=vibe]:checked").val() : 'artist';
+      var region = $("input[name=region]:checked").val() ? $("input[name=region]:checked").val() : 'artist';
       var year = $("input[name=year]:checked").val() ?
-      $("input[name=year]:checked").val() : 'placeholder';
+      $("input[name=year]:checked").val() : 'artist';
 
       $('.carousel-tile').show();
       $('.owl-page').show();
       $('.artist').show();
       $('.artist').not('.' + vibe + '.' + region + '.' + year).hide();
 
-      if (year && year != 'placeholder') {
+      if (year && year != 'artist') {
         $('.carousel-tile').not('.' + year).hide();
         $('.owl-carousel').trigger('owl.jumpTo', 0);
 
@@ -134,7 +134,7 @@ $(document).ready(function() {
           var carousel_tile_number = $(this).attr('id').split('-')[0];
           var carousel_artist = $(this).attr('artist');
 
-          $('.pagination-marker[id="' + carousel_tile_number + '-pagination"][artist="' + carousel_artist + '"]').hide();
+          $('.pagination-marker[pagination="' + carousel_tile_number + '"][artist="' + carousel_artist + '"]').hide();
         });
 
         $.each($('.center-column-body'), function() {
@@ -144,13 +144,13 @@ $(document).ready(function() {
         });
       }
 
-      if(vibe == "placeholder") {
+      if(vibe == "artist") {
         vibe = '';
       }
-      if(region == "placeholder") {
+      if(region == "artist") {
         region = '';
       }
-      if(year == "placeholder") {
+      if(year == "artist") {
         year = '';
       }
 
@@ -159,15 +159,15 @@ $(document).ready(function() {
     });
 
     $('.alphabet-marker').on('click', function() {
-      var alphabet_character = $(this).attr('id')[0]
-      position = $('.' + alphabet_character + '-marker').first().offset();
+      var alphabet_character = $(this).attr('id').split('-')[0]
+      position = $('#' + alphabet_character + '-position').first().offset();
       window.scrollTo( 0, position.top - 200)
     });
 
     var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     var alphabet_positions = [];
     alphabet.forEach(function(i) {
-      position = $('.' + i + '-marker').first().offset();
+      position = $('#' + i + '-position').first().offset();
       if(position) {
         alphabet_positions.push(position.top - 201);
       } else {
@@ -187,7 +187,7 @@ $(document).ready(function() {
         }
       }
     });
-    
+
 
 
   } else {

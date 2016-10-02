@@ -8,7 +8,7 @@
     - artist_counter = -1
     - @artists.each do |artist|
       - artist_counter += 1
-      .artist{class: "#{artist.vibe} #{artist.region} #{artist.city} #{artist.music_videos.map(&:year).join(' ')} placeholder"}
+      .artist{class: "#{artist.vibe} #{artist.region} #{artist.city} #{artist.music_videos.map(&:year).join(' ')}" }
         - if first == true
           - prev_city = 'nil'
         - current_city = artist.city
@@ -18,7 +18,7 @@
           .side-column-body.col-xs-1
             - if current_city != prev_city
               - alphabet_character = artist.city[0]
-              .alphabet-marker{class: "#{alphabet_character}-marker"}
+              .alphabet-marker{id: "#{alphabet_character}-position"}
               = link_to artists_path, class: "city", city: "#{artist.city}", remote: true do
                 .city-title{id: "#{artist.id}-city-title"}
                   - artist.city.upcase.split('').each do |character|
@@ -35,7 +35,7 @@
           .center-column-body.col-xs-11
             - pagination_counter = 0
             - artist.music_videos.each do |music_video|
-              = button_tag "#{pagination_counter}", class: "btn pagination-marker", artist: "#{artist.id}", id: "#{pagination_counter}-pagination"
+              = button_tag "#{pagination_counter}", class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
               - pagination_counter += 1
             = render 'artist_title', artist: artist
             -music_video_counter = 0

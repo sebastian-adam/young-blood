@@ -54,23 +54,34 @@ function Playlist(filter) {
 Playlist.prototype.collectVideos = function() {
   var videos = [];
   var videoCount = 0;
-  $('.' + this.filter).find('.youtube-player div[data-id]').each(function() {
-    videos.push($(this).attr('id'));
-    videoCount += 1;
-  });
+  if (this.filter == "2010" || this.filter == "2011" || this.filter == "2012" || this.filter == "2013" || this.filter == "2014" || this.filter == "2015" || this.filter == "2016") {
+    $('.' + this.filter).find('.carousel-tile.' + this.filter).find('.youtube-player div[data-id]').each(function() {
+      videos.push($(this).attr('id'));
+      videoCount += 1;
+    });
+  } else {
+    $('.' + this.filter).find('.youtube-player div[data-id]').each(function() {
+      videos.push($(this).attr('id'));
+      videoCount += 1;
+    });
+  }
   return videos;
 }
 
 Playlist.prototype.nextVideo = function() {
   var nextVideoId = this.playlist[this.playCount];
   this.playCount += 1;
+
   $('html, body').animate({scrollTop: $('#' + nextVideoId).offset().top - 290}, 1000);
+
   setTimeout(function () {
     var carouselNumber = parseInt($('#' + nextVideoId).parents('.owl-carousel').attr('id').split('-')[0]);
     var paginationNumber = parseInt($('#' + nextVideoId).parents('div[artist]').attr('id').split('-')[0]);
 
-    $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
+    var adjustForHidden = $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').prevAll('.pagination-marker:hidden').length;
+    paginationNumber -= adjustForHidden;
 
+    $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
     $('#' + nextVideoId).click();
   }, 1000);
 }
@@ -135,8 +146,21 @@ function onPlayerStateChange(event) {
       southPlaylist.nextVideo();
     } else if (playlistType == 'midwest') {
       midwestPlaylist.nextVideo();
-    } else if (playlistType == 'global') {
-      globalPlaylist.nextVideo();
+    } else if (playlistType == 'ten') {
+      tenPlaylist.nextVideo();
+    } else if (playlistType == 'eleven') {
+      elevenPlaylist.playlist
+      elevenPlaylist.nextVideo();
+    } else if (playlistType == 'twelve') {
+      twelvePlaylist.nextVideo();
+    } else if (playlistType == 'thirteen') {
+      thirteenPlaylist.nextVideo();
+    } else if (playlistType == 'fourteen') {
+      fourteenPlaylist.nextVideo();
+    } else if (playlistType == 'fifteen') {
+      fifteenPlaylist.nextVideo();
+    } else if (playlistType == 'sixteen') {
+      sixteenPlaylist.nextVideo();
     }
   }
 
