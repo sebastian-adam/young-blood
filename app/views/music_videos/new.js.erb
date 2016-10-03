@@ -1,4 +1,4 @@
-$('.new-music-video-form').html("<%= escape_javascript(render 'new_form')%>");
+$('.new-music-video-form').html("<%= j render 'new_form' %>");
 
 var ft_counter = 2;
 $('#plus-feature').on('click', function() {

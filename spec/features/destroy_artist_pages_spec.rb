@@ -6,9 +6,7 @@ describe "the destroy an artist process" do
     login_as(user, :scope => :user)
     artist = FactoryGirl.create(:artist)
     visit new_artist_path
-    find(artist.name).trigger('click')
-    save_and_open_screenshot
-    binding.pry
+    click_on artist.name
     click_on "Delete Artist"
     expect(page).to have_no_content artist.name
   end

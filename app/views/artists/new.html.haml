@@ -1,13 +1,14 @@
-.row
-  .col-xs-4
-    .artist-form
-      = render 'new_form'
-    .edit-artist-form
-    .music-video-form
-  .col-xs-8
-    .inline
-      %h3 Artists
-      %h3= button_to '+', new_artist_path(@artist), method: :get, remote: true, id: 'add-new-artist'
-    .row
-      .col-xs-12.artist-links
-        = render 'artist_links'
+.container
+  .row
+    .col-xs-4
+      .artist-form
+        = render 'new_form'
+      .edit-artist-form
+      .music-video-form
+    .col-xs-8
+      .inline
+        %h3 Artists
+        %h3= button_to '+', new_artist_path(@artist), method: :get, remote: true, id: 'add-new-artist'
+      .row
+        .col-xs-12.artist-links
+          = render 'artist_links'

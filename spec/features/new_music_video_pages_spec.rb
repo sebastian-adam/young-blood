@@ -8,6 +8,7 @@ describe "the add a music video process" do
     visit root_path
     click_on "submit"
     click_on artist.name
+    click_on 'add-new-music-video'
     music_video = FactoryGirl.build(:music_video)
     fill_in 'Title', :with => music_video.title
     fill_in 'Featuring', :with => music_video.featuring
@@ -24,6 +25,7 @@ describe "the add a music video process" do
     visit root_path
     click_on "submit"
     click_on artist.name
+    click_on 'add-new-music-video'
     click_on "Create Music video"
     expect(page).to have_content "Error saving music video"
   end

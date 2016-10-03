@@ -37,7 +37,7 @@ $(document).ready(function() {
       $("#" + i + "-city-title").sticky({topSpacing:180});
     }
 
-    $("#artist-panel-wrapper").sticky({topSpacing:180});
+    $("#artist-panel-wrapper").sticky({topSpacing:100});
 
     $('#advanced-toggle').on("click", function() {
       $('.filter-radio').toggle();
