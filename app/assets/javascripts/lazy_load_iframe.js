@@ -83,6 +83,7 @@ Playlist.prototype.nextVideo = function() {
 
     $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
     $('#' + nextVideoId).click();
+    $('#' + nextVideoId).parents('.owl-carousel').siblings('.artist-title').children('a').click();
   }, 1000);
 }
 
@@ -103,9 +104,7 @@ var westPlaylist = new Playlist('west');
 var southPlaylist = new Playlist('south');
 var midwestPlaylist = new Playlist('midwest');
 var globalPlaylist = new Playlist('global');
-var tenPlaylist = new Playlist('2010');
-var elevenPlaylist = new Playlist('2011');
-var twelvePlaylist = new Playlist('2012');
+var olderPlaylist = new Playlist('2012');
 var thirteenPlaylist = new Playlist('2013');
 var fourteenPlaylist = new Playlist('2014');
 var fifteenPlaylist = new Playlist('2015');
@@ -138,6 +137,8 @@ function onPlayerStateChange(event) {
       punkPlaylist.nextVideo();
     } else if (playlistType == 'word') {
       wordPlaylist.nextVideo();
+    } else if (playlistType == 'thump') {
+      thumpPlaylist.nextVideo();
     } else if (playlistType == 'east') {
       eastPlaylist.nextVideo();
     } else if (playlistType == 'west') {
@@ -146,13 +147,8 @@ function onPlayerStateChange(event) {
       southPlaylist.nextVideo();
     } else if (playlistType == 'midwest') {
       midwestPlaylist.nextVideo();
-    } else if (playlistType == 'ten') {
-      tenPlaylist.nextVideo();
-    } else if (playlistType == 'eleven') {
-      elevenPlaylist.playlist
-      elevenPlaylist.nextVideo();
-    } else if (playlistType == 'twelve') {
-      twelvePlaylist.nextVideo();
+    } else if (playlistType == 'older') {
+      olderPlaylist.nextVideo();
     } else if (playlistType == 'thirteen') {
       thirteenPlaylist.nextVideo();
     } else if (playlistType == 'fourteen') {
@@ -244,14 +240,8 @@ $(function() {
   globalPlaylist.playlist = shuffle(globalVideos);
 
   // Build playlist for each year
-  var tenVideos = tenPlaylist.collectVideos();
-  tenPlaylist.playlist = shuffle(tenVideos);
-
-  var elevenVideos = elevenPlaylist.collectVideos();
-  elevenPlaylist.playlist = shuffle(elevenVideos);
-
-  var twelveVideos = twelvePlaylist.collectVideos();
-  twelvePlaylist.playlist = shuffle(twelveVideos);
+  var olderVideos = olderPlaylist.collectVideos();
+  olderPlaylist.playlist = shuffle(olderVideos);
 
   var thirteenVideos = thirteenPlaylist.collectVideos();
   thirteenPlaylist.playlist = shuffle(thirteenVideos);
@@ -322,17 +312,9 @@ $(function() {
   });
 
   // Year playlist controls
-  $('#ten-playlist-start').on('click', function() {
-    tenPlaylist.nextVideo();
-    playlistType = 'ten';
-  });
-  $('#eleven-playlist-start').on('click', function() {
-    elevenPlaylist.nextVideo();
-    playlistType = 'eleven';
-  });
-  $('#twelve-playlist-start').on('click', function() {
-    twelvePlaylist.nextVideo();
-    playlistType = 'twelve';
+  $('#older-playlist-start').on('click', function() {
+    olderPlaylist.nextVideo();
+    playlistType = 'older';
   });
   $('#thirteen-playlist-start').on('click', function() {
     thirteenPlaylist.nextVideo();

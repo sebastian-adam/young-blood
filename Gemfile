@@ -20,6 +20,8 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'rails_admin_rollincode', '~> 1.0'
 gem "cancan"
+gem 'rest-client'
+gem "genius", "~> 0.1.1"
 
 group :development, :test do
   gem 'byebug', platform: :mri

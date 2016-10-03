@@ -6,4 +6,5 @@ class Artist < ApplicationRecord
   validates :state, presence: true
   validates :region, presence: true
   validates :vibe, presence: true
+
 end

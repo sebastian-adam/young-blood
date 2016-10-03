@@ -7,7 +7,10 @@
       %br
       %br
       %br
-      %h3 Wiki Article Here
+      - if @bio
+        %h3= @bio
+      - elsif @artist.bio
+        %h3= @artist.bio
     .edit-artist-form
   .col-xs-4.preview-videos
     = render 'vertical_carousel'

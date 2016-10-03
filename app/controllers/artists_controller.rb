@@ -30,6 +30,9 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.js { @bio = genius_artist }
+    end
   end
 
   def edit
@@ -55,10 +58,19 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :city, :state,:region, :vibe)
+    params.require(:artist).permit(:name, :city, :state,:region, :vibe, :genius_id, :bio)
   end
 
   def set_artist
     @artist = Artist.find(params[:id])
   end
+
+  def genius_artist
+    if (@artist.genius_id)
+      Genius.access_token = 'ejNzHIgJKcQB0SDer4_Astu5ZUx9Sd3N4jZ2m2HYNZLQgtJJVLv4r7xn7r4buQBH'
+      @bio = Genius::Artist.find(@artist.genius_id).description
+    end
+  end
+
+
 end

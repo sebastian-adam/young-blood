@@ -37,6 +37,8 @@ $(document).ready(function() {
       $("#" + i + "-city-title").sticky({topSpacing:180});
     }
 
+    $("#artist-panel-wrapper").sticky({topSpacing:180});
+
     $('#advanced-toggle').on("click", function() {
       $('.filter-radio').toggle();
       $('#reset-radio').toggle();
@@ -251,6 +253,6 @@ $(document).ready(function() {
     $('.tags').addClass('hidden');
     $('#alphabet-container').addClass('hidden');
     $('#my-nav').removeClass('navbar-fixed-top');
-    $('#content_container').css({'margin-top' : '0'});
+    $('#content-container').css({'margin-top' : '0'});
   };
 });

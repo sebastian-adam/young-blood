@@ -28,11 +28,7 @@
     = link_to "+++", artists_path, id: 'thug-playlist-start', class: "region", region: 'global', remote: true
     -# = radio_button_tag 'region', 'global', false, region: 'global', class: 'filter-radio'
     %br
-    = link_to "2010", artists_path, id: 'ten-playlist-start', class: "year", year: '2010', remote: true
-    -# = radio_button_tag 'year', '2010', false, year: '2010', class: 'filter-radio'
-    = link_to "2011", artists_path, id: 'eleven-playlist-start', class: "year", year: '2011', remote: true
-    -# = radio_button_tag 'year', '2011', false, year: '2011', class: 'filter-radio'
-    = link_to "2012", artists_path, id: 'twelve-playlist-start', class: "year", year: '2012', remote: true
+    = link_to "<--", artists_path, id: 'older-playlist-start', class: "year", year: 'older', remote: true
     -# = radio_button_tag 'year', '2012', false, year: '2012', class: 'filter-radio'
     = link_to "2013", artists_path, id: 'thirteen-playlist-start', class: "year", year: '2013', remote: true
     -# = radio_button_tag 'year', '2013', false, year: '2013', class: 'filter-radio'
@@ -42,7 +38,8 @@
     -# = radio_button_tag 'year', '2015', false, year: '2015', class: 'filter-radio'
     = link_to "2016", artists_path, id: 'sixteen-playlist-start', class: "year", year: '2016', remote: true
     -# = radio_button_tag 'year', '2016', false, year: '2016', class: 'filter-radio'
-    = button_tag "all videos", id: 'playlist-start'
+
+    = button_tag "ALL", id: 'playlist-start', remote: true
 
     -# = submit_tag "filter", class: 'submit filter-radio', id: 'advanced-filter-submit'
 

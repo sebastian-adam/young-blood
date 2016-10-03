@@ -1,8 +1,5 @@
-.root.text-center
-  %h3#filter-header
-    %span#filter-title
-    = button_tag 'x', type: 'button', class: 'btn-link', id: 'remove-filter'
-  .music-videos-wrapper
+.root.row
+  .music-videos-wrapper.col-xs-6
     - prev_city = nil
     - first = true
     - artist_counter = -1
@@ -57,3 +54,9 @@
                       - music_video.year.split('').each do |character|
                         .row
                           = character
+  .col-xs-5
+    #artist-panel-wrapper
+      #filter-header
+      %span#filter-title
+      = button_tag 'x', type: 'button', class: 'btn-link', id: 'remove-filter'
+      #artist-panel.text-justify

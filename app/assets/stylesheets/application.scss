@@ -12,6 +12,7 @@
 //**//  GENERAL LAYOUT //**//
 body {
   background-color: black;
+  color: white;
   color: #fafafa;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
@@ -24,13 +25,11 @@ body {
   top: 140px;
   left: 10px;
 }
-#content_container {
+#content-container, #artist-panel-wrapper {
   margin-top: 108px;
 }
-#filter-header {
-  position: fixed;
-  top: 150px;
-  left: 50px;
+#filter-title {
+  font-size: 30px;
 }
 a {
   color: #1edbcc;
@@ -51,7 +50,7 @@ a {
 //   margin-bottom: 15%;
 // }
 //
-// #landing_page, #content_container, #young_blood_header {
+// #landing_page, #content-container, #young_blood_header {
 //   display: none;
 // }
 
@@ -156,9 +155,8 @@ a {
 //**//  MUSIC VIDEO TILES //**//
 .music-videos-wrapper {
   padding-top: 100px;
+  padding-left: 50px;
   margin: 50 auto 0;
-  max-width: 642px;
-  width: 100%;
 }
 .music-video-tile {
   margin: 0 10px 70px;
@@ -172,7 +170,7 @@ a {
   font-size: 15px;
   line-height: 30px;
 }
-.artist_title {
+.artist-title {
   font-family: 'Modak', cursive;
   font-size: 50px;
   text-align: left;
@@ -265,7 +263,6 @@ a {
   cursor: pointer;
 }
 
-
 //**//  FORMS //**//
 #ft-2, #ft-3, #ft-4 {
   display: none;
@@ -292,7 +289,7 @@ a {
   color: #ff307d;
 }
 .yellow {
-  color: #5004FF;
+  color: #FDFF89;
 }
 .brown {
   color: #ff5004;
