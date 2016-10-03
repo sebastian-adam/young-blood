@@ -1,5 +1,5 @@
 .root.row
-  .music-videos-wrapper.col-xs-6
+  .music-videos-wrapper.col-xs-7
     - prev_city = nil
     - first = true
     - artist_counter = -1
@@ -50,13 +50,12 @@
                       .youtube-player{ data: {id: music_video.youtube_id } }
                         .youtube-iframe{ id: music_video.youtube_id }
                   .side-column-body.col-xs-1
-                    = link_to artists_path, class: "year", year: "#{music_video.year}", remote: true do
+                    .year{ year: "#{music_video.year}" }
                       - music_video.year.split('').each do |character|
                         .row
                           = character
-  .col-xs-5
+  .col-xs-4
     #artist-panel-wrapper
       #filter-header
       %span#filter-title
-      = button_tag 'x', type: 'button', class: 'btn-link', id: 'remove-filter'
       #artist-panel.text-justify

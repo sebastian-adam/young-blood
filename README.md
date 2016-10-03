@@ -1,10 +1,10 @@
 # _Young Blood_
 
-##### Web Application for streaming curated hip hop videos. Made with Rails. See the site live at `https://young-blood.herokuapp.com`.
+##### Web Application for streaming curated video playlists and serving a hip hop database. Built with Rails and jQuery. See the site live at `https://young-blood.herokuapp.com`.
 
+***
 
-Installation
-------------
+## Installation
 
 First clone the repository.  
 ```
@@ -31,7 +31,12 @@ The site is live and viewable at:
 https://young-blood.herokuapp.com
 ```
 
-License
--------
+## Technologies
+* Rails
+* jQuery
+* Sass
 
-MIT License. Copyright &copy; 2016 the MEA2N TEAM&trade;
+## Legal
+MIT License. Copyright &copy; 2016 **_{Sebastian Prokuski}_**
+Installation
+------------
