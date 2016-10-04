@@ -37,10 +37,6 @@
             - prev_city = current_city
             - first = false
           .center-column-body.col-xs-11
-            - pagination_counter = 0
-            -# - artist.music_videos.each do |music_video|
-            -#   = button_tag '', class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
-            -#   - pagination_counter += 1
             = render 'artist_title', artist: artist
             -music_video_counter = 0
             .owl-carousel.owl-theme.row{id: "#{artist_counter}-carousel"}
@@ -55,13 +51,14 @@
                       = link_to artist_music_video_path(artist, music_video), remote: true do
                         .youtube-player{ data: {id: music_video.youtube_id } }
                           .youtube-iframe{ id: music_video.youtube_id }
+            - pagination_counter = 0
+            - artist.music_videos.each do |music_video|
+              = button_tag '', class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
+              - pagination_counter += 1
   .col-xs-4
     = render 'layouts/filters_list'
     #artist-panel-wrapper
       #filter-header
-        %span#filter-title
-        #now-playing.gold
         #artist-panel.text-justify
-    %br
-    %br
-    %br
+        #now-playing
+          %span#filter-title

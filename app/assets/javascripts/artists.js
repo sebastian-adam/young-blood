@@ -37,7 +37,7 @@ $(document).ready(function() {
       $("#" + i + "-city-title").sticky({topSpacing:140});
     }
 
-    $("#artist-panel-wrapper").sticky({topSpacing:90});
+    $("#artist-panel-wrapper").sticky({topSpacing:160});
 
     $('#advanced-toggle').on("click", function() {
       $('.filter-radio').toggle();
@@ -220,7 +220,7 @@ $(document).ready(function() {
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id').split('-')[0]
       position = $('.' + alphabet_character + '-position:first').offset();
-      $('html, body').animate({scrollTop: position.top - 140}, 1000);
+      $('html, body').animate({scrollTop: position.top - 60}, 1000);
     });
 
     var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');

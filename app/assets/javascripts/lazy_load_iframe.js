@@ -72,7 +72,7 @@ Playlist.prototype.nextVideo = function() {
   var nextVideoId = this.playlist[this.playCount];
   this.playCount += 1;
 
-  $('html, body').animate({scrollTop: $('#' + nextVideoId).parents('.center-column-body').siblings('.side-column-body').find('.alphabet-marker').offset().top - 140}, 1000);
+  $('html, body').animate({scrollTop: $('#' + nextVideoId).parents('.center-column-body').siblings('.side-column-body').find('.alphabet-marker').offset().top - 60}, 1000);
 
   setTimeout(function () {
     var carouselNumber = parseInt($('#' + nextVideoId).parents('.owl-carousel').attr('id').split('-')[0]);

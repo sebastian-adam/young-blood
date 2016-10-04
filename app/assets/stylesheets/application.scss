@@ -98,8 +98,11 @@ a {
   padding: 0;
 }
 .tags {
+  font-family: 'Bungee Inline', cursive;
+  top: 60px;
   position: fixed;
   font-size: 20px;
+  z-index: 9999;
   .submit {
     color: black;
     margin-bottom: 0;
@@ -107,15 +110,15 @@ a {
   form  {
     margin-bottom: 0;
   }
-  a {
-    color: white;
+  h3 {
+    display: inline-block;
   }
 }
-#playlist-start, #advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video, #add-new-artist {
+#advanced-toggle, #reset-radio, #plus-feature, #edit-artist, #close-new-music-video, #add-new-music-video, #add-new-artist {
   color: black;
 }
 
-#advanced-toggle, #reset-radio, #playlist-start {
+#advanced-toggle, #reset-radio {
   font-size: 12px;
   margin: 0;
 }
@@ -143,9 +146,6 @@ a {
 
 #filter-header {
   display: none;
-}
-.tags {
-  z-index: 9999;
 }
 
 
@@ -176,7 +176,7 @@ a {
   width: 100%;
 }
 .center-column-body {
-  margin-bottom: 20px;
+  margin-bottom: 120px;
   text-align: left;
   font-size: 30px;
   line-height: 35px;
@@ -208,15 +208,13 @@ a {
 .city-title p {
   line-height: 20px;
 }
-.year {
-  font-size: 15px;
-}
 .spacer {
   height: 2px;
 }
 .city-divider2 {
   background-color: black;
   position: relative;
+  // margin-top: -40px;
   margin-bottom: 0;
   width: 100%;
   height: 80px;
@@ -299,7 +297,28 @@ a {
 #ft-2, #ft-3, #ft-4 {
   display: none;
 }
-
+.vibe {
+  color: #FF307E;
+}
+.vibe2 {
+  color: #E31FCB;
+}
+.region, .year {
+  color: #E31FCB;
+}
+.year {
+  color: #FF307E;
+}
+.main {
+  color: white;
+  border-bottom: 3px solid #1EDBCC;
+}
+#now-playing {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  text-align: right;
+}
 
 //**//  COLORS //**//
 .gold {
@@ -313,6 +332,9 @@ a {
 }
 .white {
   color: white;
+}
+.purple {
+  color: #E31FCB;
 }
 .hidden {
   display: none;
