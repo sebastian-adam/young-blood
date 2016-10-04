@@ -169,7 +169,7 @@ a:focus {
   display: none;
 }
 .pagination-marker {
-  background: url('cassette.png');
+  background: image-url('cassette.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -177,7 +177,7 @@ a:focus {
   height: 20px;
 }
 .page-active {
-  background: url('cassette_gold.png');
+  background: image-url('cassette_gold.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
