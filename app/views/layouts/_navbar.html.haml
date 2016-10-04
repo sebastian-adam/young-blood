@@ -1,13 +1,13 @@
-%nav.navbar.navbar-default.navbar-fixed-top#my-nav
-  .navbar-container.row
-    .navbar-brand.col-xs-2
-      = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
-    .col-xs-8.text-center.filters
-      = render 'layouts/filters_list'
-    .nav-account.navbar-left.col-xs-2
-      - if user_signed_in?
-        = link_to "submit", new_artist_path
-        = link_to "logout", destroy_user_session_path, method: :delete
-      - else
-        = link_to "login", new_user_session_path
-        = link_to "join", new_user_registration_path
+-# %nav.navbar.navbar-default.navbar-fixed-top#my-nav
+-#   .navbar-container.row
+-#     .navbar-brand.col-xs-2
+-#       = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
+-#     .col-xs-6.pull-right.filters
+-#       = render 'layouts/filters_list'
+-#     .nav-account.navbar-left.col-xs-2
+-#       - if user_signed_in?
+-#         = link_to "submit", new_artist_path
+-#         = link_to "logout", destroy_user_session_path, method: :delete
+-#       - else
+-#         = link_to "login", new_user_session_path
+-#         = link_to "join", new_user_registration_path

@@ -1,4 +1,4 @@
-%hml
+%html
   %head
     %title Young Blood
     %meta{:charset => "utf-8"}
@@ -19,13 +19,12 @@
     #header_container
       #young_blood_header
         = render 'layouts/navbar'
-    #content-container
       #alphabet-container.text-center
         = render 'layouts/alphabet_links'
+    #content-container
       #flash-response
         = render 'layouts/flash_response'
       = yield
     -# %script(type='text/javascript')
       -# $("#young_blood_header").delay(1600).fadeIn(800);
       -# $("#content-container").delay(2600).show();
-    .footer

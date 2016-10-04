@@ -1,4 +1,5 @@
 .root.row
+  = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
   .music-videos-wrapper.col-xs-7
     - prev_city = nil
     - first = true
@@ -13,8 +14,10 @@
           .side-column-body.col-xs-1
             - if current_city != prev_city && artist != @artists.first
               .city-divider
+              .city-divider2
             - elsif
               .city-divider.hidden
+              .city-divider2.hidden
             - alphabet_character = artist.city[0]
             .alphabet-marker{class: "#{alphabet_character}-position"}
             - if current_city != prev_city
@@ -35,27 +38,25 @@
             - first = false
           .center-column-body.col-xs-11
             - pagination_counter = 0
+            -# - artist.music_videos.each do |music_video|
+            -#   = button_tag '', class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
+            -#   - pagination_counter += 1
             = render 'artist_title', artist: artist
-            - artist.music_videos.each do |music_video|
-              = button_tag "#{pagination_counter}", class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
-              - pagination_counter += 1
             -music_video_counter = 0
             .owl-carousel.owl-theme.row{id: "#{artist_counter}-carousel"}
               - artist.music_videos.each do |music_video|
                 .carousel-tile{class: "#{music_video.year}", artist_name: "#{music_video.artist.name}", song_title: "#{music_video.title}", artist: "#{artist.id}", id: "#{music_video_counter}-music-video"}
                   -music_video_counter += 1
-                  .col-xs-11
+                  .col-xs-12
                     = render 'track_title', music_video: music_video
-                    .youtube-player-container
+                    .year-title{ year: "#{music_video.year}" }
+                      = music_video.year
+                    .col-xs-12
                       = link_to artist_music_video_path(artist, music_video), remote: true do
                         .youtube-player{ data: {id: music_video.youtube_id } }
                           .youtube-iframe{ id: music_video.youtube_id }
-                  .side-column-body.col-xs-1
-                    .year{ year: "#{music_video.year}" }
-                      - music_video.year.split('').each do |character|
-                        .row
-                          = character
   .col-xs-4
+    = render 'layouts/filters_list'
     #artist-panel-wrapper
       #filter-header
         %span#filter-title

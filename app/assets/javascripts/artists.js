@@ -34,10 +34,10 @@ $(document).ready(function() {
     });
 
     for (i = 0; i < number_of_artists; i++) {
-      $("#" + i + "-city-title").sticky({topSpacing:200});
+      $("#" + i + "-city-title").sticky({topSpacing:140});
     }
 
-    $("#artist-panel-wrapper").sticky({topSpacing:60});
+    $("#artist-panel-wrapper").sticky({topSpacing:90});
 
     $('#advanced-toggle').on("click", function() {
       $('.filter-radio').toggle();
@@ -220,7 +220,7 @@ $(document).ready(function() {
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id').split('-')[0]
       position = $('.' + alphabet_character + '-position:first').offset();
-      $('html, body').animate({scrollTop: position.top - 200}, 1000);
+      $('html, body').animate({scrollTop: position.top - 140}, 1000);
     });
 
     var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -228,7 +228,7 @@ $(document).ready(function() {
     alphabet.forEach(function(i) {
       position = $('.' + i + '-position:first').offset();
       if(position) {
-        alphabet_positions.push(position.top - 201);
+        alphabet_positions.push(position.top);
       } else {
         alphabet_positions.push(99999);
       }
@@ -238,7 +238,7 @@ $(document).ready(function() {
       for(i = 0; i < 25; i++) {
         if(scroll_position > alphabet_positions[i]) {
           $(".alphabet-marker").css({
-            'color': '#1edbcc', 'opacity': '0.3'
+            'color': 'white', 'opacity': '0.3'
           });
           $("#" + alphabet[i] + "-marker").css({
             'color': 'gold', 'opacity': '1'

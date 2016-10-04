@@ -7,7 +7,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'https://fonts.googleapis.com/css?family=Modak';
-@import 'https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade';
+@import 'https://fonts.googleapis.com/css?family=Bungee+Inline';
+@import 'https://fonts.googleapis.com/css?family=Nova+Mono';
 
 
 //**//  GENERAL LAYOUT //**//
@@ -16,18 +17,23 @@ body {
   color: white;
   color: #fafafa;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 #header_container {
   position: relative;
-  z-index: 9999;
 }
 #alphabet-container {
+  font-family: 'Nova Mono', cursive;
   position: fixed;
-  top: 140px;
+  height: 100%;
   left: 10px;
+  top: 10px;
+  z-index: 9999;
 }
 #content-container, #artist-panel-wrapper {
-  margin-top: 80px;
+  margin-top: 40px;
+  width: 100%;
+  z-index: 9999;
 }
 #filter-title {
   font-size: 30px;
@@ -62,23 +68,18 @@ a {
   .navbar-nav li a {
     color: white;
   }
-  background-color: black;
-  padding: 30px 0 5px;
+  background-color: transparent;
+  padding-top: 30px;
 }
 .navbar-container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 .logo-nav img {
+  position: fixed;
+  left: 65px;
   height: 50px;
-}
-.nav-vibes {
-  display: inline-block;
-  width: 100%;
-  text-align: justify;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 9888;
-  padding-bottom: 5px;
+  z-index: 9999;
 }
 .nav-account {
   display: inline-block;
@@ -97,6 +98,7 @@ a {
   padding: 0;
 }
 .tags {
+  position: fixed;
   font-size: 20px;
   .submit {
     color: black;
@@ -142,21 +144,34 @@ a {
 #filter-header {
   display: none;
 }
+.tags {
+  z-index: 9999;
+}
 
+
+//<a href="https://icons8.com/web-app/16873/Tape-Drive">Tape drive icon credits</a>
 
 //**//  CAROUSEL //**//
 .owl-pagination {
   display: none;
+}
+.pagination-marker {
+  background: url('cassette.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 40px;
+  height: 20px;
 }
 
 //**//  MUSIC VIDEO TILES //**//
 .music-videos-wrapper {
   padding-top: 100px;
   padding-left: 50px;
-  margin: 50 auto 0;
+  z-index: 8888;
 }
 .music-video-tile {
-  margin: 0 10px 70px;
+  margin: 0 10px 100px;
   text-align: center;
   width: 100%;
 }
@@ -167,41 +182,61 @@ a {
   line-height: 35px;
 }
 .side-column-body {
-  font-size: 15px;
-  line-height: 30px;
+  text-align: center;
+  padding: 0;
 }
 .artist-title {
   font-family: 'Bungee Inline', cursive;
   font-size: 50px;
   padding-top: 10px;
+}
+.track_title, .year-title {
+  font-size: 15px;
+  letter-spacing: .3em;
   display: inline-block;
 }
-.track_title {
-  font-size: 15px;
-  text-align: left;
-  letter-spacing: .3em;
+.year-title {
+  opacity: 0.3;
 }
 .city-title {
+  font-family: 'Nova Mono', cursive;
   height: 400px;
-  font-size: 15px;
+  font-size: 24px;
   background-color: black;
   text-align: center;
-  padding: 0 2px;
 }
 .city-title p {
-  line-height: 13px;
+  line-height: 20px;
+}
+.year {
+  font-size: 15px;
 }
 .spacer {
   height: 2px;
 }
+.city-divider2 {
+  background-color: black;
+  position: relative;
+  margin-bottom: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 9997;
+}
 .city-divider {
   position: relative;
-  margin-top: -40px;
-  margin-bottom: 0px;
+  margin-top: -160px;
+  margin-bottom: 0;
   width: 100%;
-  height: 40px;
-  background-color: black;
-  z-index: 9997
+  height: 80px;
+  // background-color: black;
+  z-index: 9997;
+  background-image: -webkit-gradient(
+    linear, left bottom, left top, from(rgba(0,0,0,1)),
+    to(rgba(0,0,0,.1))
+  );
+  background-image: -moz-linear-gradient(
+    rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%
+  );
 }
 .music-video-tile {
   height: 380px;
@@ -218,9 +253,6 @@ a {
   max-width: 100%;
   background: #000;
   margin: 5px;
-}
-.youtube-player-container {
-
 }
 .youtube-player iframe {
   position: absolute;
