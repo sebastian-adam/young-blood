@@ -1,19 +1,2 @@
 .artist-title
-  -if artist.vibe == "thug"
-    = link_to artist.name, artist_path(artist), class: "red", remote: true
-  -elsif artist.vibe == "wavy"
-    = link_to artist.name, artist_path(artist), class: "cyan", remote: true
-  -elsif artist.vibe == "soul"
-    = link_to artist.name, artist_path(artist), class: "purple", remote: true
-  -elsif artist.vibe == "chill"
-    = link_to artist.name, artist_path(artist), class: "green", remote: true
-  -elsif artist.vibe == "pop"
-    = link_to artist.name, artist_path(artist), class: "yellow", remote: true
-  -elsif artist.vibe == "punk"
-    = link_to artist.name, artist_path(artist), class: "bubblegum", remote: true
-  -elsif artist.vibe == "word"
-    = link_to artist.name, artist_path(artist), class: "brown", remote: true
-  -elsif artist.vibe == "thump"
-    = link_to artist.name, artist_path(artist), class: "mustard", remote: true
-  -else
-    = link_to artist.name, artist_path(artist), class: "silver", remote: true
+  = link_to artist.name, artist_path(artist), class: "white", remote: true

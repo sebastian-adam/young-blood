@@ -83,7 +83,10 @@ Playlist.prototype.nextVideo = function() {
 
     $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
     $('#' + nextVideoId).click();
+
+    // Trigger click on artist name to request Genius API
     $('#' + nextVideoId).parents('.owl-carousel').siblings('.artist-title').children('a').click();
+
   }, 1000);
 }
 

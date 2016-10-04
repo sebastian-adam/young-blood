@@ -9,12 +9,12 @@
         - if first == true
           - prev_city = 'nil'
         - current_city = artist.city
-        - if current_city != prev_city && artist != @artists.first
-          .city-divider
-        - elsif
-          .city-divider.hidden
         .music-video-tile
           .side-column-body.col-xs-1
+            - if current_city != prev_city && artist != @artists.first
+              .city-divider
+            - elsif
+              .city-divider.hidden
             - alphabet_character = artist.city[0]
             .alphabet-marker{class: "#{alphabet_character}-position"}
             - if current_city != prev_city
@@ -22,33 +22,34 @@
                 - artist.city.upcase.split('').each do |character|
                   - if character == ' '
                     .spacer
-                  %p
+                  %p.gold
                     = character
             - else
               .city-title{id: "#{artist_counter}-city-title", class: "hidden", city: "#{artist.city}"}
                 - artist.city.upcase.split('').each do |character|
                   - if character == ' '
                     .spacer
-                  %p
+                  %p.gold
                     = character
             - prev_city = current_city
             - first = false
           .center-column-body.col-xs-11
             - pagination_counter = 0
+            = render 'artist_title', artist: artist
             - artist.music_videos.each do |music_video|
               = button_tag "#{pagination_counter}", class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
               - pagination_counter += 1
-            = render 'artist_title', artist: artist
             -music_video_counter = 0
             .owl-carousel.owl-theme.row{id: "#{artist_counter}-carousel"}
               - artist.music_videos.each do |music_video|
-                .carousel-tile{class: "#{music_video.year}", artist: "#{artist.id}", id: "#{music_video_counter}-music-video"}
+                .carousel-tile{class: "#{music_video.year}", artist_name: "#{music_video.artist.name}", song_title: "#{music_video.title}", artist: "#{artist.id}", id: "#{music_video_counter}-music-video"}
                   -music_video_counter += 1
                   .col-xs-11
                     = render 'track_title', music_video: music_video
                     .youtube-player-container
-                      .youtube-player{ data: {id: music_video.youtube_id } }
-                        .youtube-iframe{ id: music_video.youtube_id }
+                      = link_to artist_music_video_path(artist, music_video), remote: true do
+                        .youtube-player{ data: {id: music_video.youtube_id } }
+                          .youtube-iframe{ id: music_video.youtube_id }
                   .side-column-body.col-xs-1
                     .year{ year: "#{music_video.year}" }
                       - music_video.year.split('').each do |character|
@@ -57,5 +58,9 @@
   .col-xs-4
     #artist-panel-wrapper
       #filter-header
-      %span#filter-title
-      #artist-panel.text-justify
+        %span#filter-title
+        #now-playing.gold
+        #artist-panel.text-justify
+    %br
+    %br
+    %br

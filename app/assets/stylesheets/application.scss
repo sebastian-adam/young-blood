@@ -7,6 +7,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'https://fonts.googleapis.com/css?family=Modak';
+@import 'https://fonts.googleapis.com/css?family=Bungee+Inline|Bungee+Shade';
 
 
 //**//  GENERAL LAYOUT //**//
@@ -146,10 +147,6 @@ a {
 //**//  CAROUSEL //**//
 .owl-pagination {
   display: none;
-  // position: absolute;
-  // left: 10px;
-  // top: -75;
-  // z-index: 9998;
 }
 
 //**//  MUSIC VIDEO TILES //**//
@@ -161,8 +158,11 @@ a {
 .music-video-tile {
   margin: 0 10px 70px;
   text-align: center;
+  width: 100%;
 }
 .center-column-body {
+  margin-bottom: 20px;
+  text-align: left;
   font-size: 30px;
   line-height: 35px;
 }
@@ -171,10 +171,10 @@ a {
   line-height: 30px;
 }
 .artist-title {
-  font-family: 'Modak', cursive;
+  font-family: 'Bungee Inline', cursive;
   font-size: 50px;
-  text-align: left;
   padding-top: 10px;
+  display: inline-block;
 }
 .track_title {
   font-size: 15px;
@@ -196,10 +196,10 @@ a {
 }
 .city-divider {
   position: relative;
-  margin-top: -80px;
+  margin-top: -40px;
   margin-bottom: 0px;
   width: 100%;
-  height: 80px;
+  height: 40px;
   background-color: black;
   z-index: 9997
 }
@@ -271,31 +271,16 @@ a {
 
 //**//  COLORS //**//
 .gold {
-  color: #f6ce26;
+  color: #FFED30;
 }
-.cyan {
-  color: #00ffe1;
+.pink {
+  color: #FF307E;
 }
-.purple {
-  color: #CE04FF;
+.teal {
+  color: #1EDBCC;
 }
-.red {
-  color: #e80316;
-}
-.green {
-  color: #7ae80c;
-}
-.bubblegum {
-  color: #ff307d;
-}
-.yellow {
-  color: #FDFF89;
-}
-.brown {
-  color: #ff5004;
-}
-.mustard {
-  color: #ffcd04;
+.white {
+  color: white;
 }
 .hidden {
   display: none;

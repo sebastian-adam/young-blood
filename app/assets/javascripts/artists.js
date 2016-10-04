@@ -34,10 +34,10 @@ $(document).ready(function() {
     });
 
     for (i = 0; i < number_of_artists; i++) {
-      $("#" + i + "-city-title").sticky({topSpacing:180});
+      $("#" + i + "-city-title").sticky({topSpacing:200});
     }
 
-    $("#artist-panel-wrapper").sticky({topSpacing:100});
+    $("#artist-panel-wrapper").sticky({topSpacing:60});
 
     $('#advanced-toggle').on("click", function() {
       $('.filter-radio').toggle();

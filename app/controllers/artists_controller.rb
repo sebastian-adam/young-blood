@@ -71,6 +71,4 @@ class ArtistsController < ApplicationController
       @bio = Genius::Artist.find(@artist.genius_id).description
     end
   end
-
-
 end
