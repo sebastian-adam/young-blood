@@ -72,7 +72,7 @@ Playlist.prototype.nextVideo = function() {
   var nextVideoId = this.playlist[this.playCount];
   this.playCount += 1;
 
-  $('html, body').animate({scrollTop: $('#' + nextVideoId).parents('.center-column-body').siblings('.side-column-body').find('.alphabet-marker').offset().top - 60}, 1000);
+  $('html, body').animate({scrollTop: $('#' + nextVideoId).parents('.center-column-body').siblings('.side-column-body').find('.alphabet-marker').offset().top - 120}, 2000);
 
   setTimeout(function () {
     var carouselNumber = parseInt($('#' + nextVideoId).parents('.owl-carousel').attr('id').split('-')[0]);
@@ -81,13 +81,21 @@ Playlist.prototype.nextVideo = function() {
     var adjustForHidden = $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').prevAll('.pagination-marker:hidden').length;
     paginationNumber -= adjustForHidden;
 
+
     $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
+
+    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').addClass('page-active')
+    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').siblings().removeClass('page-active')
+
+
+    $(this).addClass('page-active');
+    $(this).siblings('.page-active').removeClass('page-active');
     $('#' + nextVideoId).click();
 
     // Trigger click on artist name to request Genius API
     $('#' + nextVideoId).parents('.owl-carousel').siblings('.artist-title').children('a').click();
 
-  }, 1000);
+  }, 2000);
 }
 
 // Create Playlists and ready environment
@@ -100,7 +108,7 @@ var wavyPlaylist = new Playlist('wavy');
 var chillPlaylist = new Playlist('chill');
 var popPlaylist = new Playlist('pop');
 var punkPlaylist = new Playlist('punk');
-var wordPlaylist = new Playlist('word');
+var indiePlaylist = new Playlist('indie');
 var thumpPlaylist = new Playlist('thump');
 var eastPlaylist = new Playlist('east');
 var westPlaylist = new Playlist('west');
@@ -138,8 +146,8 @@ function onPlayerStateChange(event) {
       popPlaylist.nextVideo();
     } else if (playlistType == 'punk') {
       punkPlaylist.nextVideo();
-    } else if (playlistType == 'word') {
-      wordPlaylist.nextVideo();
+    } else if (playlistType == 'indie') {
+      indiePlaylist.nextVideo();
     } else if (playlistType == 'thump') {
       thumpPlaylist.nextVideo();
     } else if (playlistType == 'east') {
@@ -220,8 +228,8 @@ $(function() {
   var punkVideos = punkPlaylist.collectVideos();
   punkPlaylist.playlist = shuffle(punkVideos);
 
-  var wordVideos = wordPlaylist.collectVideos();
-  wordPlaylist.playlist = shuffle(wordVideos);
+  var indieVideos = indiePlaylist.collectVideos();
+  indiePlaylist.playlist = shuffle(indieVideos);
 
   var thumpVideos = thumpPlaylist.collectVideos();
   thumpPlaylist.playlist = shuffle(thumpVideos);
@@ -283,9 +291,9 @@ $(function() {
     punkPlaylist.nextVideo();
     playlistType = 'punk';
   });
-  $('#word-playlist-start').on('click', function() {
-    wordPlaylist.nextVideo();
-    playlistType = 'word';
+  $('#indie-playlist-start').on('click', function() {
+    indiePlaylist.nextVideo();
+    playlistType = 'indie';
   });
   $('#thump-playlist-start').on('click', function() {
     thumpPlaylist.nextVideo();

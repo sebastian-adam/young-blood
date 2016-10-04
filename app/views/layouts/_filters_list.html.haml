@@ -1,10 +1,11 @@
 .tags.row
-  .col-xs-12
-    = form_tag(artists_path, method: 'get', remote: true) do
-      %h3 play
-      = link_to "all young blood", artists_path, id: 'playlist-start', class: "main", remote: true
-      %h3 or pick playlist
-      %br
+  = form_tag(artists_path, method: 'get', remote: true) do
+    %h3 play
+    #main-playlist-span-container
+      %span#main-playlist-span
+        = link_to "all young blood", artists_path, id: 'playlist-start', class: "main", remote: true
+    %h3 or pick playlist
+    #vibe-tags
       = link_to "thug", artists_path, id: 'thug-playlist-start', vibe: 'thug', class: "vibe", remote: true
       -# = radio_button_tag 'vibe', 'thug', false, vibe: 'thug', class: 'filter-radio'
       = link_to "soul", artists_path, id: 'soul-playlist-start',  class: "vibe", vibe: 'soul', remote: true
@@ -13,7 +14,16 @@
       -# = radio_button_tag 'vibe', 'wavy', false, vibe: 'wavy', class: 'filter-radio'
       = link_to "chill", artists_path, id: 'chill-playlist-start', class: "vibe", vibe: 'chill', remote: true
       -# = radio_button_tag 'vibe', 'chill', false, vibe: 'chill', class: 'filter-radio'
-      |
+      %br
+      = link_to "pop", artists_path, id: 'pop-playlist-start', class: "vibe vibe2", vibe: 'pop', remote: true
+      -# = radio_button_tag 'vibe', 'pop', false, vibe: 'pop', class: 'filter-radio'
+      = link_to "punk", artists_path, id: 'punk-playlist-start', class: "vibe vibe2", vibe: 'punk', remote: true
+      -# = radio_button_tag 'vibe', 'punk', false, vibe: 'punk', class: 'filter-radio'
+      = link_to "indie", artists_path, id: 'indie-playlist-start', class: "vibe vibe2", vibe: 'indie', remote: true
+      -# = radio_button_tag 'vibe', 'indie', false, vibe: 'indie', class: 'filter-radio'
+      = link_to "thump", artists_path, id: 'thump-playlist-start', class: "vibe vibe2", vibe: 'thump', remote: true
+      -# = radio_button_tag 'vibe', 'thump', false, vibe: 'thump', class: 'filter-radio'
+    #other-tags
       = link_to "east", artists_path, id: 'east-playlist-start', class: "region", region: 'east', remote: true
       -# = radio_button_tag 'region', 'east', false, region: 'east', class: 'filter-radio'
       = link_to "west", artists_path, id: 'west-playlist-start', class: "region", region: 'west', remote: true
@@ -25,15 +35,6 @@
       = link_to "+", artists_path, id: 'thug-playlist-start', class: "region", region: 'global', remote: true
       -# = radio_button_tag 'region', 'global', false, region: 'global', class: 'filter-radio'
       %br
-      = link_to "pop", artists_path, id: 'pop-playlist-start', class: "vibe2", vibe: 'pop', remote: true
-      -# = radio_button_tag 'vibe', 'pop', false, vibe: 'pop', class: 'filter-radio'
-      = link_to "punk", artists_path, id: 'punk-playlist-start', class: "vibe2", vibe: 'punk', remote: true
-      -# = radio_button_tag 'vibe', 'punk', false, vibe: 'punk', class: 'filter-radio'
-      = link_to "indie", artists_path, id: 'word-playlist-start', class: "vibe2", vibe: 'word', remote: true
-      -# = radio_button_tag 'vibe', 'word', false, vibe: 'word', class: 'filter-radio'
-      = link_to "thump", artists_path, id: 'thump-playlist-start', class: "vibe2", vibe: 'thump', remote: true
-      -# = radio_button_tag 'vibe', 'thump', false, vibe: 'thump', class: 'filter-radio'
-      |
       = link_to "<-", artists_path, id: 'older-playlist-start', class: "year", year: 'older', remote: true
       -# = radio_button_tag 'year', '2012', false, year: '2012', class: 'filter-radio'
       = link_to "2013", artists_path, id: 'thirteen-playlist-start', class: "year", year: '2013', remote: true

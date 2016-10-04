@@ -1,3 +1,10 @@
+// $(window).on('resize', function(){
+//   setTimeout(function() {
+//     $(".city-title").sticky({topSpacing:120});
+//   }, 500);
+// });
+
+
 $(document).ready(function() {
   if (window.location.pathname == '/') {
 
@@ -22,20 +29,21 @@ $(document).ready(function() {
     }
 
     $(".pagination-marker").on("click", function(){
-        var carousel_id = $(this).siblings('.owl-carousel').attr('id');
-        var carousel_number = carousel_id.split('-')[0];
-        var pagination_id = $(this).attr('pagination');
-        var pagination_position = pagination_id.split('-')[0];
+      $(this).addClass('page-active');
+      $(this).siblings('.page-active').removeClass('page-active');
+      var carousel_id = $(this).siblings('.owl-carousel').attr('id');
+      var carousel_number = carousel_id.split('-')[0];
+      var pagination_id = $(this).attr('pagination');
+      var pagination_position = pagination_id.split('-')[0];
 
-        var adjust_for_hidden = $(this).prevAll('.pagination-marker:hidden').length;
-        pagination_position -= adjust_for_hidden;
+      var adjust_for_hidden = $(this).prevAll('.pagination-marker:hidden').length;
+      pagination_position -= adjust_for_hidden;
 
-        $('#' + carousel_number + '-carousel').trigger('owl.goTo', pagination_position)
+      $('#' + carousel_number + '-carousel').trigger('owl.goTo', pagination_position)
     });
 
-    for (i = 0; i < number_of_artists; i++) {
-      $("#" + i + "-city-title").sticky({topSpacing:140});
-    }
+
+
 
     $("#artist-panel-wrapper").sticky({topSpacing:160});
 
@@ -61,68 +69,100 @@ $(document).ready(function() {
       $('#filter-header').addClass('hidden')
       $('#alphabet-container').removeClass('hidden')
       window.scrollTo( 0, 0)
-      $('.city-title').removeClass('hidden');
+
+      $('#city-title-blocker').show();
+      $('.city-title.hidden').removeClass('hidden');
+
       var previousCity = 'nil';
       var currentcity = 'nil';
       $.each($('.city-title:visible'), function() {
         var currentCity = $(this).attr('city');
         if (currentCity == previousCity) {
           $(this).addClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').addClass('hidden');
         } else {
           $(this).removeClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').removeClass('hidden');
         }
         previousCity = currentCity;
       });
+      setTimeout(function() {
+        $(".city-title").sticky({topSpacing:120});
+        $('#city-title-blocker').hide();
+      }, 2000);
     });
 
     $('.vibe').on("click", function(e) {
       year = false;
+      $(this).siblings('.gold').removeClass('gold');
+      $(this).addClass('gold');
       $('.carousel-tile').removeClass('hidden');
       $('.pagination-marker').removeClass('hidden')
       var vibe = $(this).attr('vibe');
       $('.artist').not('.' + vibe).addClass('hidden');
       $('.' + vibe).removeClass('hidden');
       $('#filter-title').html(vibe);
-      $('.city-title').removeClass('hidden');
+
+      $('#city-title-blocker').show();
+      $('.city-title.hidden').removeClass('hidden');
+
       var previousCity = 'nil';
       var currentcity = 'nil';
       $.each($('.city-title:visible'), function() {
         var currentCity = $(this).attr('city');
         if (currentCity == previousCity) {
           $(this).addClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').addClass('hidden');
         } else {
           $(this).removeClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').removeClass('hidden');
         }
         previousCity = currentCity;
       });
+      setTimeout(function() {
+        $(".city-title").sticky({topSpacing:120});
+        $('#city-title-blocker').hide();
+      }, 2000);
     });
 
     $('.region').on("click", function() {
       year = false;
+      $(this).siblings('.gold').removeClass('gold');
+      $(this).addClass('gold');
+
       $('.carousel-tile').removeClass('hidden');
       $('.pagination-marker').removeClass('hidden')
       var region = $(this).attr('region');
       $('.artist').not('.' + region).addClass('hidden');
       $('.' + region).removeClass('hidden');
       $('#filter-title').html(region);
-      $('.city-title').removeClass('hidden');
+
+      $('#city-title-blocker').show();
+      $('.city-title.hidden').removeClass('hidden');
+
       var previousCity = 'nil';
       var currentcity = 'nil';
       $.each($('.city-title:visible'), function() {
         var currentCity = $(this).attr('city');
         if (currentCity == previousCity) {
           $(this).addClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').addClass('hidden');
         } else {
           $(this).removeClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').removeClass('hidden');
         }
         previousCity = currentCity;
       });
+      setTimeout(function() {
+        $(".city-title").sticky({topSpacing:120});
+        $('#city-title-blocker').hide();
+      }, 2000);
     });
 
     // $('.city').on("click", function() {
@@ -136,6 +176,9 @@ $(document).ready(function() {
     // });
 
     $('.year').on("click", function() {
+      $(this).siblings('.gold').removeClass('gold');
+      $(this).addClass('gold');
+
       $('.carousel-tile').removeClass('hidden');
       $('.pagination-marker').removeClass('hidden')
       var year = $(this).attr('year');
@@ -158,20 +201,28 @@ $(document).ready(function() {
         }
       });
 
-      $('.city-title').removeClass('hidden');
+      $('#city-title-blocker').show();
+      $('.city-title.hidden').removeClass('hidden');
+
       var previousCity = 'nil';
       var currentcity = 'nil';
       $.each($('.city-title:visible'), function() {
         var currentCity = $(this).attr('city');
         if (currentCity == previousCity) {
           $(this).addClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').addClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').addClass('hidden');
         } else {
           $(this).removeClass('hidden');
-          $(this).parents('.music-video-tile').siblings('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider').removeClass('hidden');
+          $(this).parents('.side-column-body').children('.city-divider2').removeClass('hidden');
         }
         previousCity = currentCity;
       });
+      setTimeout(function() {
+        $(".city-title").sticky({topSpacing:120});
+        $('#city-title-blocker').hide();
+      }, 2000);
     });
 
     $('#advanced-filter-submit').on("click", function() {
@@ -220,7 +271,7 @@ $(document).ready(function() {
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id').split('-')[0]
       position = $('.' + alphabet_character + '-position:first').offset();
-      $('html, body').animate({scrollTop: position.top - 60}, 1000);
+      $('html, body').animate({scrollTop: position.top - 60}, 3000);
     });
 
     var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -246,6 +297,10 @@ $(document).ready(function() {
         }
       }
     });
+
+    for (i = 0; i < number_of_artists; i++) {
+      $("#" + i + "-city-title").sticky({topSpacing:120});
+    }
 
 
 

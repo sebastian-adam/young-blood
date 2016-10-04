@@ -90,7 +90,7 @@
               .css('width', newWidth)
               .css('position', 'fixed')
               .css('top', newTop)
-              .css('z-index', s.zIndex);
+              // .css('z-index', s.zIndex);
 
             s.stickyElement.parent().addClass(s.className);
 
@@ -132,24 +132,24 @@
         }
       }
     },
-    resizer = function() {
-      windowHeight = $window.height();
-
-      for (var i = 0, l = sticked.length; i < l; i++) {
-        var s = sticked[i];
-        var newWidth = null;
-        if (s.getWidthFrom) {
-            if (s.responsiveWidth) {
-                newWidth = $(s.getWidthFrom).width();
-            }
-        } else if(s.widthFromWrapper) {
-            newWidth = s.stickyWrapper.width();
-        }
-        if (newWidth != null) {
-            s.stickyElement.css('width', newWidth);
-        }
-      }
-    },
+    // resizer = function() {
+    //   windowHeight = $window.height();
+    //
+    //   for (var i = 0, l = sticked.length; i < l; i++) {
+    //     var s = sticked[i];
+    //     var newWidth = null;
+    //     if (s.getWidthFrom) {
+    //         if (s.responsiveWidth) {
+    //             newWidth = $(s.getWidthFrom).width();
+    //         }
+    //     } else if(s.widthFromWrapper) {
+    //         newWidth = s.stickyWrapper.width();
+    //     }
+    //     if (newWidth != null) {
+    //         s.stickyElement.css('width', newWidth);
+    //     }
+    //   }
+    // },
     methods = {
       init: function(options) {
         var o = $.extend({}, defaults, options);
@@ -256,10 +256,10 @@
   // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
   if (window.addEventListener) {
     window.addEventListener('scroll', scroller, false);
-    window.addEventListener('resize', resizer, false);
+    // window.addEventListener('resize', resizer, false);
   } else if (window.attachEvent) {
     window.attachEvent('onscroll', scroller);
-    window.attachEvent('onresize', resizer);
+    // window.attachEvent('onresize', resizer);
   }
 
   $.fn.sticky = function(method) {

@@ -1,4 +1,5 @@
 %h3.gold Now Playing
+= button_tag '', type: 'button', class: "btn", id: 'play-next-btn', remote: true
 
 = render 'artists/track_title', music_video: @music_video
 = @music_video.artist.name
