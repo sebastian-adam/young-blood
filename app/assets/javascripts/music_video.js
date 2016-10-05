@@ -84,12 +84,12 @@ Playlist.prototype.nextVideo = function() {
 
     $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
 
-    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').addClass('page-active')
-    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').siblings().removeClass('page-active')
+    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').addClass('cassette-active')
+    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').siblings().removeClass('cassette-active')
 
 
-    $(this).addClass('page-active');
-    $(this).siblings('.page-active').removeClass('page-active');
+    $(this).addClass('cassette-active');
+    $(this).siblings('.cassette-active').removeClass('cassette-active');
     $('#' + nextVideoId).click();
 
     // Trigger click on artist name to request Genius API

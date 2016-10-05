@@ -15771,8 +15771,8 @@ $(document).ready(function() {
     }
 
     $(".pagination-marker").on("click", function(){
-      $(this).addClass('page-active');
-      $(this).siblings('.page-active').removeClass('page-active');
+      $(this).addClass('cassette-active');
+      $(this).siblings('.cassette-active').removeClass('cassette-active');
       var carousel_id = $(this).siblings('.owl-carousel').attr('id');
       var carousel_number = carousel_id.split('-')[0];
       var pagination_id = $(this).attr('pagination');
@@ -16139,12 +16139,12 @@ Playlist.prototype.nextVideo = function() {
 
     $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
 
-    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').addClass('page-active')
-    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').siblings().removeClass('page-active')
+    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').addClass('cassette-active')
+    $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').siblings().removeClass('cassette-active')
 
 
-    $(this).addClass('page-active');
-    $(this).siblings('.page-active').removeClass('page-active');
+    $(this).addClass('cassette-active');
+    $(this).siblings('.cassette-active').removeClass('cassette-active');
     $('#' + nextVideoId).click();
 
     // Trigger click on artist name to request Genius API

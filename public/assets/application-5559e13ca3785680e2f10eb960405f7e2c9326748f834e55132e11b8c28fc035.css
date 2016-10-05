@@ -9141,7 +9141,7 @@ a:focus {
 }
 
 /* line 180, /Users/subconscious/Desktop/young_blood/app/assets/stylesheets/application.scss */
-.page-active {
+.cassette-active {
   background: url("cassette_gold.png");
   background-size: cover;
   background-repeat: no-repeat;

@@ -55,7 +55,7 @@
             - pagination_counter = 0
             - artist.music_videos.each do |music_video|
               - if pagination_counter == 0
-                = button_tag '', class: "btn pagination-marker page-active", artist: "#{artist.id}", pagination: "#{pagination_counter}"
+                = button_tag '', class: "btn pagination-marker cassette-active", artist: "#{artist.id}", pagination: "#{pagination_counter}"
               - else
                 = button_tag '', class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
               - pagination_counter += 1

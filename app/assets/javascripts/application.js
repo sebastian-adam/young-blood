@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery_ujs
-//= require owl.carousel
+//= require owl.carousel.min
 //= require bootstrap
 //= require jquery.sticky
-//= require artists
-//= require lazy_load_iframe
+//= require general_frontend
+//= require music_video
 //= require_tree .
