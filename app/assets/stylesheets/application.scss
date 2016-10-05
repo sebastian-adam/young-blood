@@ -35,6 +35,18 @@ body {
   width: 100%;
   z-index: 9999;
 }
+#artist-panel-wrapper {
+  height: 50%;
+  overflow: auto;
+}
+#artist-panel {
+  width: 85%;
+}
+#artist-panel-header {
+  color: white;
+  font-size: 24px;
+  display: inline-block;
+}
 #filter-title {
   font-size: 30px;
 }

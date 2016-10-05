@@ -7,3 +7,5 @@ $('#play-next-btn').on('click', function() {
   thugPlaylist.nextVideo();
   playlistType = 'thug';
 });
+
+$('#artist-panel-header').html("<%= @artist.name %>");
