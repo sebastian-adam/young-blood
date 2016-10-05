@@ -80,6 +80,11 @@ $(document).ready(function() {
           $('.pagination-marker[pagination="' + carousel_tile_number + '"][artist="' + carousel_artist + '"]').addClass('hidden');
         });
 
+        $.each($('.owl-carousel:visible .pagination-marker:visible:first'), function() {
+          $(this).addClass('cassette-active');
+          $(this).siblings('.cassette-active').removeClass('cassette-active');
+        });
+
         $.each($('.center-column-body'), function() {
           if($(this).children('button:visible').length == 1) {
             $(this).children('button:visible').addClass('hidden');
