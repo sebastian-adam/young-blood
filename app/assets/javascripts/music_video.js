@@ -280,7 +280,7 @@ function onPlayerStateChange(event) {
   if (event.target.getPlayerState() == YT.PlayerState.PLAYING) {
     currentVid = event.target.getVideoData()['video_id'];
   } else if (event.target.getPlayerState() == YT.PlayerState.ENDED) {
-    youngBloodPlaylist.nextVideo(currentPlaylist);
+    youngBloodPlaylist.nextVideo();
   }
 
   initializedVids.forEach(function(vid) {

@@ -69,21 +69,20 @@ $(document).ready(function() {
       // Cloak visible city names
       $('#city-title-blocker').show();
       $('.city-title.hidden').removeClass('hidden');
-
       // Hide additional assets if filtering by year
       if (filterGroup == 'year') {
         $('.carousel-tile').not('.' + filter).addClass('hidden');
         $('.owl-carousel').trigger('owl.jumpTo', 0);
 
         $.each($('.artist:visible .carousel-tile:hidden'), function() {
-          var carousel_tile_number = $(self).attr('id').split('-')[0];
-          var carousel_artist = $(self).attr('artist');
+          var carousel_tile_number = $(this).attr('id').split('-')[0];
+          var carousel_artist = $(this).attr('artist');
           $('.pagination-marker[pagination="' + carousel_tile_number + '"][artist="' + carousel_artist + '"]').addClass('hidden');
         });
 
         $.each($('.center-column-body'), function() {
-          if($(self).children('button:visible').length == 1) {
-            $(self).children('button:visible').addClass('hidden');
+          if($(this).children('button:visible').length == 1) {
+            $(this).children('button:visible').addClass('hidden');
           }
         });
       }
