@@ -7,7 +7,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 // @import '//fonts.googleapis.com/css?family=Modak';
-// @import url('//fonts.googleapis.com/css?family=Bungee+Inline');
+// @import url('//fonts.googleapis.com/css?family=Bungee');
 // @import url('//fonts.googleapis.com/css?family=Nova+Mono');
 
 
@@ -16,7 +16,7 @@ body {
   background-color: black;
   color: white;
   color: #fafafa;
-  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 #header_container {
@@ -115,7 +115,7 @@ a:focus {
   padding: 0;
 }
 .tags {
-  font-family: 'Bungee Inline', cursive;
+  font-family: 'Bungee', cursive;
   position: fixed;
   top: 10px;
   font-size: 20px;
@@ -221,7 +221,7 @@ a:focus {
   padding: 0;
 }
 .artist-title {
-  font-family: 'Bungee Inline', cursive;
+  font-family: 'Bungee', cursive;
   font-size: 50px;
   padding-top: 10px;
 }
@@ -373,6 +373,10 @@ a:focus {
   top: -5px;
   font-size: 19px;
 }
+#older-playlist-start {
+  pointer-events: none;
+}
+
 
 //**//  COLORS //**//
 .gold {

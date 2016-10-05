@@ -94,9 +94,37 @@ $(document).ready(function() {
       }, 2000);
     });
 
+    $('.main').on("click", function(e) {
+      year = false;
+      $('.tags').find('.gold').removeClass('gold');
+      $(this).addClass('gold');
+      $('.carousel-tile').removeClass('hidden');
+      $('.pagination-marker').removeClass('hidden')
+      $('.artist').removeClass('hidden');
+      $('#filter-title').html('young blood');
+
+      $('#city-title-blocker').show();
+      $('.city-title.hidden').removeClass('hidden');
+
+      $('.city-title').removeClass('hidden');
+      $('.city-divider').removeClass('hidden');
+      $('.city-divider2').removeClass('hidden');
+
+      setTimeout(function() {
+        $(".city-title").sticky({topSpacing:120});
+        $('#city-title-blocker').hide();
+      }, 2000);
+    });
+
+    // On click play btn
+    $('.owl-item').find('a[data-remote]').on("click", function() {
+      $(this).parents('.owl-carousel').siblings('.artist-title').children('a').click()
+    });
+
+
     $('.vibe').on("click", function(e) {
       year = false;
-      $(this).siblings('.gold').removeClass('gold');
+      $('.tags').find('.gold').removeClass('gold');
       $(this).addClass('gold');
       $('.carousel-tile').removeClass('hidden');
       $('.pagination-marker').removeClass('hidden')
@@ -131,7 +159,7 @@ $(document).ready(function() {
 
     $('.region').on("click", function() {
       year = false;
-      $(this).siblings('.gold').removeClass('gold');
+      $('.tags').find('.gold').removeClass('gold');
       $(this).addClass('gold');
 
       $('.carousel-tile').removeClass('hidden');
@@ -176,7 +204,7 @@ $(document).ready(function() {
     // });
 
     $('.year').on("click", function() {
-      $(this).siblings('.gold').removeClass('gold');
+      $('.tags').find('.gold').removeClass('gold');
       $(this).addClass('gold');
 
       $('.carousel-tile').removeClass('hidden');
