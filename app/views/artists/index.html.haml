@@ -42,7 +42,7 @@
             -music_video_counter = 0
             .owl-carousel.owl-theme.row{id: "#{artist_counter}-carousel"}
               - artist.music_videos.each do |music_video|
-                .carousel-tile{class: "#{music_video.year}", artist_name: "#{music_video.artist.name}", song_title: "#{music_video.title}", artist: "#{artist.id}", id: "#{music_video_counter}-music-video"}
+                .carousel-tile{class: "#{music_video.year}", year: "#{music_video.year}", artist_name: "#{music_video.artist.name}", artist_vibe: "#{music_video.artist.vibe}", artist_region: "#{music_video.artist.region}", song_title: "#{music_video.title}", artist: "#{artist.id}", id: "#{music_video_counter}-music-video"}
                   -music_video_counter += 1
                   .col-xs-12
                     = render 'track_title', music_video: music_video
