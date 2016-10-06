@@ -238,27 +238,29 @@ Playlist.prototype.nextVideo = function() {
     this.sixteen.shift();
   }
 
+  // Remove video from main playlist
   index = this.main.indexOf(nextVideoId);
   this.main.splice(index, 1);
 
+  // Scroll to
   $('html, body').animate({scrollTop: $('#' + nextVideoId).parents('.center-column-body').siblings('.side-column-body').find('.alphabet-marker').offset().top - 120}, 2000);
 
+  // After vertical scroll, scroll to carousel tile
   setTimeout(function () {
     var carouselNumber = parseInt($('#' + nextVideoId).parents('.owl-carousel').attr('id').split('-')[0]);
     var paginationNumber = parseInt($('#' + nextVideoId).parents('div[artist]').attr('id').split('-')[0]);
 
+    // Account for hidden tiles
     var adjustForHidden = $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').prevAll('.pagination-marker:hidden').length;
     paginationNumber -= adjustForHidden;
 
-
     $('#' + carouselNumber + '-carousel').trigger('owl.goTo', paginationNumber);
 
+    // Account for hidden pagination and reassign active state
     $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').addClass('cassette-active')
     $('#' + nextVideoId).parents('.center-column-body').find('.pagination-marker[pagination=' + paginationNumber.toString() + ']').siblings().removeClass('cassette-active')
 
-
-    $(this).addClass('cassette-active');
-    $(this).siblings('.cassette-active').removeClass('cassette-active');
+    // Trigger play
     $('#' + nextVideoId).click();
 
     // Trigger click on artist name to request Genius API

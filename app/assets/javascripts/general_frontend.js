@@ -52,23 +52,24 @@ $(document).ready(function() {
       $('#' + carousel_number + '-carousel').trigger('owl.goTo', pagination_position)
     });
 
-    // Filter css transitions
+    // Between playlist transition
     function filterTransition(self, filterGroup) {
-      // Prepare tags
-      $('.tags').find('.gold').removeClass('gold');
-      $(self).addClass('gold');
-      $('.carousel-tile').removeClass('hidden');
-      $('.pagination-marker').removeClass('hidden')
-
       // Set filter and swap artists
       var filter = $(self).attr('filter');
       $('.artist').not('.' + filter).addClass('hidden');
       $('.' + filter).removeClass('hidden');
       $('#filter-title').html(filter);
 
+      // Make all subcomponents visible and swap active states
+      $('.tags').find('.gold').removeClass('gold');
+      $(self).addClass('gold');
+      $('.carousel-tile').removeClass('hidden');
+      $('.pagination-marker').removeClass('hidden')
+
       // Cloak visible city names
       $('#city-title-blocker').show();
       $('.city-title.hidden').removeClass('hidden');
+
       // Hide additional assets if filtering by year
       if (filterGroup == 'year') {
         $('.carousel-tile').not('.' + filter).addClass('hidden');
@@ -112,7 +113,7 @@ $(document).ready(function() {
       setTimeout(function() {
         $(".city-title").sticky({topSpacing:120});
         $('#city-title-blocker').hide();
-      }, 2000);
+      }, 2100);
     };
 
     // Rebuild index on filter click
