@@ -13,7 +13,9 @@
 
 //**//  GENERAL LAYOUT //**//
 body {
+  max-width: 1500px;
   background-color: black;
+  width: 99%;
   color: white;
   color: #fafafa;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
@@ -30,23 +32,30 @@ body {
   top: 10px;
   z-index: 9999;
 }
-#content-container, #artist-panel-wrapper {
+#content-container {
   margin-top: 40px;
   width: 100%;
   z-index: 9999;
 }
 #artist-panel-wrapper {
-  height: 50%;
-  overflow: auto;
+  margin-top: 40px;
+  z-index: 9999;
+  height: 42%;
 }
 #artist-panel {
-  width: 85%;
+  width: 525px;
 }
+#artist-text-container {
+  height: 100%;
+  overflow: auto;
+}
+
 #artist-panel-header {
   color: white;
   font-size: 24px;
   display: inline-block;
 }
+
 #filter-title {
   font-size: 30px;
 }
@@ -92,11 +101,15 @@ a:focus {
   margin: 0 auto;
 }
 .logo-nav img {
-  position: fixed;
-  left: 65px;
-  top: 30px;
   height: 50px;
   z-index: 9999;
+  position: fixed;
+  top: 30px;
+  left: 51px;
+}
+.logo-img-wrapper {
+  text-align: center;
+  width: 4.5%;
 }
 .nav-account {
   display: inline-block;
@@ -118,8 +131,12 @@ a:focus {
   font-family: 'Bungee', cursive;
   position: fixed;
   top: 10px;
+  padding: 0;
+  // width: 40%;
+  text-align: left;
   font-size: 20px;
   z-index: 9999;
+  width: 540px;
   .submit {
     color: black;
     margin-bottom: 0;
@@ -154,7 +171,7 @@ a:focus {
 }
 
 .alphabet-marker {
-  line-height: 12px;
+  line-height: 14px;
   opacity: 0.3;
   &:hover {
     opacity: 1;
@@ -201,10 +218,11 @@ a:focus {
 .music-videos-wrapper {
   padding-top: 80px;
   padding-left: 50px;
+  padding-right: 0;
   z-index: 8888;
 }
 .music-video-tile {
-  margin: 0 10px 100px;
+  margin: 0 0 100px;
   text-align: center;
   width: 100%;
 }

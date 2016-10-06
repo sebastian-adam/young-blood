@@ -149,7 +149,7 @@ $(document).ready(function() {
     $('.alphabet-marker').on('click', function() {
       var alphabet_character = $(this).attr('id').split('-')[0]
       position = $('.' + alphabet_character + '-position:first').offset();
-      $('html, body').animate({scrollTop: position.top - 60}, 3000);
+      $('html, body').animate({scrollTop: position.top - 120}, 3000);
     });
 
     // Fix artist panel and city names to stick on scroll

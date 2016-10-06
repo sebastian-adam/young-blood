@@ -1,5 +1,6 @@
 .root.row
-  = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
+  .logo-img-wrapper
+    = link_to image_tag("young_blood_nav.png"), root_path, class: "logo-nav"
   #city-title-blocker.col-xs-1
   .music-videos-wrapper.col-xs-7
     - prev_city = nil
@@ -59,11 +60,13 @@
               - else
                 = button_tag '', class: "btn pagination-marker", artist: "#{artist.id}", pagination: "#{pagination_counter}"
               - pagination_counter += 1
-  .col-xs-5
-    = render 'layouts/filters_list'
+  .side-panel.col-xs-offset-7
+    #filter-wrapper
+      = render 'layouts/filters_list'
     #artist-panel-wrapper
       #artist-panel-header
-      #artist-panel.text-justify
-      #filter-header
-        -# %span#filter-title
-        #now-playing
+      #artist-text-container
+        #artist-panel.text-justify
+        #filter-header
+          -# %span#filter-title
+          #now-playing
